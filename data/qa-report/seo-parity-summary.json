@@ -1,0 +1,12 @@
+{
+  "totalPagesChecked": 1046,
+  "metaTitleBoundRate": "21.0%",
+  "metaDescriptionBoundRate": "100.0%",
+  "canonicalPresentRate": "4.2%",
+  "jsonLdPresentRate": "0.0%",
+  "sitemapXmlImplemented": false,
+  "sitemapXmlLiveStatus": 404,
+  "robotsTxtImplemented": false,
+  "robotsTxtLiveStatus": 404,
+  "note": "Phase 6 (sitemap.xml, robots.txt, redirect map) has not been started yet per CLAUDE.md — these are reported as not-implemented, not failures."
+}

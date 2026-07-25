@@ -1,0 +1,15 @@
+{
+  "totalCrawled": 3148,
+  "status200": 3144,
+  "status3xx": 0,
+  "status4xx": 4,
+  "status5xx": 0,
+  "fetchErrors": 0,
+  "redirectChainsOver1Hop": 0,
+  "brokenInternalLinks": 2135,
+  "brokenExternalLinks": 3144,
+  "brokenImages": 2577,
+  "uniqueInternalLinkTargets": 2454,
+  "uniqueExternalLinkTargets": 5,
+  "uniqueImageTargets": 1831
+}

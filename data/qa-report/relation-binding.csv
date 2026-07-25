@@ -1,0 +1,1115 @@
+parent_type,parent_documentId,relation,db_count,rendered_count,pass
+hotel,sr28j4o4s0502lkqya9j3nq1,rooms (listing page),4,0,false
+hotel,sr28j4o4s0502lkqya9j3nq1,rooms (hotel root),4,0,false
+hotel,sr28j4o4s0502lkqya9j3nq1,dinings (listing page),2,2,true
+hotel,sr28j4o4s0502lkqya9j3nq1,dinings (hotel root),2,0,false
+hotel,sr28j4o4s0502lkqya9j3nq1,banquets (listing page),2,2,true
+hotel,sr28j4o4s0502lkqya9j3nq1,banquets (hotel root),2,2,true
+hotel,sr28j4o4s0502lkqya9j3nq1,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,rooms (listing page),6,0,false
+hotel,cq3x0k9ydpgaq8g63cr814a9,rooms (hotel root),6,0,false
+hotel,cq3x0k9ydpgaq8g63cr814a9,dinings (listing page),4,4,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,dinings (hotel root),4,0,false
+hotel,cq3x0k9ydpgaq8g63cr814a9,banquets (listing page),2,2,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,banquets (hotel root),2,2,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,attractions (listing page),1,1,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,offers (hotel root),1,1,true
+hotel,cq3x0k9ydpgaq8g63cr814a9,"hotel_galleries (gallery page, capped at 48)",11,12,true
+hotel,kj0pmuwptrnwwu7uieirolti,rooms (listing page),4,0,false
+hotel,kj0pmuwptrnwwu7uieirolti,rooms (hotel root),4,0,false
+hotel,kj0pmuwptrnwwu7uieirolti,dinings (listing page),2,2,true
+hotel,kj0pmuwptrnwwu7uieirolti,dinings (hotel root),2,0,false
+hotel,kj0pmuwptrnwwu7uieirolti,banquets (listing page),2,2,true
+hotel,kj0pmuwptrnwwu7uieirolti,banquets (hotel root),2,2,true
+hotel,kj0pmuwptrnwwu7uieirolti,offers (hotel root),1,1,true
+hotel,kj0pmuwptrnwwu7uieirolti,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,ln0gj8rlj4rxumo7x99iy8ve,rooms (listing page),3,0,false
+hotel,ln0gj8rlj4rxumo7x99iy8ve,rooms (hotel root),3,0,false
+hotel,ln0gj8rlj4rxumo7x99iy8ve,dinings (listing page),2,2,true
+hotel,ln0gj8rlj4rxumo7x99iy8ve,dinings (hotel root),2,0,false
+hotel,ln0gj8rlj4rxumo7x99iy8ve,banquets (listing page),2,2,true
+hotel,ln0gj8rlj4rxumo7x99iy8ve,banquets (hotel root),2,2,true
+hotel,ln0gj8rlj4rxumo7x99iy8ve,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,mw8ueg6zyc37gcywhrm1qmks,rooms (listing page),3,0,false
+hotel,mw8ueg6zyc37gcywhrm1qmks,rooms (hotel root),3,0,false
+hotel,mw8ueg6zyc37gcywhrm1qmks,dinings (listing page),2,2,true
+hotel,mw8ueg6zyc37gcywhrm1qmks,dinings (hotel root),2,0,false
+hotel,mw8ueg6zyc37gcywhrm1qmks,banquets (listing page),2,2,true
+hotel,mw8ueg6zyc37gcywhrm1qmks,banquets (hotel root),2,2,true
+hotel,mw8ueg6zyc37gcywhrm1qmks,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,rooms (listing page),3,0,false
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,rooms (hotel root),3,0,false
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,dinings (listing page),2,2,true
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,dinings (hotel root),2,0,false
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,banquets (listing page),2,2,true
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,banquets (hotel root),2,2,true
+hotel,tuc0lt9c0l0na2pxpdrgpjcy,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,ievhz3zi8m0wnimukmab9sf3,rooms (listing page),3,0,false
+hotel,ievhz3zi8m0wnimukmab9sf3,rooms (hotel root),3,0,false
+hotel,ievhz3zi8m0wnimukmab9sf3,dinings (listing page),2,2,true
+hotel,ievhz3zi8m0wnimukmab9sf3,dinings (hotel root),2,0,false
+hotel,ievhz3zi8m0wnimukmab9sf3,banquets (listing page),2,2,true
+hotel,ievhz3zi8m0wnimukmab9sf3,banquets (hotel root),2,2,true
+hotel,ievhz3zi8m0wnimukmab9sf3,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,h956jqot2rkpm49hmtisj2y2,rooms (listing page),3,0,false
+hotel,h956jqot2rkpm49hmtisj2y2,rooms (hotel root),3,0,false
+hotel,h956jqot2rkpm49hmtisj2y2,dinings (listing page),2,2,true
+hotel,h956jqot2rkpm49hmtisj2y2,dinings (hotel root),2,0,false
+hotel,h956jqot2rkpm49hmtisj2y2,banquets (listing page),2,2,true
+hotel,h956jqot2rkpm49hmtisj2y2,banquets (hotel root),2,2,true
+hotel,h956jqot2rkpm49hmtisj2y2,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,kjw454m5jgmcu0bczmcid856,rooms (listing page),5,0,false
+hotel,kjw454m5jgmcu0bczmcid856,rooms (hotel root),5,0,false
+hotel,kjw454m5jgmcu0bczmcid856,dinings (listing page),2,2,true
+hotel,kjw454m5jgmcu0bczmcid856,dinings (hotel root),2,0,false
+hotel,kjw454m5jgmcu0bczmcid856,banquets (listing page),3,3,true
+hotel,kjw454m5jgmcu0bczmcid856,banquets (hotel root),3,3,true
+hotel,kjw454m5jgmcu0bczmcid856,"hotel_galleries (gallery page, capped at 48)",56,49,true
+hotel,vt2ug2ez0s8hya3j0oihwbrd,rooms (listing page),4,0,false
+hotel,vt2ug2ez0s8hya3j0oihwbrd,rooms (hotel root),4,0,false
+hotel,vt2ug2ez0s8hya3j0oihwbrd,dinings (listing page),1,1,true
+hotel,vt2ug2ez0s8hya3j0oihwbrd,dinings (hotel root),1,0,false
+hotel,vt2ug2ez0s8hya3j0oihwbrd,banquets (listing page),1,1,true
+hotel,vt2ug2ez0s8hya3j0oihwbrd,banquets (hotel root),1,1,true
+hotel,vt2ug2ez0s8hya3j0oihwbrd,attractions (listing page),1,1,true
+hotel,vt2ug2ez0s8hya3j0oihwbrd,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rqhof3eo3ccww1itbquu765a,rooms (listing page),7,0,false
+hotel,rqhof3eo3ccww1itbquu765a,rooms (hotel root),7,0,false
+hotel,rqhof3eo3ccww1itbquu765a,dinings (listing page),2,2,true
+hotel,rqhof3eo3ccww1itbquu765a,dinings (hotel root),2,0,false
+hotel,rqhof3eo3ccww1itbquu765a,banquets (listing page),1,1,true
+hotel,rqhof3eo3ccww1itbquu765a,banquets (hotel root),1,1,true
+hotel,rqhof3eo3ccww1itbquu765a,attractions (listing page),1,1,true
+hotel,rqhof3eo3ccww1itbquu765a,offers (hotel root),2,2,true
+hotel,rqhof3eo3ccww1itbquu765a,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,glk2wfzrstdbocv6bpstqswh,rooms (listing page),6,0,false
+hotel,glk2wfzrstdbocv6bpstqswh,rooms (hotel root),6,0,false
+hotel,glk2wfzrstdbocv6bpstqswh,dinings (listing page),1,1,true
+hotel,glk2wfzrstdbocv6bpstqswh,dinings (hotel root),1,0,false
+hotel,glk2wfzrstdbocv6bpstqswh,banquets (listing page),3,3,true
+hotel,glk2wfzrstdbocv6bpstqswh,banquets (hotel root),3,3,true
+hotel,glk2wfzrstdbocv6bpstqswh,"hotel_galleries (gallery page, capped at 48)",41,42,true
+hotel,in0kis219t8nbhztema6bsmn,rooms (listing page),3,0,false
+hotel,in0kis219t8nbhztema6bsmn,rooms (hotel root),3,0,false
+hotel,in0kis219t8nbhztema6bsmn,dinings (listing page),1,1,true
+hotel,in0kis219t8nbhztema6bsmn,dinings (hotel root),1,0,false
+hotel,in0kis219t8nbhztema6bsmn,banquets (listing page),1,1,true
+hotel,in0kis219t8nbhztema6bsmn,banquets (hotel root),1,1,true
+hotel,in0kis219t8nbhztema6bsmn,attractions (listing page),1,1,true
+hotel,in0kis219t8nbhztema6bsmn,offers (hotel root),1,1,true
+hotel,in0kis219t8nbhztema6bsmn,"hotel_galleries (gallery page, capped at 48)",30,31,true
+hotel,xliva2mj2oisblywnnmzb4io,rooms (listing page),4,0,false
+hotel,xliva2mj2oisblywnnmzb4io,rooms (hotel root),4,0,false
+hotel,xliva2mj2oisblywnnmzb4io,dinings (listing page),2,2,true
+hotel,xliva2mj2oisblywnnmzb4io,dinings (hotel root),2,0,false
+hotel,xliva2mj2oisblywnnmzb4io,attractions (listing page),1,1,true
+hotel,xliva2mj2oisblywnnmzb4io,offers (hotel root),1,1,true
+hotel,xliva2mj2oisblywnnmzb4io,"hotel_galleries (gallery page, capped at 48)",21,22,true
+hotel,myzp4bufrciaeqa1f7hwnthq,rooms (listing page),4,0,false
+hotel,myzp4bufrciaeqa1f7hwnthq,rooms (hotel root),4,0,false
+hotel,myzp4bufrciaeqa1f7hwnthq,dinings (listing page),2,2,true
+hotel,myzp4bufrciaeqa1f7hwnthq,dinings (hotel root),2,0,false
+hotel,myzp4bufrciaeqa1f7hwnthq,attractions (listing page),1,1,true
+hotel,myzp4bufrciaeqa1f7hwnthq,offers (hotel root),1,1,true
+hotel,myzp4bufrciaeqa1f7hwnthq,"hotel_galleries (gallery page, capped at 48)",48,49,true
+hotel,jlgiovfnn7iwclcfq1tst38o,rooms (listing page),2,0,false
+hotel,jlgiovfnn7iwclcfq1tst38o,rooms (hotel root),2,0,false
+hotel,jlgiovfnn7iwclcfq1tst38o,dinings (listing page),1,1,true
+hotel,jlgiovfnn7iwclcfq1tst38o,dinings (hotel root),1,0,false
+hotel,jlgiovfnn7iwclcfq1tst38o,banquets (listing page),1,1,true
+hotel,jlgiovfnn7iwclcfq1tst38o,banquets (hotel root),1,1,true
+hotel,jlgiovfnn7iwclcfq1tst38o,attractions (listing page),1,1,true
+hotel,jlgiovfnn7iwclcfq1tst38o,offers (hotel root),5,5,true
+hotel,jlgiovfnn7iwclcfq1tst38o,"hotel_galleries (gallery page, capped at 48)",35,36,true
+hotel,nheqorhkiaxribfpkk6qffzt,rooms (listing page),4,0,false
+hotel,nheqorhkiaxribfpkk6qffzt,rooms (hotel root),4,0,false
+hotel,nheqorhkiaxribfpkk6qffzt,dinings (listing page),4,4,true
+hotel,nheqorhkiaxribfpkk6qffzt,dinings (hotel root),4,0,false
+hotel,nheqorhkiaxribfpkk6qffzt,banquets (listing page),1,1,true
+hotel,nheqorhkiaxribfpkk6qffzt,banquets (hotel root),1,1,true
+hotel,nheqorhkiaxribfpkk6qffzt,attractions (listing page),1,1,true
+hotel,nheqorhkiaxribfpkk6qffzt,offers (hotel root),1,1,true
+hotel,nheqorhkiaxribfpkk6qffzt,"hotel_galleries (gallery page, capped at 48)",35,36,true
+hotel,pi0kgqvv2mby22nmi5va3i5j,rooms (listing page),6,0,false
+hotel,pi0kgqvv2mby22nmi5va3i5j,rooms (hotel root),6,0,false
+hotel,pi0kgqvv2mby22nmi5va3i5j,dinings (listing page),2,2,true
+hotel,pi0kgqvv2mby22nmi5va3i5j,dinings (hotel root),2,0,false
+hotel,pi0kgqvv2mby22nmi5va3i5j,banquets (listing page),7,7,true
+hotel,pi0kgqvv2mby22nmi5va3i5j,banquets (hotel root),7,7,true
+hotel,pi0kgqvv2mby22nmi5va3i5j,"hotel_galleries (gallery page, capped at 48)",27,28,true
+hotel,nj93qgtto0lgesdjc499yrd2,rooms (listing page),4,0,false
+hotel,nj93qgtto0lgesdjc499yrd2,rooms (hotel root),4,0,false
+hotel,nj93qgtto0lgesdjc499yrd2,dinings (listing page),2,2,true
+hotel,nj93qgtto0lgesdjc499yrd2,dinings (hotel root),2,0,false
+hotel,nj93qgtto0lgesdjc499yrd2,attractions (listing page),1,1,true
+hotel,nj93qgtto0lgesdjc499yrd2,offers (hotel root),1,1,true
+hotel,nj93qgtto0lgesdjc499yrd2,"hotel_galleries (gallery page, capped at 48)",26,27,true
+hotel,gl4vmpykhppii6cv6a6eutbz,rooms (listing page),5,0,false
+hotel,gl4vmpykhppii6cv6a6eutbz,rooms (hotel root),5,0,false
+hotel,gl4vmpykhppii6cv6a6eutbz,"hotel_galleries (gallery page, capped at 48)",22,23,true
+hotel,oxljj6tebeltew10ljuqnbcs,rooms (listing page),3,0,false
+hotel,oxljj6tebeltew10ljuqnbcs,rooms (hotel root),3,0,false
+hotel,oxljj6tebeltew10ljuqnbcs,dinings (listing page),2,2,true
+hotel,oxljj6tebeltew10ljuqnbcs,dinings (hotel root),2,0,false
+hotel,oxljj6tebeltew10ljuqnbcs,banquets (listing page),1,1,true
+hotel,oxljj6tebeltew10ljuqnbcs,banquets (hotel root),1,1,true
+hotel,oxljj6tebeltew10ljuqnbcs,attractions (listing page),1,1,true
+hotel,oxljj6tebeltew10ljuqnbcs,offers (hotel root),1,1,true
+hotel,oxljj6tebeltew10ljuqnbcs,"hotel_galleries (gallery page, capped at 48)",40,41,true
+hotel,zhdk257u85fi0awyg3tpxwrt,rooms (listing page),3,0,false
+hotel,zhdk257u85fi0awyg3tpxwrt,rooms (hotel root),3,0,false
+hotel,zhdk257u85fi0awyg3tpxwrt,dinings (listing page),3,3,true
+hotel,zhdk257u85fi0awyg3tpxwrt,dinings (hotel root),3,0,false
+hotel,zhdk257u85fi0awyg3tpxwrt,banquets (listing page),1,1,true
+hotel,zhdk257u85fi0awyg3tpxwrt,banquets (hotel root),1,1,true
+hotel,zhdk257u85fi0awyg3tpxwrt,attractions (listing page),1,1,true
+hotel,zhdk257u85fi0awyg3tpxwrt,offers (hotel root),1,1,true
+hotel,zhdk257u85fi0awyg3tpxwrt,"hotel_galleries (gallery page, capped at 48)",18,19,true
+hotel,kyixj09apb6tuuo9448fzoto,rooms (listing page),3,0,false
+hotel,kyixj09apb6tuuo9448fzoto,rooms (hotel root),3,0,false
+hotel,kyixj09apb6tuuo9448fzoto,dinings (listing page),1,1,true
+hotel,kyixj09apb6tuuo9448fzoto,dinings (hotel root),1,0,false
+hotel,kyixj09apb6tuuo9448fzoto,banquets (listing page),4,4,true
+hotel,kyixj09apb6tuuo9448fzoto,banquets (hotel root),4,4,true
+hotel,kyixj09apb6tuuo9448fzoto,"hotel_galleries (gallery page, capped at 48)",42,43,true
+hotel,a8yzgu7kccovpvtki1a8of7w,rooms (listing page),3,0,false
+hotel,a8yzgu7kccovpvtki1a8of7w,rooms (hotel root),3,0,false
+hotel,a8yzgu7kccovpvtki1a8of7w,dinings (listing page),1,1,true
+hotel,a8yzgu7kccovpvtki1a8of7w,dinings (hotel root),1,0,false
+hotel,a8yzgu7kccovpvtki1a8of7w,"hotel_galleries (gallery page, capped at 48)",33,34,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,rooms (listing page),3,0,false
+hotel,cvezpiutdrsntdy2ttr9vbwq,rooms (hotel root),3,0,false
+hotel,cvezpiutdrsntdy2ttr9vbwq,dinings (listing page),2,2,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,dinings (hotel root),2,0,false
+hotel,cvezpiutdrsntdy2ttr9vbwq,banquets (listing page),1,1,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,banquets (hotel root),1,1,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,attractions (listing page),1,1,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,offers (hotel root),1,1,true
+hotel,cvezpiutdrsntdy2ttr9vbwq,"hotel_galleries (gallery page, capped at 48)",17,18,true
+hotel,zbdydapaezsdchbhigwbzw71,rooms (listing page),4,0,false
+hotel,zbdydapaezsdchbhigwbzw71,rooms (hotel root),4,0,false
+hotel,zbdydapaezsdchbhigwbzw71,dinings (listing page),2,2,true
+hotel,zbdydapaezsdchbhigwbzw71,dinings (hotel root),2,0,false
+hotel,zbdydapaezsdchbhigwbzw71,attractions (listing page),1,1,true
+hotel,zbdydapaezsdchbhigwbzw71,offers (hotel root),1,1,true
+hotel,zbdydapaezsdchbhigwbzw71,"hotel_galleries (gallery page, capped at 48)",53,49,true
+hotel,eshvg3smsdhll8od16ofykzn,rooms (listing page),6,0,false
+hotel,eshvg3smsdhll8od16ofykzn,rooms (hotel root),6,0,false
+hotel,eshvg3smsdhll8od16ofykzn,dinings (listing page),1,1,true
+hotel,eshvg3smsdhll8od16ofykzn,dinings (hotel root),1,0,false
+hotel,eshvg3smsdhll8od16ofykzn,banquets (listing page),2,2,true
+hotel,eshvg3smsdhll8od16ofykzn,banquets (hotel root),2,2,true
+hotel,eshvg3smsdhll8od16ofykzn,"hotel_galleries (gallery page, capped at 48)",52,49,true
+hotel,wwvbmh6fki9v5xfb9ifbdymi,rooms (listing page),3,0,false
+hotel,wwvbmh6fki9v5xfb9ifbdymi,rooms (hotel root),3,0,false
+hotel,wwvbmh6fki9v5xfb9ifbdymi,dinings (listing page),2,2,true
+hotel,wwvbmh6fki9v5xfb9ifbdymi,dinings (hotel root),2,0,false
+hotel,wwvbmh6fki9v5xfb9ifbdymi,banquets (listing page),3,3,true
+hotel,wwvbmh6fki9v5xfb9ifbdymi,banquets (hotel root),3,3,true
+hotel,wwvbmh6fki9v5xfb9ifbdymi,"hotel_galleries (gallery page, capped at 48)",49,49,true
+hotel,kylyag77ozfu7dw4fge295xl,rooms (listing page),6,0,false
+hotel,kylyag77ozfu7dw4fge295xl,rooms (hotel root),6,0,false
+hotel,kylyag77ozfu7dw4fge295xl,dinings (listing page),3,3,true
+hotel,kylyag77ozfu7dw4fge295xl,dinings (hotel root),3,0,false
+hotel,kylyag77ozfu7dw4fge295xl,banquets (listing page),1,1,true
+hotel,kylyag77ozfu7dw4fge295xl,banquets (hotel root),1,1,true
+hotel,kylyag77ozfu7dw4fge295xl,attractions (listing page),1,1,true
+hotel,kylyag77ozfu7dw4fge295xl,offers (hotel root),5,5,true
+hotel,kylyag77ozfu7dw4fge295xl,"hotel_galleries (gallery page, capped at 48)",29,30,true
+hotel,lrfe2tp0kn5yferboipi6fjc,rooms (listing page),4,0,false
+hotel,lrfe2tp0kn5yferboipi6fjc,rooms (hotel root),4,0,false
+hotel,lrfe2tp0kn5yferboipi6fjc,dinings (listing page),2,2,true
+hotel,lrfe2tp0kn5yferboipi6fjc,dinings (hotel root),2,0,false
+hotel,lrfe2tp0kn5yferboipi6fjc,banquets (listing page),3,3,true
+hotel,lrfe2tp0kn5yferboipi6fjc,banquets (hotel root),3,3,true
+hotel,lrfe2tp0kn5yferboipi6fjc,"hotel_galleries (gallery page, capped at 48)",35,36,true
+hotel,bbjcv7jcjmz1n85wljcjftqj,rooms (listing page),3,0,false
+hotel,bbjcv7jcjmz1n85wljcjftqj,rooms (hotel root),3,0,false
+hotel,bbjcv7jcjmz1n85wljcjftqj,dinings (listing page),1,1,true
+hotel,bbjcv7jcjmz1n85wljcjftqj,dinings (hotel root),1,0,false
+hotel,bbjcv7jcjmz1n85wljcjftqj,"hotel_galleries (gallery page, capped at 48)",13,14,true
+hotel,cn1xygizaysd9wumjcv5exkl,rooms (listing page),3,0,false
+hotel,cn1xygizaysd9wumjcv5exkl,rooms (hotel root),3,0,false
+hotel,cn1xygizaysd9wumjcv5exkl,banquets (listing page),1,1,true
+hotel,cn1xygizaysd9wumjcv5exkl,banquets (hotel root),1,1,true
+hotel,cn1xygizaysd9wumjcv5exkl,"hotel_galleries (gallery page, capped at 48)",15,16,true
+hotel,bmtx3bphwi1k401p89ritkvp,rooms (listing page),6,0,false
+hotel,bmtx3bphwi1k401p89ritkvp,rooms (hotel root),6,0,false
+hotel,bmtx3bphwi1k401p89ritkvp,dinings (listing page),1,1,true
+hotel,bmtx3bphwi1k401p89ritkvp,dinings (hotel root),1,0,false
+hotel,bmtx3bphwi1k401p89ritkvp,banquets (listing page),2,2,true
+hotel,bmtx3bphwi1k401p89ritkvp,banquets (hotel root),2,2,true
+hotel,bmtx3bphwi1k401p89ritkvp,offers (hotel root),2,2,true
+hotel,bmtx3bphwi1k401p89ritkvp,"hotel_galleries (gallery page, capped at 48)",55,49,true
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,rooms (listing page),4,0,false
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,rooms (hotel root),4,0,false
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,dinings (listing page),1,1,true
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,dinings (hotel root),1,0,false
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,attractions (listing page),1,1,true
+hotel,tgxknqo7yxdn0g6gy6pdwe5g,"hotel_galleries (gallery page, capped at 48)",20,21,true
+hotel,gpj43v7o7gtk0y7yntzr28my,rooms (listing page),8,0,false
+hotel,gpj43v7o7gtk0y7yntzr28my,rooms (hotel root),8,0,false
+hotel,gpj43v7o7gtk0y7yntzr28my,dinings (listing page),2,2,true
+hotel,gpj43v7o7gtk0y7yntzr28my,dinings (hotel root),2,0,false
+hotel,gpj43v7o7gtk0y7yntzr28my,banquets (listing page),1,1,true
+hotel,gpj43v7o7gtk0y7yntzr28my,banquets (hotel root),1,1,true
+hotel,gpj43v7o7gtk0y7yntzr28my,offers (hotel root),3,3,true
+hotel,gpj43v7o7gtk0y7yntzr28my,"hotel_galleries (gallery page, capped at 48)",66,49,true
+hotel,zkf3jgbetp7dsrj3mwbb6qj9,rooms (listing page),2,0,false
+hotel,zkf3jgbetp7dsrj3mwbb6qj9,rooms (hotel root),2,0,false
+hotel,zkf3jgbetp7dsrj3mwbb6qj9,dinings (listing page),2,2,true
+hotel,zkf3jgbetp7dsrj3mwbb6qj9,dinings (hotel root),2,0,false
+hotel,zkf3jgbetp7dsrj3mwbb6qj9,"hotel_galleries (gallery page, capped at 48)",9,10,true
+hotel,mxkwek8pauu2zl96w5s0p353,rooms (listing page),4,0,false
+hotel,mxkwek8pauu2zl96w5s0p353,rooms (hotel root),4,0,false
+hotel,mxkwek8pauu2zl96w5s0p353,dinings (listing page),2,2,true
+hotel,mxkwek8pauu2zl96w5s0p353,dinings (hotel root),2,0,false
+hotel,mxkwek8pauu2zl96w5s0p353,banquets (listing page),7,7,true
+hotel,mxkwek8pauu2zl96w5s0p353,banquets (hotel root),7,7,true
+hotel,mxkwek8pauu2zl96w5s0p353,"hotel_galleries (gallery page, capped at 48)",23,24,true
+hotel,vpev1rnivzb43qifo0dksqbq,rooms (listing page),6,0,false
+hotel,vpev1rnivzb43qifo0dksqbq,rooms (hotel root),6,0,false
+hotel,vpev1rnivzb43qifo0dksqbq,dinings (listing page),1,1,true
+hotel,vpev1rnivzb43qifo0dksqbq,dinings (hotel root),1,0,false
+hotel,vpev1rnivzb43qifo0dksqbq,banquets (listing page),8,8,true
+hotel,vpev1rnivzb43qifo0dksqbq,banquets (hotel root),8,8,true
+hotel,vpev1rnivzb43qifo0dksqbq,"hotel_galleries (gallery page, capped at 48)",11,12,true
+hotel,yl7977lzdf050nx76202p8x0,rooms (listing page),2,0,false
+hotel,yl7977lzdf050nx76202p8x0,rooms (hotel root),2,0,false
+hotel,yl7977lzdf050nx76202p8x0,dinings (listing page),3,3,true
+hotel,yl7977lzdf050nx76202p8x0,dinings (hotel root),3,0,false
+hotel,yl7977lzdf050nx76202p8x0,banquets (listing page),5,5,true
+hotel,yl7977lzdf050nx76202p8x0,banquets (hotel root),5,5,true
+hotel,yl7977lzdf050nx76202p8x0,"hotel_galleries (gallery page, capped at 48)",35,36,true
+hotel,ag0ne7ux6h82mi0ufls4pgtk,rooms (listing page),5,0,false
+hotel,ag0ne7ux6h82mi0ufls4pgtk,rooms (hotel root),5,0,false
+hotel,ag0ne7ux6h82mi0ufls4pgtk,dinings (listing page),1,1,true
+hotel,ag0ne7ux6h82mi0ufls4pgtk,dinings (hotel root),1,0,false
+hotel,ag0ne7ux6h82mi0ufls4pgtk,banquets (listing page),4,4,true
+hotel,ag0ne7ux6h82mi0ufls4pgtk,banquets (hotel root),4,4,true
+hotel,ag0ne7ux6h82mi0ufls4pgtk,"hotel_galleries (gallery page, capped at 48)",58,49,true
+hotel,exqs3n9e3rg4os6w2veyccb8,rooms (listing page),6,0,false
+hotel,exqs3n9e3rg4os6w2veyccb8,rooms (hotel root),6,0,false
+hotel,exqs3n9e3rg4os6w2veyccb8,dinings (listing page),3,3,true
+hotel,exqs3n9e3rg4os6w2veyccb8,dinings (hotel root),3,0,false
+hotel,exqs3n9e3rg4os6w2veyccb8,banquets (listing page),1,1,true
+hotel,exqs3n9e3rg4os6w2veyccb8,banquets (hotel root),1,1,true
+hotel,exqs3n9e3rg4os6w2veyccb8,attractions (listing page),1,1,true
+hotel,exqs3n9e3rg4os6w2veyccb8,offers (hotel root),7,7,true
+hotel,exqs3n9e3rg4os6w2veyccb8,"hotel_galleries (gallery page, capped at 48)",44,45,true
+hotel,oycar1zhbavm4r2f4j35fkm6,rooms (listing page),6,0,false
+hotel,oycar1zhbavm4r2f4j35fkm6,rooms (hotel root),6,0,false
+hotel,oycar1zhbavm4r2f4j35fkm6,dinings (listing page),2,2,true
+hotel,oycar1zhbavm4r2f4j35fkm6,dinings (hotel root),2,0,false
+hotel,oycar1zhbavm4r2f4j35fkm6,"hotel_galleries (gallery page, capped at 48)",72,49,true
+hotel,dzceu61lxiy9w6jhj8k2t3j4,rooms (listing page),3,0,false
+hotel,dzceu61lxiy9w6jhj8k2t3j4,rooms (hotel root),3,0,false
+hotel,dzceu61lxiy9w6jhj8k2t3j4,dinings (listing page),3,3,true
+hotel,dzceu61lxiy9w6jhj8k2t3j4,dinings (hotel root),3,0,false
+hotel,dzceu61lxiy9w6jhj8k2t3j4,banquets (listing page),1,1,true
+hotel,dzceu61lxiy9w6jhj8k2t3j4,banquets (hotel root),1,1,true
+hotel,dzceu61lxiy9w6jhj8k2t3j4,attractions (listing page),1,1,true
+hotel,dzceu61lxiy9w6jhj8k2t3j4,"hotel_galleries (gallery page, capped at 48)",18,19,true
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,rooms (listing page),5,0,false
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,rooms (hotel root),5,0,false
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,dinings (listing page),3,3,true
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,dinings (hotel root),3,0,false
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,banquets (listing page),1,1,true
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,banquets (hotel root),1,1,true
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,attractions (listing page),1,1,true
+hotel,ubmswdq1c1g6cfhwrp4q7lc2,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,wm4irbpis6w0bbd7mtwucuks,rooms (listing page),3,0,false
+hotel,wm4irbpis6w0bbd7mtwucuks,rooms (hotel root),3,0,false
+hotel,wm4irbpis6w0bbd7mtwucuks,dinings (listing page),2,2,true
+hotel,wm4irbpis6w0bbd7mtwucuks,dinings (hotel root),2,0,false
+hotel,wm4irbpis6w0bbd7mtwucuks,banquets (listing page),1,1,true
+hotel,wm4irbpis6w0bbd7mtwucuks,banquets (hotel root),1,1,true
+hotel,wm4irbpis6w0bbd7mtwucuks,attractions (listing page),1,1,true
+hotel,wm4irbpis6w0bbd7mtwucuks,offers (hotel root),1,1,true
+hotel,wm4irbpis6w0bbd7mtwucuks,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,z0upqx69ydricmx0x7oluej9,rooms (listing page),12,0,false
+hotel,z0upqx69ydricmx0x7oluej9,rooms (hotel root),12,0,false
+hotel,z0upqx69ydricmx0x7oluej9,dinings (listing page),3,3,true
+hotel,z0upqx69ydricmx0x7oluej9,dinings (hotel root),3,0,false
+hotel,z0upqx69ydricmx0x7oluej9,banquets (listing page),3,3,true
+hotel,z0upqx69ydricmx0x7oluej9,banquets (hotel root),3,3,true
+hotel,z0upqx69ydricmx0x7oluej9,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rv3gyw02f35a4hofvyr7no2s,rooms (listing page),7,0,false
+hotel,rv3gyw02f35a4hofvyr7no2s,rooms (hotel root),7,0,false
+hotel,rv3gyw02f35a4hofvyr7no2s,dinings (listing page),2,2,true
+hotel,rv3gyw02f35a4hofvyr7no2s,dinings (hotel root),2,0,false
+hotel,rv3gyw02f35a4hofvyr7no2s,banquets (listing page),4,4,true
+hotel,rv3gyw02f35a4hofvyr7no2s,banquets (hotel root),4,4,true
+hotel,rv3gyw02f35a4hofvyr7no2s,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,glejblzsz4kwa25vs0f9h4bn,rooms (listing page),5,0,false
+hotel,glejblzsz4kwa25vs0f9h4bn,rooms (hotel root),5,0,false
+hotel,glejblzsz4kwa25vs0f9h4bn,dinings (listing page),2,2,true
+hotel,glejblzsz4kwa25vs0f9h4bn,dinings (hotel root),2,0,false
+hotel,glejblzsz4kwa25vs0f9h4bn,banquets (listing page),10,10,true
+hotel,glejblzsz4kwa25vs0f9h4bn,banquets (hotel root),10,10,true
+hotel,glejblzsz4kwa25vs0f9h4bn,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,eabvldp442te264l6uqzcc01,rooms (listing page),4,0,false
+hotel,eabvldp442te264l6uqzcc01,rooms (hotel root),4,0,false
+hotel,eabvldp442te264l6uqzcc01,dinings (listing page),2,2,true
+hotel,eabvldp442te264l6uqzcc01,dinings (hotel root),2,0,false
+hotel,eabvldp442te264l6uqzcc01,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,h8vbecw43qgvtaieaq4dp8ev,rooms (listing page),5,0,false
+hotel,h8vbecw43qgvtaieaq4dp8ev,rooms (hotel root),5,0,false
+hotel,h8vbecw43qgvtaieaq4dp8ev,dinings (listing page),3,3,true
+hotel,h8vbecw43qgvtaieaq4dp8ev,dinings (hotel root),3,0,false
+hotel,h8vbecw43qgvtaieaq4dp8ev,attractions (listing page),1,1,true
+hotel,h8vbecw43qgvtaieaq4dp8ev,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,de3w9emq8p80n6tcxzdhishw,rooms (listing page),2,0,false
+hotel,de3w9emq8p80n6tcxzdhishw,rooms (hotel root),2,0,false
+hotel,de3w9emq8p80n6tcxzdhishw,dinings (listing page),1,1,true
+hotel,de3w9emq8p80n6tcxzdhishw,dinings (hotel root),1,0,false
+hotel,de3w9emq8p80n6tcxzdhishw,banquets (listing page),2,2,true
+hotel,de3w9emq8p80n6tcxzdhishw,banquets (hotel root),2,2,true
+hotel,de3w9emq8p80n6tcxzdhishw,attractions (listing page),1,1,true
+hotel,de3w9emq8p80n6tcxzdhishw,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,wvfdxegmsefrcqnkv0wlk1g2,rooms (listing page),2,0,false
+hotel,wvfdxegmsefrcqnkv0wlk1g2,rooms (hotel root),2,0,false
+hotel,wvfdxegmsefrcqnkv0wlk1g2,dinings (listing page),1,1,true
+hotel,wvfdxegmsefrcqnkv0wlk1g2,dinings (hotel root),1,0,false
+hotel,wvfdxegmsefrcqnkv0wlk1g2,banquets (listing page),1,1,true
+hotel,wvfdxegmsefrcqnkv0wlk1g2,banquets (hotel root),1,1,true
+hotel,wvfdxegmsefrcqnkv0wlk1g2,attractions (listing page),1,1,true
+hotel,wvfdxegmsefrcqnkv0wlk1g2,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,rrp79c5xowigpxuvth1pymtz,rooms (listing page),5,0,false
+hotel,rrp79c5xowigpxuvth1pymtz,rooms (hotel root),5,0,false
+hotel,rrp79c5xowigpxuvth1pymtz,dinings (listing page),1,1,true
+hotel,rrp79c5xowigpxuvth1pymtz,dinings (hotel root),1,0,false
+hotel,rrp79c5xowigpxuvth1pymtz,banquets (listing page),3,3,true
+hotel,rrp79c5xowigpxuvth1pymtz,banquets (hotel root),3,3,true
+hotel,rrp79c5xowigpxuvth1pymtz,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,l00w2hfl8p99urg4isa14iv0,rooms (listing page),2,0,false
+hotel,l00w2hfl8p99urg4isa14iv0,rooms (hotel root),2,0,false
+hotel,l00w2hfl8p99urg4isa14iv0,dinings (listing page),2,2,true
+hotel,l00w2hfl8p99urg4isa14iv0,dinings (hotel root),2,0,false
+hotel,l00w2hfl8p99urg4isa14iv0,attractions (listing page),1,1,true
+hotel,l00w2hfl8p99urg4isa14iv0,offers (hotel root),1,1,true
+hotel,l00w2hfl8p99urg4isa14iv0,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,a0olawjkl11bho3oq692bs43,rooms (listing page),6,0,false
+hotel,a0olawjkl11bho3oq692bs43,rooms (hotel root),6,0,false
+hotel,a0olawjkl11bho3oq692bs43,dinings (listing page),3,3,true
+hotel,a0olawjkl11bho3oq692bs43,dinings (hotel root),3,0,false
+hotel,a0olawjkl11bho3oq692bs43,banquets (listing page),5,5,true
+hotel,a0olawjkl11bho3oq692bs43,banquets (hotel root),5,5,true
+hotel,a0olawjkl11bho3oq692bs43,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,cb9t2cns47wpg0h5sun5zehk,rooms (listing page),4,0,false
+hotel,cb9t2cns47wpg0h5sun5zehk,rooms (hotel root),4,0,false
+hotel,cb9t2cns47wpg0h5sun5zehk,dinings (listing page),2,2,true
+hotel,cb9t2cns47wpg0h5sun5zehk,dinings (hotel root),2,0,false
+hotel,cb9t2cns47wpg0h5sun5zehk,banquets (listing page),5,5,true
+hotel,cb9t2cns47wpg0h5sun5zehk,banquets (hotel root),5,5,true
+hotel,cb9t2cns47wpg0h5sun5zehk,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,bg7b0me5wfypkbah8oyjldzn,rooms (listing page),3,0,false
+hotel,bg7b0me5wfypkbah8oyjldzn,rooms (hotel root),3,0,false
+hotel,bg7b0me5wfypkbah8oyjldzn,dinings (listing page),1,1,true
+hotel,bg7b0me5wfypkbah8oyjldzn,dinings (hotel root),1,0,false
+hotel,bg7b0me5wfypkbah8oyjldzn,banquets (listing page),1,1,true
+hotel,bg7b0me5wfypkbah8oyjldzn,banquets (hotel root),1,1,true
+hotel,bg7b0me5wfypkbah8oyjldzn,attractions (listing page),1,1,true
+hotel,bg7b0me5wfypkbah8oyjldzn,offers (hotel root),1,1,true
+hotel,bg7b0me5wfypkbah8oyjldzn,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,utx6f0169wb4zw8bciv92u9x,rooms (listing page),5,0,false
+hotel,utx6f0169wb4zw8bciv92u9x,rooms (hotel root),5,0,false
+hotel,utx6f0169wb4zw8bciv92u9x,dinings (listing page),1,1,true
+hotel,utx6f0169wb4zw8bciv92u9x,dinings (hotel root),1,0,false
+hotel,utx6f0169wb4zw8bciv92u9x,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,f49yr9el4hyp8wm0mwz619fq,rooms (listing page),5,0,false
+hotel,f49yr9el4hyp8wm0mwz619fq,rooms (hotel root),5,0,false
+hotel,f49yr9el4hyp8wm0mwz619fq,dinings (listing page),2,2,true
+hotel,f49yr9el4hyp8wm0mwz619fq,dinings (hotel root),2,0,false
+hotel,f49yr9el4hyp8wm0mwz619fq,banquets (listing page),2,2,true
+hotel,f49yr9el4hyp8wm0mwz619fq,banquets (hotel root),2,2,true
+hotel,f49yr9el4hyp8wm0mwz619fq,offers (hotel root),1,1,true
+hotel,f49yr9el4hyp8wm0mwz619fq,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,rre6ugf4nom5jgnyaksyrbte,rooms (listing page),4,0,false
+hotel,rre6ugf4nom5jgnyaksyrbte,rooms (hotel root),4,0,false
+hotel,rre6ugf4nom5jgnyaksyrbte,dinings (listing page),2,2,true
+hotel,rre6ugf4nom5jgnyaksyrbte,dinings (hotel root),2,0,false
+hotel,rre6ugf4nom5jgnyaksyrbte,attractions (listing page),1,1,true
+hotel,rre6ugf4nom5jgnyaksyrbte,offers (hotel root),1,1,true
+hotel,rre6ugf4nom5jgnyaksyrbte,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,arnplnbalzptqjyw3jcfhbaq,rooms (listing page),5,0,false
+hotel,arnplnbalzptqjyw3jcfhbaq,rooms (hotel root),5,0,false
+hotel,arnplnbalzptqjyw3jcfhbaq,dinings (listing page),1,1,true
+hotel,arnplnbalzptqjyw3jcfhbaq,dinings (hotel root),1,0,false
+hotel,arnplnbalzptqjyw3jcfhbaq,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,yguny2p9yh5zqh29nvfoqvyl,rooms (listing page),5,0,false
+hotel,yguny2p9yh5zqh29nvfoqvyl,rooms (hotel root),5,0,false
+hotel,yguny2p9yh5zqh29nvfoqvyl,dinings (listing page),1,1,true
+hotel,yguny2p9yh5zqh29nvfoqvyl,dinings (hotel root),1,0,false
+hotel,yguny2p9yh5zqh29nvfoqvyl,attractions (listing page),1,1,true
+hotel,yguny2p9yh5zqh29nvfoqvyl,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,rygi0vqbp5opssa7p5vpfbs2,rooms (listing page),3,0,false
+hotel,rygi0vqbp5opssa7p5vpfbs2,rooms (hotel root),3,0,false
+hotel,rygi0vqbp5opssa7p5vpfbs2,dinings (listing page),1,1,true
+hotel,rygi0vqbp5opssa7p5vpfbs2,dinings (hotel root),1,0,false
+hotel,rygi0vqbp5opssa7p5vpfbs2,attractions (listing page),1,1,true
+hotel,rygi0vqbp5opssa7p5vpfbs2,offers (hotel root),1,1,true
+hotel,rygi0vqbp5opssa7p5vpfbs2,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,llshsw5zsai8ap90e9ty762k,rooms (listing page),4,0,false
+hotel,llshsw5zsai8ap90e9ty762k,rooms (hotel root),4,0,false
+hotel,llshsw5zsai8ap90e9ty762k,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,mtpj0l8nrlrjwvhgkri3brfw,rooms (listing page),6,0,false
+hotel,mtpj0l8nrlrjwvhgkri3brfw,rooms (hotel root),6,0,false
+hotel,mtpj0l8nrlrjwvhgkri3brfw,dinings (listing page),2,2,true
+hotel,mtpj0l8nrlrjwvhgkri3brfw,dinings (hotel root),2,0,false
+hotel,mtpj0l8nrlrjwvhgkri3brfw,attractions (listing page),1,1,true
+hotel,mtpj0l8nrlrjwvhgkri3brfw,offers (hotel root),1,1,true
+hotel,mtpj0l8nrlrjwvhgkri3brfw,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,mpd0qk2ccww22xrhklqfiq92,rooms (listing page),3,0,false
+hotel,mpd0qk2ccww22xrhklqfiq92,rooms (hotel root),3,0,false
+hotel,mpd0qk2ccww22xrhklqfiq92,dinings (listing page),2,2,true
+hotel,mpd0qk2ccww22xrhklqfiq92,dinings (hotel root),2,0,false
+hotel,mpd0qk2ccww22xrhklqfiq92,banquets (listing page),3,3,true
+hotel,mpd0qk2ccww22xrhklqfiq92,banquets (hotel root),3,3,true
+hotel,mpd0qk2ccww22xrhklqfiq92,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,q7ha9n4x1s8jcrgz1btra8i4,rooms (listing page),6,0,false
+hotel,q7ha9n4x1s8jcrgz1btra8i4,rooms (hotel root),6,0,false
+hotel,q7ha9n4x1s8jcrgz1btra8i4,dinings (listing page),3,3,true
+hotel,q7ha9n4x1s8jcrgz1btra8i4,dinings (hotel root),3,0,false
+hotel,q7ha9n4x1s8jcrgz1btra8i4,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,q50xom97u7k70gcrlkjyhuj2,rooms (listing page),3,0,false
+hotel,q50xom97u7k70gcrlkjyhuj2,rooms (hotel root),3,0,false
+hotel,q50xom97u7k70gcrlkjyhuj2,dinings (listing page),2,2,true
+hotel,q50xom97u7k70gcrlkjyhuj2,dinings (hotel root),2,0,false
+hotel,q50xom97u7k70gcrlkjyhuj2,banquets (listing page),1,1,true
+hotel,q50xom97u7k70gcrlkjyhuj2,banquets (hotel root),1,1,true
+hotel,q50xom97u7k70gcrlkjyhuj2,attractions (listing page),1,1,true
+hotel,q50xom97u7k70gcrlkjyhuj2,offers (hotel root),1,1,true
+hotel,q50xom97u7k70gcrlkjyhuj2,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,l29ccsfyjm041637w1sssg3e,rooms (listing page),8,0,false
+hotel,l29ccsfyjm041637w1sssg3e,rooms (hotel root),8,0,false
+hotel,l29ccsfyjm041637w1sssg3e,dinings (listing page),1,1,true
+hotel,l29ccsfyjm041637w1sssg3e,dinings (hotel root),1,0,false
+hotel,l29ccsfyjm041637w1sssg3e,banquets (listing page),3,3,true
+hotel,l29ccsfyjm041637w1sssg3e,banquets (hotel root),3,3,true
+hotel,l29ccsfyjm041637w1sssg3e,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,qt7r4ao6fwnzqt838fuj4l4c,rooms (listing page),6,0,false
+hotel,qt7r4ao6fwnzqt838fuj4l4c,rooms (hotel root),6,0,false
+hotel,qt7r4ao6fwnzqt838fuj4l4c,dinings (listing page),2,2,true
+hotel,qt7r4ao6fwnzqt838fuj4l4c,dinings (hotel root),2,0,false
+hotel,qt7r4ao6fwnzqt838fuj4l4c,banquets (listing page),3,3,true
+hotel,qt7r4ao6fwnzqt838fuj4l4c,banquets (hotel root),3,3,true
+hotel,qt7r4ao6fwnzqt838fuj4l4c,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,vdqj0qajfbxhnsoguhgkjezr,rooms (listing page),3,0,false
+hotel,vdqj0qajfbxhnsoguhgkjezr,rooms (hotel root),3,0,false
+hotel,vdqj0qajfbxhnsoguhgkjezr,dinings (listing page),3,3,true
+hotel,vdqj0qajfbxhnsoguhgkjezr,dinings (hotel root),3,0,false
+hotel,vdqj0qajfbxhnsoguhgkjezr,attractions (listing page),1,1,true
+hotel,vdqj0qajfbxhnsoguhgkjezr,offers (hotel root),2,2,true
+hotel,vdqj0qajfbxhnsoguhgkjezr,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,tyghvr1m6xufwzv90ecxv9f9,rooms (listing page),5,0,false
+hotel,tyghvr1m6xufwzv90ecxv9f9,rooms (hotel root),5,0,false
+hotel,tyghvr1m6xufwzv90ecxv9f9,dinings (listing page),1,1,true
+hotel,tyghvr1m6xufwzv90ecxv9f9,dinings (hotel root),1,0,false
+hotel,tyghvr1m6xufwzv90ecxv9f9,banquets (listing page),1,1,true
+hotel,tyghvr1m6xufwzv90ecxv9f9,banquets (hotel root),1,1,true
+hotel,tyghvr1m6xufwzv90ecxv9f9,"hotel_galleries (gallery page, capped at 48)",1,2,true
+hotel,xji3gdmxeh6ziosixs2ab8t0,rooms (listing page),7,0,false
+hotel,xji3gdmxeh6ziosixs2ab8t0,rooms (hotel root),7,0,false
+hotel,xji3gdmxeh6ziosixs2ab8t0,dinings (listing page),2,2,true
+hotel,xji3gdmxeh6ziosixs2ab8t0,dinings (hotel root),2,0,false
+hotel,xji3gdmxeh6ziosixs2ab8t0,banquets (listing page),3,3,true
+hotel,xji3gdmxeh6ziosixs2ab8t0,banquets (hotel root),3,3,true
+hotel,xji3gdmxeh6ziosixs2ab8t0,"hotel_galleries (gallery page, capped at 48)",4,5,true
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,rooms (listing page),5,0,false
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,rooms (hotel root),5,0,false
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,dinings (listing page),6,6,true
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,dinings (hotel root),6,0,false
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,banquets (listing page),7,7,true
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,banquets (hotel root),7,7,true
+hotel,yeyd4tcv5dz9nq4qc6mozjc7,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,zsf47aenm1mc810vpi3c9fsl,rooms (listing page),4,0,false
+hotel,zsf47aenm1mc810vpi3c9fsl,rooms (hotel root),4,0,false
+hotel,zsf47aenm1mc810vpi3c9fsl,dinings (listing page),2,2,true
+hotel,zsf47aenm1mc810vpi3c9fsl,dinings (hotel root),2,0,false
+hotel,zsf47aenm1mc810vpi3c9fsl,attractions (listing page),1,1,true
+hotel,zsf47aenm1mc810vpi3c9fsl,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,qyepag2vwhs0m9mfl9ggha23,rooms (listing page),6,0,false
+hotel,qyepag2vwhs0m9mfl9ggha23,rooms (hotel root),6,0,false
+hotel,qyepag2vwhs0m9mfl9ggha23,dinings (listing page),1,1,true
+hotel,qyepag2vwhs0m9mfl9ggha23,dinings (hotel root),1,0,false
+hotel,qyepag2vwhs0m9mfl9ggha23,banquets (listing page),6,6,true
+hotel,qyepag2vwhs0m9mfl9ggha23,banquets (hotel root),6,6,true
+hotel,qyepag2vwhs0m9mfl9ggha23,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,wdwr9na3dtnngunn8nn2r31v,rooms (listing page),5,0,false
+hotel,wdwr9na3dtnngunn8nn2r31v,rooms (hotel root),5,0,false
+hotel,wdwr9na3dtnngunn8nn2r31v,dinings (listing page),3,3,true
+hotel,wdwr9na3dtnngunn8nn2r31v,dinings (hotel root),3,0,false
+hotel,wdwr9na3dtnngunn8nn2r31v,banquets (listing page),1,1,true
+hotel,wdwr9na3dtnngunn8nn2r31v,banquets (hotel root),1,1,true
+hotel,wdwr9na3dtnngunn8nn2r31v,attractions (listing page),1,1,true
+hotel,wdwr9na3dtnngunn8nn2r31v,offers (hotel root),1,1,true
+hotel,wdwr9na3dtnngunn8nn2r31v,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,iai2tjski38mzismfohs5gy7,rooms (listing page),6,0,false
+hotel,iai2tjski38mzismfohs5gy7,rooms (hotel root),6,0,false
+hotel,iai2tjski38mzismfohs5gy7,dinings (listing page),2,2,true
+hotel,iai2tjski38mzismfohs5gy7,dinings (hotel root),2,0,false
+hotel,iai2tjski38mzismfohs5gy7,banquets (listing page),4,4,true
+hotel,iai2tjski38mzismfohs5gy7,banquets (hotel root),4,4,true
+hotel,iai2tjski38mzismfohs5gy7,offers (hotel root),1,1,true
+hotel,iai2tjski38mzismfohs5gy7,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,yuscko7rq2l1rzz4duy1e44s,rooms (listing page),3,0,false
+hotel,yuscko7rq2l1rzz4duy1e44s,rooms (hotel root),3,0,false
+hotel,yuscko7rq2l1rzz4duy1e44s,dinings (listing page),1,1,true
+hotel,yuscko7rq2l1rzz4duy1e44s,dinings (hotel root),1,0,false
+hotel,yuscko7rq2l1rzz4duy1e44s,banquets (listing page),1,1,true
+hotel,yuscko7rq2l1rzz4duy1e44s,banquets (hotel root),1,1,true
+hotel,yuscko7rq2l1rzz4duy1e44s,offers (hotel root),2,2,true
+hotel,yuscko7rq2l1rzz4duy1e44s,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,rooms (listing page),5,0,false
+hotel,vmsu2hjxtzi8g2gr5px9h69g,rooms (hotel root),5,0,false
+hotel,vmsu2hjxtzi8g2gr5px9h69g,dinings (listing page),2,2,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,dinings (hotel root),2,0,false
+hotel,vmsu2hjxtzi8g2gr5px9h69g,banquets (listing page),1,1,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,banquets (hotel root),1,1,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,attractions (listing page),1,1,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,offers (hotel root),1,1,true
+hotel,vmsu2hjxtzi8g2gr5px9h69g,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,z5tyyl7sg79gpz8rbma5pfcl,rooms (listing page),2,0,false
+hotel,z5tyyl7sg79gpz8rbma5pfcl,rooms (hotel root),2,0,false
+hotel,z5tyyl7sg79gpz8rbma5pfcl,dinings (listing page),1,1,true
+hotel,z5tyyl7sg79gpz8rbma5pfcl,dinings (hotel root),1,0,false
+hotel,z5tyyl7sg79gpz8rbma5pfcl,attractions (listing page),1,1,true
+hotel,z5tyyl7sg79gpz8rbma5pfcl,offers (hotel root),1,1,true
+hotel,z5tyyl7sg79gpz8rbma5pfcl,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,rooms (listing page),4,0,false
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,rooms (hotel root),4,0,false
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,dinings (listing page),2,2,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,dinings (hotel root),2,0,false
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,banquets (listing page),1,1,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,banquets (hotel root),1,1,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,attractions (listing page),1,1,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,offers (hotel root),1,1,true
+hotel,ycp1hc8rc6v0fmdjmv0m7ssl,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,wh66kzx9qnxpgnsk6okst09m,rooms (listing page),4,0,false
+hotel,wh66kzx9qnxpgnsk6okst09m,rooms (hotel root),4,0,false
+hotel,wh66kzx9qnxpgnsk6okst09m,dinings (listing page),3,3,true
+hotel,wh66kzx9qnxpgnsk6okst09m,dinings (hotel root),3,0,false
+hotel,wh66kzx9qnxpgnsk6okst09m,attractions (listing page),1,1,true
+hotel,wh66kzx9qnxpgnsk6okst09m,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,m2ooofx864jahbhmgq6mvsqj,rooms (listing page),3,0,false
+hotel,m2ooofx864jahbhmgq6mvsqj,rooms (hotel root),3,0,false
+hotel,m2ooofx864jahbhmgq6mvsqj,dinings (listing page),3,3,true
+hotel,m2ooofx864jahbhmgq6mvsqj,dinings (hotel root),3,0,false
+hotel,m2ooofx864jahbhmgq6mvsqj,banquets (listing page),1,1,true
+hotel,m2ooofx864jahbhmgq6mvsqj,banquets (hotel root),1,1,true
+hotel,m2ooofx864jahbhmgq6mvsqj,attractions (listing page),1,1,true
+hotel,m2ooofx864jahbhmgq6mvsqj,offers (hotel root),1,1,true
+hotel,m2ooofx864jahbhmgq6mvsqj,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,woistsdi8ww9jdzupmvhz9ih,rooms (listing page),1,0,false
+hotel,woistsdi8ww9jdzupmvhz9ih,rooms (hotel root),1,0,false
+hotel,woistsdi8ww9jdzupmvhz9ih,dinings (listing page),1,1,true
+hotel,woistsdi8ww9jdzupmvhz9ih,dinings (hotel root),1,0,false
+hotel,woistsdi8ww9jdzupmvhz9ih,banquets (listing page),1,1,true
+hotel,woistsdi8ww9jdzupmvhz9ih,banquets (hotel root),1,1,true
+hotel,woistsdi8ww9jdzupmvhz9ih,attractions (listing page),1,1,true
+hotel,woistsdi8ww9jdzupmvhz9ih,offers (hotel root),1,1,true
+hotel,woistsdi8ww9jdzupmvhz9ih,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,bfykycaabzujxza1zakrdg69,rooms (listing page),7,0,false
+hotel,bfykycaabzujxza1zakrdg69,rooms (hotel root),7,0,false
+hotel,bfykycaabzujxza1zakrdg69,dinings (listing page),5,5,true
+hotel,bfykycaabzujxza1zakrdg69,dinings (hotel root),5,0,false
+hotel,bfykycaabzujxza1zakrdg69,attractions (listing page),3,3,true
+hotel,bfykycaabzujxza1zakrdg69,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rvqei2o7yte035qa7trmc9ec,rooms (listing page),2,0,false
+hotel,rvqei2o7yte035qa7trmc9ec,rooms (hotel root),2,0,false
+hotel,rvqei2o7yte035qa7trmc9ec,dinings (listing page),2,2,true
+hotel,rvqei2o7yte035qa7trmc9ec,dinings (hotel root),2,0,false
+hotel,rvqei2o7yte035qa7trmc9ec,banquets (listing page),4,4,true
+hotel,rvqei2o7yte035qa7trmc9ec,banquets (hotel root),4,4,true
+hotel,rvqei2o7yte035qa7trmc9ec,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,swfoozfri0jpabi3tmo1jtg4,rooms (listing page),5,0,false
+hotel,swfoozfri0jpabi3tmo1jtg4,rooms (hotel root),5,0,false
+hotel,swfoozfri0jpabi3tmo1jtg4,banquets (listing page),3,3,true
+hotel,swfoozfri0jpabi3tmo1jtg4,banquets (hotel root),3,3,true
+hotel,swfoozfri0jpabi3tmo1jtg4,offers (hotel root),1,1,true
+hotel,swfoozfri0jpabi3tmo1jtg4,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,iq1dy64wt2sh24bzl2w3u1g7,rooms (listing page),3,0,false
+hotel,iq1dy64wt2sh24bzl2w3u1g7,rooms (hotel root),3,0,false
+hotel,iq1dy64wt2sh24bzl2w3u1g7,dinings (listing page),2,2,true
+hotel,iq1dy64wt2sh24bzl2w3u1g7,dinings (hotel root),2,0,false
+hotel,iq1dy64wt2sh24bzl2w3u1g7,banquets (listing page),1,1,true
+hotel,iq1dy64wt2sh24bzl2w3u1g7,banquets (hotel root),1,1,true
+hotel,iq1dy64wt2sh24bzl2w3u1g7,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,nsbwxjvi448rtb44p3znh35v,rooms (listing page),2,0,false
+hotel,nsbwxjvi448rtb44p3znh35v,rooms (hotel root),2,0,false
+hotel,nsbwxjvi448rtb44p3znh35v,banquets (listing page),3,3,true
+hotel,nsbwxjvi448rtb44p3znh35v,banquets (hotel root),3,3,true
+hotel,nsbwxjvi448rtb44p3znh35v,"hotel_galleries (gallery page, capped at 48)",39,40,true
+hotel,vo48ogiq4ionzq2ceemyz2sy,rooms (listing page),4,0,false
+hotel,vo48ogiq4ionzq2ceemyz2sy,rooms (hotel root),4,0,false
+hotel,vo48ogiq4ionzq2ceemyz2sy,dinings (listing page),1,1,true
+hotel,vo48ogiq4ionzq2ceemyz2sy,dinings (hotel root),1,0,false
+hotel,vo48ogiq4ionzq2ceemyz2sy,banquets (listing page),2,2,true
+hotel,vo48ogiq4ionzq2ceemyz2sy,banquets (hotel root),2,2,true
+hotel,vo48ogiq4ionzq2ceemyz2sy,"hotel_galleries (gallery page, capped at 48)",37,38,true
+hotel,cj46m70icy1hurkk7hgmiah2,rooms (listing page),4,0,false
+hotel,cj46m70icy1hurkk7hgmiah2,rooms (hotel root),4,0,false
+hotel,cj46m70icy1hurkk7hgmiah2,dinings (listing page),2,2,true
+hotel,cj46m70icy1hurkk7hgmiah2,dinings (hotel root),2,0,false
+hotel,cj46m70icy1hurkk7hgmiah2,banquets (listing page),4,4,true
+hotel,cj46m70icy1hurkk7hgmiah2,banquets (hotel root),4,4,true
+hotel,cj46m70icy1hurkk7hgmiah2,"hotel_galleries (gallery page, capped at 48)",28,29,true
+hotel,pt954m6bhats2hzir541zmgi,rooms (listing page),3,0,false
+hotel,pt954m6bhats2hzir541zmgi,rooms (hotel root),3,0,false
+hotel,pt954m6bhats2hzir541zmgi,banquets (listing page),1,1,true
+hotel,pt954m6bhats2hzir541zmgi,banquets (hotel root),1,1,true
+hotel,pt954m6bhats2hzir541zmgi,"hotel_galleries (gallery page, capped at 48)",26,27,true
+hotel,rogz5szgn13cvdmeevwa8jbo,rooms (listing page),3,0,false
+hotel,rogz5szgn13cvdmeevwa8jbo,rooms (hotel root),3,0,false
+hotel,rogz5szgn13cvdmeevwa8jbo,dinings (listing page),1,1,true
+hotel,rogz5szgn13cvdmeevwa8jbo,dinings (hotel root),1,0,false
+hotel,rogz5szgn13cvdmeevwa8jbo,banquets (listing page),1,1,true
+hotel,rogz5szgn13cvdmeevwa8jbo,banquets (hotel root),1,1,true
+hotel,rogz5szgn13cvdmeevwa8jbo,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,kpf4gals2yxkg9mvvb5esdwd,rooms (listing page),3,0,false
+hotel,kpf4gals2yxkg9mvvb5esdwd,rooms (hotel root),3,0,false
+hotel,kpf4gals2yxkg9mvvb5esdwd,dinings (listing page),3,3,true
+hotel,kpf4gals2yxkg9mvvb5esdwd,dinings (hotel root),3,0,false
+hotel,kpf4gals2yxkg9mvvb5esdwd,banquets (listing page),6,6,true
+hotel,kpf4gals2yxkg9mvvb5esdwd,banquets (hotel root),6,6,true
+hotel,kpf4gals2yxkg9mvvb5esdwd,attractions (listing page),1,1,true
+hotel,kpf4gals2yxkg9mvvb5esdwd,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,vew069pph0gharh0lgj6jfpc,rooms (listing page),6,0,false
+hotel,vew069pph0gharh0lgj6jfpc,rooms (hotel root),6,0,false
+hotel,vew069pph0gharh0lgj6jfpc,dinings (listing page),3,3,true
+hotel,vew069pph0gharh0lgj6jfpc,dinings (hotel root),3,0,false
+hotel,vew069pph0gharh0lgj6jfpc,banquets (listing page),3,3,true
+hotel,vew069pph0gharh0lgj6jfpc,banquets (hotel root),3,3,true
+hotel,vew069pph0gharh0lgj6jfpc,"hotel_galleries (gallery page, capped at 48)",46,47,true
+hotel,ueqmqq9p5ufoksylov1ltvpn,rooms (listing page),3,0,false
+hotel,ueqmqq9p5ufoksylov1ltvpn,rooms (hotel root),3,0,false
+hotel,ueqmqq9p5ufoksylov1ltvpn,banquets (listing page),1,1,true
+hotel,ueqmqq9p5ufoksylov1ltvpn,banquets (hotel root),1,1,true
+hotel,ueqmqq9p5ufoksylov1ltvpn,"hotel_galleries (gallery page, capped at 48)",41,42,true
+hotel,ep147k3lkgsp9rkbvdjzxbvk,rooms (listing page),4,0,false
+hotel,ep147k3lkgsp9rkbvdjzxbvk,rooms (hotel root),4,0,false
+hotel,ep147k3lkgsp9rkbvdjzxbvk,dinings (listing page),2,2,true
+hotel,ep147k3lkgsp9rkbvdjzxbvk,dinings (hotel root),2,0,false
+hotel,ep147k3lkgsp9rkbvdjzxbvk,"hotel_galleries (gallery page, capped at 48)",21,22,true
+hotel,lcsiof3ol3u5cvyr5rm2s13k,rooms (listing page),4,0,false
+hotel,lcsiof3ol3u5cvyr5rm2s13k,rooms (hotel root),4,0,false
+hotel,lcsiof3ol3u5cvyr5rm2s13k,dinings (listing page),1,1,true
+hotel,lcsiof3ol3u5cvyr5rm2s13k,dinings (hotel root),1,0,false
+hotel,lcsiof3ol3u5cvyr5rm2s13k,banquets (listing page),1,1,true
+hotel,lcsiof3ol3u5cvyr5rm2s13k,banquets (hotel root),1,1,true
+hotel,lcsiof3ol3u5cvyr5rm2s13k,offers (hotel root),1,1,true
+hotel,lcsiof3ol3u5cvyr5rm2s13k,"hotel_galleries (gallery page, capped at 48)",22,23,true
+hotel,idt7wgbvd0n6d27aoc53y8xo,rooms (listing page),5,0,false
+hotel,idt7wgbvd0n6d27aoc53y8xo,rooms (hotel root),5,0,false
+hotel,idt7wgbvd0n6d27aoc53y8xo,dinings (listing page),1,1,true
+hotel,idt7wgbvd0n6d27aoc53y8xo,dinings (hotel root),1,0,false
+hotel,idt7wgbvd0n6d27aoc53y8xo,"hotel_galleries (gallery page, capped at 48)",64,49,true
+hotel,z9keid6l1ze9uu6sqghp69ux,rooms (listing page),5,0,false
+hotel,z9keid6l1ze9uu6sqghp69ux,rooms (hotel root),5,0,false
+hotel,z9keid6l1ze9uu6sqghp69ux,"hotel_galleries (gallery page, capped at 48)",38,39,true
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,rooms (listing page),4,0,false
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,rooms (hotel root),4,0,false
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,dinings (listing page),1,1,true
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,dinings (hotel root),1,0,false
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,banquets (listing page),1,1,true
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,banquets (hotel root),1,1,true
+hotel,t4oqb5tlt6ljuhw8g0cwq93d,"hotel_galleries (gallery page, capped at 48)",40,41,true
+hotel,foaeyxlinknkd1mdi61yjr96,rooms (listing page),4,0,false
+hotel,foaeyxlinknkd1mdi61yjr96,rooms (hotel root),4,0,false
+hotel,foaeyxlinknkd1mdi61yjr96,dinings (listing page),1,1,true
+hotel,foaeyxlinknkd1mdi61yjr96,dinings (hotel root),1,0,false
+hotel,foaeyxlinknkd1mdi61yjr96,banquets (listing page),1,1,true
+hotel,foaeyxlinknkd1mdi61yjr96,banquets (hotel root),1,1,true
+hotel,foaeyxlinknkd1mdi61yjr96,attractions (listing page),1,1,true
+hotel,foaeyxlinknkd1mdi61yjr96,"hotel_galleries (gallery page, capped at 48)",51,49,true
+hotel,dulazj3fbpm363og0pk6zo3z,rooms (listing page),6,0,false
+hotel,dulazj3fbpm363og0pk6zo3z,rooms (hotel root),6,0,false
+hotel,dulazj3fbpm363og0pk6zo3z,dinings (listing page),4,4,true
+hotel,dulazj3fbpm363og0pk6zo3z,dinings (hotel root),4,0,false
+hotel,dulazj3fbpm363og0pk6zo3z,banquets (listing page),3,3,true
+hotel,dulazj3fbpm363og0pk6zo3z,banquets (hotel root),3,3,true
+hotel,dulazj3fbpm363og0pk6zo3z,"hotel_galleries (gallery page, capped at 48)",63,49,true
+hotel,wn5u3hgyo2zeytt4pol2eulr,rooms (listing page),2,0,false
+hotel,wn5u3hgyo2zeytt4pol2eulr,rooms (hotel root),2,0,false
+hotel,wn5u3hgyo2zeytt4pol2eulr,dinings (listing page),1,1,true
+hotel,wn5u3hgyo2zeytt4pol2eulr,dinings (hotel root),1,0,false
+hotel,wn5u3hgyo2zeytt4pol2eulr,"hotel_galleries (gallery page, capped at 48)",7,8,true
+hotel,gof0nrzn7xg5fnnc3i2x4dih,rooms (listing page),3,0,false
+hotel,gof0nrzn7xg5fnnc3i2x4dih,rooms (hotel root),3,0,false
+hotel,gof0nrzn7xg5fnnc3i2x4dih,"hotel_galleries (gallery page, capped at 48)",5,6,true
+hotel,rc58adgip2rl5q0ug9txf8a9,rooms (listing page),3,0,false
+hotel,rc58adgip2rl5q0ug9txf8a9,rooms (hotel root),3,0,false
+hotel,rc58adgip2rl5q0ug9txf8a9,dinings (listing page),2,2,true
+hotel,rc58adgip2rl5q0ug9txf8a9,dinings (hotel root),2,0,false
+hotel,rc58adgip2rl5q0ug9txf8a9,banquets (listing page),1,1,true
+hotel,rc58adgip2rl5q0ug9txf8a9,banquets (hotel root),1,1,true
+hotel,rc58adgip2rl5q0ug9txf8a9,"hotel_galleries (gallery page, capped at 48)",32,33,true
+hotel,ki1vjxay15jnujjcikq2kceb,rooms (listing page),2,0,false
+hotel,ki1vjxay15jnujjcikq2kceb,rooms (hotel root),2,0,false
+hotel,ki1vjxay15jnujjcikq2kceb,dinings (listing page),1,1,true
+hotel,ki1vjxay15jnujjcikq2kceb,dinings (hotel root),1,0,false
+hotel,ki1vjxay15jnujjcikq2kceb,"hotel_galleries (gallery page, capped at 48)",39,40,true
+hotel,kehsc82vkbibh4alwh3k5oa9,rooms (listing page),5,0,false
+hotel,kehsc82vkbibh4alwh3k5oa9,rooms (hotel root),5,0,false
+hotel,kehsc82vkbibh4alwh3k5oa9,"hotel_galleries (gallery page, capped at 48)",12,13,true
+hotel,a64dvsnts2wpcxgi82saqckj,rooms (listing page),3,0,false
+hotel,a64dvsnts2wpcxgi82saqckj,rooms (hotel root),3,0,false
+hotel,a64dvsnts2wpcxgi82saqckj,dinings (listing page),2,2,true
+hotel,a64dvsnts2wpcxgi82saqckj,dinings (hotel root),2,0,false
+hotel,a64dvsnts2wpcxgi82saqckj,attractions (listing page),1,1,true
+hotel,a64dvsnts2wpcxgi82saqckj,offers (hotel root),1,1,true
+hotel,a64dvsnts2wpcxgi82saqckj,"hotel_galleries (gallery page, capped at 48)",7,8,true
+hotel,rd1rckytbfr5zidvklxad3an,rooms (listing page),3,0,false
+hotel,rd1rckytbfr5zidvklxad3an,rooms (hotel root),3,0,false
+hotel,rd1rckytbfr5zidvklxad3an,dinings (listing page),3,3,true
+hotel,rd1rckytbfr5zidvklxad3an,dinings (hotel root),3,0,false
+hotel,rd1rckytbfr5zidvklxad3an,banquets (listing page),2,2,true
+hotel,rd1rckytbfr5zidvklxad3an,banquets (hotel root),2,2,true
+hotel,rd1rckytbfr5zidvklxad3an,attractions (listing page),1,1,true
+hotel,rd1rckytbfr5zidvklxad3an,offers (hotel root),4,4,true
+hotel,rd1rckytbfr5zidvklxad3an,"hotel_galleries (gallery page, capped at 48)",6,7,true
+hotel,kn4tliuzdetbggkmpcovxyf0,rooms (listing page),6,0,false
+hotel,kn4tliuzdetbggkmpcovxyf0,rooms (hotel root),6,0,false
+hotel,kn4tliuzdetbggkmpcovxyf0,dinings (listing page),2,2,true
+hotel,kn4tliuzdetbggkmpcovxyf0,dinings (hotel root),2,0,false
+hotel,kn4tliuzdetbggkmpcovxyf0,banquets (listing page),1,1,true
+hotel,kn4tliuzdetbggkmpcovxyf0,banquets (hotel root),1,1,true
+hotel,kn4tliuzdetbggkmpcovxyf0,"hotel_galleries (gallery page, capped at 48)",4,5,true
+hotel,tbz50k3vm3evehr5ssezs6yu,rooms (listing page),4,0,false
+hotel,tbz50k3vm3evehr5ssezs6yu,rooms (hotel root),4,0,false
+hotel,tbz50k3vm3evehr5ssezs6yu,dinings (listing page),2,2,true
+hotel,tbz50k3vm3evehr5ssezs6yu,dinings (hotel root),2,0,false
+hotel,tbz50k3vm3evehr5ssezs6yu,banquets (listing page),1,1,true
+hotel,tbz50k3vm3evehr5ssezs6yu,banquets (hotel root),1,1,true
+hotel,tbz50k3vm3evehr5ssezs6yu,"hotel_galleries (gallery page, capped at 48)",25,26,true
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,rooms (listing page),3,0,false
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,rooms (hotel root),3,0,false
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,dinings (listing page),2,2,true
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,dinings (hotel root),2,0,false
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,banquets (listing page),3,3,true
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,banquets (hotel root),3,3,true
+hotel,gjvj1n7efo6nn3mfmrgi9nw1,"hotel_galleries (gallery page, capped at 48)",25,26,true
+hotel,fgsh1iqwzppm69u11dbdmn7s,rooms (listing page),4,0,false
+hotel,fgsh1iqwzppm69u11dbdmn7s,rooms (hotel root),4,0,false
+hotel,fgsh1iqwzppm69u11dbdmn7s,banquets (listing page),3,3,true
+hotel,fgsh1iqwzppm69u11dbdmn7s,banquets (hotel root),3,3,true
+hotel,fgsh1iqwzppm69u11dbdmn7s,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,y2sfqfyjssjimziuyt95eg82,rooms (listing page),4,0,false
+hotel,y2sfqfyjssjimziuyt95eg82,rooms (hotel root),4,0,false
+hotel,y2sfqfyjssjimziuyt95eg82,dinings (listing page),3,3,true
+hotel,y2sfqfyjssjimziuyt95eg82,dinings (hotel root),3,0,false
+hotel,y2sfqfyjssjimziuyt95eg82,"hotel_galleries (gallery page, capped at 48)",20,21,true
+hotel,v1vfqrshexf95orkxb6fpw5a,rooms (listing page),5,0,false
+hotel,v1vfqrshexf95orkxb6fpw5a,rooms (hotel root),5,0,false
+hotel,v1vfqrshexf95orkxb6fpw5a,dinings (listing page),2,2,true
+hotel,v1vfqrshexf95orkxb6fpw5a,dinings (hotel root),2,0,false
+hotel,v1vfqrshexf95orkxb6fpw5a,banquets (listing page),1,1,true
+hotel,v1vfqrshexf95orkxb6fpw5a,banquets (hotel root),1,1,true
+hotel,v1vfqrshexf95orkxb6fpw5a,attractions (listing page),1,1,true
+hotel,v1vfqrshexf95orkxb6fpw5a,offers (hotel root),1,1,true
+hotel,v1vfqrshexf95orkxb6fpw5a,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,d7i07ozxdule8j9edzacv4ez,rooms (listing page),4,0,false
+hotel,d7i07ozxdule8j9edzacv4ez,rooms (hotel root),4,0,false
+hotel,d7i07ozxdule8j9edzacv4ez,dinings (listing page),2,2,true
+hotel,d7i07ozxdule8j9edzacv4ez,dinings (hotel root),2,0,false
+hotel,d7i07ozxdule8j9edzacv4ez,attractions (listing page),3,3,true
+hotel,d7i07ozxdule8j9edzacv4ez,offers (hotel root),1,1,true
+hotel,d7i07ozxdule8j9edzacv4ez,"hotel_galleries (gallery page, capped at 48)",3,4,true
+hotel,tr1ubf9cir92pxyuy19is6fl,rooms (listing page),4,0,false
+hotel,tr1ubf9cir92pxyuy19is6fl,rooms (hotel root),4,0,false
+hotel,tr1ubf9cir92pxyuy19is6fl,dinings (listing page),3,3,true
+hotel,tr1ubf9cir92pxyuy19is6fl,dinings (hotel root),3,0,false
+hotel,tr1ubf9cir92pxyuy19is6fl,attractions (listing page),1,1,true
+hotel,tr1ubf9cir92pxyuy19is6fl,offers (hotel root),1,1,true
+hotel,tr1ubf9cir92pxyuy19is6fl,"hotel_galleries (gallery page, capped at 48)",8,9,true
+hotel,dgafbx7g4eyjn7767cvguenw,rooms (listing page),2,0,false
+hotel,dgafbx7g4eyjn7767cvguenw,rooms (hotel root),2,0,false
+hotel,dgafbx7g4eyjn7767cvguenw,dinings (listing page),2,2,true
+hotel,dgafbx7g4eyjn7767cvguenw,dinings (hotel root),2,0,false
+hotel,dgafbx7g4eyjn7767cvguenw,banquets (listing page),1,1,true
+hotel,dgafbx7g4eyjn7767cvguenw,banquets (hotel root),1,1,true
+hotel,dgafbx7g4eyjn7767cvguenw,"hotel_galleries (gallery page, capped at 48)",9,10,true
+hotel,j9s68jd94a0m0zet5j93fqyt,rooms (listing page),4,0,false
+hotel,j9s68jd94a0m0zet5j93fqyt,rooms (hotel root),4,0,false
+hotel,j9s68jd94a0m0zet5j93fqyt,dinings (listing page),2,2,true
+hotel,j9s68jd94a0m0zet5j93fqyt,dinings (hotel root),2,0,false
+hotel,j9s68jd94a0m0zet5j93fqyt,attractions (listing page),1,1,true
+hotel,j9s68jd94a0m0zet5j93fqyt,offers (hotel root),1,1,true
+hotel,j9s68jd94a0m0zet5j93fqyt,"hotel_galleries (gallery page, capped at 48)",12,13,true
+hotel,yd7h2lz0gatji8bmfouve33w,rooms (listing page),5,0,false
+hotel,yd7h2lz0gatji8bmfouve33w,rooms (hotel root),5,0,false
+hotel,yd7h2lz0gatji8bmfouve33w,dinings (listing page),2,2,true
+hotel,yd7h2lz0gatji8bmfouve33w,dinings (hotel root),2,0,false
+hotel,yd7h2lz0gatji8bmfouve33w,banquets (listing page),1,1,true
+hotel,yd7h2lz0gatji8bmfouve33w,banquets (hotel root),1,1,true
+hotel,yd7h2lz0gatji8bmfouve33w,attractions (listing page),1,1,true
+hotel,yd7h2lz0gatji8bmfouve33w,offers (hotel root),2,2,true
+hotel,yd7h2lz0gatji8bmfouve33w,"hotel_galleries (gallery page, capped at 48)",3,4,true
+hotel,isyez2n6zynxzjv0vmc70x81,rooms (listing page),4,0,false
+hotel,isyez2n6zynxzjv0vmc70x81,rooms (hotel root),4,0,false
+hotel,isyez2n6zynxzjv0vmc70x81,dinings (listing page),1,1,true
+hotel,isyez2n6zynxzjv0vmc70x81,dinings (hotel root),1,0,false
+hotel,isyez2n6zynxzjv0vmc70x81,banquets (listing page),1,1,true
+hotel,isyez2n6zynxzjv0vmc70x81,banquets (hotel root),1,1,true
+hotel,isyez2n6zynxzjv0vmc70x81,attractions (listing page),1,1,true
+hotel,isyez2n6zynxzjv0vmc70x81,offers (hotel root),1,1,true
+hotel,isyez2n6zynxzjv0vmc70x81,"hotel_galleries (gallery page, capped at 48)",7,8,true
+hotel,kx78qv4r0voji7gdp78u56dg,"hotel_galleries (gallery page, capped at 48)",6,7,true
+hotel,mc9i8dsw86tgh0h0lfgkutq3,rooms (listing page),3,0,false
+hotel,mc9i8dsw86tgh0h0lfgkutq3,rooms (hotel root),3,0,false
+hotel,mc9i8dsw86tgh0h0lfgkutq3,dinings (listing page),2,2,true
+hotel,mc9i8dsw86tgh0h0lfgkutq3,dinings (hotel root),2,0,false
+hotel,mc9i8dsw86tgh0h0lfgkutq3,"hotel_galleries (gallery page, capped at 48)",26,27,true
+hotel,wd93vbljhxrqaahd4j8ltzzm,rooms (listing page),2,0,false
+hotel,wd93vbljhxrqaahd4j8ltzzm,rooms (hotel root),2,0,false
+hotel,wd93vbljhxrqaahd4j8ltzzm,dinings (listing page),2,2,true
+hotel,wd93vbljhxrqaahd4j8ltzzm,dinings (hotel root),2,0,false
+hotel,wd93vbljhxrqaahd4j8ltzzm,attractions (listing page),1,1,true
+hotel,wd93vbljhxrqaahd4j8ltzzm,offers (hotel root),1,1,true
+hotel,wd93vbljhxrqaahd4j8ltzzm,"hotel_galleries (gallery page, capped at 48)",22,23,true
+hotel,b2p0vkm0vbb1vy4ld0ona55t,rooms (listing page),4,0,false
+hotel,b2p0vkm0vbb1vy4ld0ona55t,rooms (hotel root),4,0,false
+hotel,b2p0vkm0vbb1vy4ld0ona55t,dinings (listing page),3,3,true
+hotel,b2p0vkm0vbb1vy4ld0ona55t,dinings (hotel root),3,0,false
+hotel,b2p0vkm0vbb1vy4ld0ona55t,attractions (listing page),1,1,true
+hotel,b2p0vkm0vbb1vy4ld0ona55t,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,rooms (listing page),5,0,false
+hotel,n5xo9z0j7xzrkgssvpxz53qd,rooms (hotel root),5,0,false
+hotel,n5xo9z0j7xzrkgssvpxz53qd,dinings (listing page),3,3,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,dinings (hotel root),3,0,false
+hotel,n5xo9z0j7xzrkgssvpxz53qd,banquets (listing page),1,1,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,banquets (hotel root),1,1,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,attractions (listing page),1,1,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,offers (hotel root),1,1,true
+hotel,n5xo9z0j7xzrkgssvpxz53qd,"hotel_galleries (gallery page, capped at 48)",10,11,true
+hotel,wgsaao2613c13tc6lsq8o4nj,rooms (listing page),5,0,false
+hotel,wgsaao2613c13tc6lsq8o4nj,rooms (hotel root),5,0,false
+hotel,wgsaao2613c13tc6lsq8o4nj,dinings (listing page),1,1,true
+hotel,wgsaao2613c13tc6lsq8o4nj,dinings (hotel root),1,0,false
+hotel,wgsaao2613c13tc6lsq8o4nj,banquets (listing page),4,4,true
+hotel,wgsaao2613c13tc6lsq8o4nj,banquets (hotel root),4,4,true
+hotel,wgsaao2613c13tc6lsq8o4nj,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,o1da0ksqldub948k1y3nbdg0,rooms (listing page),5,0,false
+hotel,o1da0ksqldub948k1y3nbdg0,rooms (hotel root),5,0,false
+hotel,o1da0ksqldub948k1y3nbdg0,dinings (listing page),3,3,true
+hotel,o1da0ksqldub948k1y3nbdg0,dinings (hotel root),3,0,false
+hotel,o1da0ksqldub948k1y3nbdg0,banquets (listing page),1,1,true
+hotel,o1da0ksqldub948k1y3nbdg0,banquets (hotel root),1,1,true
+hotel,o1da0ksqldub948k1y3nbdg0,attractions (listing page),1,1,true
+hotel,o1da0ksqldub948k1y3nbdg0,offers (hotel root),1,1,true
+hotel,o1da0ksqldub948k1y3nbdg0,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,b7vkbewua16i1y9unkbwk835,rooms (listing page),4,0,false
+hotel,b7vkbewua16i1y9unkbwk835,rooms (hotel root),4,0,false
+hotel,b7vkbewua16i1y9unkbwk835,dinings (listing page),2,2,true
+hotel,b7vkbewua16i1y9unkbwk835,dinings (hotel root),2,0,false
+hotel,b7vkbewua16i1y9unkbwk835,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,m079kakdl1x8fkqgebw3jzax,rooms (listing page),6,0,false
+hotel,m079kakdl1x8fkqgebw3jzax,rooms (hotel root),6,0,false
+hotel,m079kakdl1x8fkqgebw3jzax,dinings (listing page),2,2,true
+hotel,m079kakdl1x8fkqgebw3jzax,dinings (hotel root),2,0,false
+hotel,m079kakdl1x8fkqgebw3jzax,banquets (listing page),7,7,true
+hotel,m079kakdl1x8fkqgebw3jzax,banquets (hotel root),7,7,true
+hotel,m079kakdl1x8fkqgebw3jzax,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,y7i33qrfe7zsl54lgrfp20wr,rooms (listing page),4,0,false
+hotel,y7i33qrfe7zsl54lgrfp20wr,rooms (hotel root),4,0,false
+hotel,y7i33qrfe7zsl54lgrfp20wr,dinings (listing page),2,2,true
+hotel,y7i33qrfe7zsl54lgrfp20wr,dinings (hotel root),2,0,false
+hotel,y7i33qrfe7zsl54lgrfp20wr,offers (hotel root),1,1,true
+hotel,y7i33qrfe7zsl54lgrfp20wr,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,qgb7rx7eo65id7uscqk1vsvm,rooms (listing page),3,0,false
+hotel,qgb7rx7eo65id7uscqk1vsvm,rooms (hotel root),3,0,false
+hotel,qgb7rx7eo65id7uscqk1vsvm,dinings (listing page),1,1,true
+hotel,qgb7rx7eo65id7uscqk1vsvm,dinings (hotel root),1,0,false
+hotel,qgb7rx7eo65id7uscqk1vsvm,banquets (listing page),1,1,true
+hotel,qgb7rx7eo65id7uscqk1vsvm,banquets (hotel root),1,1,true
+hotel,qgb7rx7eo65id7uscqk1vsvm,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,lg68oiqz8ht4rcfp586f3qef,rooms (listing page),3,0,false
+hotel,lg68oiqz8ht4rcfp586f3qef,rooms (hotel root),3,0,false
+hotel,lg68oiqz8ht4rcfp586f3qef,dinings (listing page),1,1,true
+hotel,lg68oiqz8ht4rcfp586f3qef,dinings (hotel root),1,0,false
+hotel,lg68oiqz8ht4rcfp586f3qef,attractions (listing page),2,2,true
+hotel,lg68oiqz8ht4rcfp586f3qef,offers (hotel root),1,1,true
+hotel,lg68oiqz8ht4rcfp586f3qef,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,dpi1ztz03r00h0s0lhm7dr14,rooms (listing page),3,0,false
+hotel,dpi1ztz03r00h0s0lhm7dr14,rooms (hotel root),3,0,false
+hotel,dpi1ztz03r00h0s0lhm7dr14,dinings (listing page),3,3,true
+hotel,dpi1ztz03r00h0s0lhm7dr14,dinings (hotel root),3,0,false
+hotel,dpi1ztz03r00h0s0lhm7dr14,banquets (listing page),1,1,true
+hotel,dpi1ztz03r00h0s0lhm7dr14,banquets (hotel root),1,1,true
+hotel,dpi1ztz03r00h0s0lhm7dr14,attractions (listing page),1,1,true
+hotel,dpi1ztz03r00h0s0lhm7dr14,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,mls77b7hie6jp3b8zlcznf2a,rooms (listing page),4,0,false
+hotel,mls77b7hie6jp3b8zlcznf2a,rooms (hotel root),4,0,false
+hotel,mls77b7hie6jp3b8zlcznf2a,dinings (listing page),3,3,true
+hotel,mls77b7hie6jp3b8zlcznf2a,dinings (hotel root),3,0,false
+hotel,mls77b7hie6jp3b8zlcznf2a,banquets (listing page),1,1,true
+hotel,mls77b7hie6jp3b8zlcznf2a,banquets (hotel root),1,1,true
+hotel,mls77b7hie6jp3b8zlcznf2a,attractions (listing page),1,1,true
+hotel,mls77b7hie6jp3b8zlcznf2a,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,kwn3byhz868jji95h57sfjxh,rooms (listing page),2,0,false
+hotel,kwn3byhz868jji95h57sfjxh,rooms (hotel root),2,0,false
+hotel,kwn3byhz868jji95h57sfjxh,dinings (listing page),2,2,true
+hotel,kwn3byhz868jji95h57sfjxh,dinings (hotel root),2,0,false
+hotel,kwn3byhz868jji95h57sfjxh,attractions (listing page),1,1,true
+hotel,kwn3byhz868jji95h57sfjxh,offers (hotel root),1,1,true
+hotel,kwn3byhz868jji95h57sfjxh,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,gjai9v986449xj50no17n8ut,dinings (listing page),2,2,true
+hotel,gjai9v986449xj50no17n8ut,dinings (hotel root),2,0,false
+hotel,gjai9v986449xj50no17n8ut,banquets (listing page),1,1,true
+hotel,gjai9v986449xj50no17n8ut,banquets (hotel root),1,1,true
+hotel,gjai9v986449xj50no17n8ut,attractions (listing page),1,1,true
+hotel,gjai9v986449xj50no17n8ut,offers (hotel root),1,1,true
+hotel,gjai9v986449xj50no17n8ut,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,kkc9mdz9qxvh2qkqfkz58cf5,rooms (listing page),3,0,false
+hotel,kkc9mdz9qxvh2qkqfkz58cf5,rooms (hotel root),3,0,false
+hotel,kkc9mdz9qxvh2qkqfkz58cf5,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,y2svrpznr4562wz1o9p6j564,dinings (listing page),3,3,true
+hotel,y2svrpznr4562wz1o9p6j564,dinings (hotel root),3,0,false
+hotel,y2svrpznr4562wz1o9p6j564,attractions (listing page),1,1,true
+hotel,y2svrpznr4562wz1o9p6j564,offers (hotel root),1,1,true
+hotel,y2svrpznr4562wz1o9p6j564,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,ezhwjan3er65wzp0pjxsgboz,dinings (listing page),3,3,true
+hotel,ezhwjan3er65wzp0pjxsgboz,dinings (hotel root),3,0,false
+hotel,ezhwjan3er65wzp0pjxsgboz,banquets (listing page),1,1,true
+hotel,ezhwjan3er65wzp0pjxsgboz,banquets (hotel root),1,1,true
+hotel,ezhwjan3er65wzp0pjxsgboz,attractions (listing page),1,1,true
+hotel,ezhwjan3er65wzp0pjxsgboz,offers (hotel root),1,1,true
+hotel,ezhwjan3er65wzp0pjxsgboz,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,gezrbajohui6w08c7b1k72v3,rooms (listing page),3,0,false
+hotel,gezrbajohui6w08c7b1k72v3,rooms (hotel root),3,0,false
+hotel,gezrbajohui6w08c7b1k72v3,dinings (listing page),2,2,true
+hotel,gezrbajohui6w08c7b1k72v3,dinings (hotel root),2,0,false
+hotel,gezrbajohui6w08c7b1k72v3,banquets (listing page),1,1,true
+hotel,gezrbajohui6w08c7b1k72v3,banquets (hotel root),1,1,true
+hotel,gezrbajohui6w08c7b1k72v3,attractions (listing page),1,1,true
+hotel,gezrbajohui6w08c7b1k72v3,offers (hotel root),1,1,true
+hotel,gezrbajohui6w08c7b1k72v3,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,orfnykm3gp3alkxubofqqwos,rooms (listing page),4,0,false
+hotel,orfnykm3gp3alkxubofqqwos,rooms (hotel root),4,0,false
+hotel,orfnykm3gp3alkxubofqqwos,dinings (listing page),3,3,true
+hotel,orfnykm3gp3alkxubofqqwos,dinings (hotel root),3,0,false
+hotel,orfnykm3gp3alkxubofqqwos,banquets (listing page),4,4,true
+hotel,orfnykm3gp3alkxubofqqwos,banquets (hotel root),4,4,true
+hotel,orfnykm3gp3alkxubofqqwos,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,dinings (listing page),3,3,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,dinings (hotel root),3,0,false
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,banquets (listing page),1,1,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,banquets (hotel root),1,1,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,attractions (listing page),1,1,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,offers (hotel root),1,1,true
+hotel,ngqmxp5f1z6g2cx2rqlcuey1,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,dinings (listing page),3,3,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,dinings (hotel root),3,0,false
+hotel,dp3pchx3z0m8varr1x2wjpqm,banquets (listing page),1,1,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,banquets (hotel root),1,1,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,attractions (listing page),1,1,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,offers (hotel root),3,3,true
+hotel,dp3pchx3z0m8varr1x2wjpqm,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,iyftn1x1hf4um63b5ab1ocmz,rooms (listing page),8,0,false
+hotel,iyftn1x1hf4um63b5ab1ocmz,rooms (hotel root),8,0,false
+hotel,iyftn1x1hf4um63b5ab1ocmz,dinings (listing page),2,2,true
+hotel,iyftn1x1hf4um63b5ab1ocmz,dinings (hotel root),2,0,false
+hotel,iyftn1x1hf4um63b5ab1ocmz,banquets (listing page),7,7,true
+hotel,iyftn1x1hf4um63b5ab1ocmz,banquets (hotel root),7,7,true
+hotel,iyftn1x1hf4um63b5ab1ocmz,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,m3reigqloix1tkxm3bj53hpr,dinings (listing page),2,2,true
+hotel,m3reigqloix1tkxm3bj53hpr,dinings (hotel root),2,0,false
+hotel,m3reigqloix1tkxm3bj53hpr,attractions (listing page),1,1,true
+hotel,m3reigqloix1tkxm3bj53hpr,offers (hotel root),1,1,true
+hotel,m3reigqloix1tkxm3bj53hpr,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,e5sbgltc4ta0yf8ldyusskak,rooms (listing page),6,0,false
+hotel,e5sbgltc4ta0yf8ldyusskak,rooms (hotel root),6,0,false
+hotel,e5sbgltc4ta0yf8ldyusskak,dinings (listing page),2,2,true
+hotel,e5sbgltc4ta0yf8ldyusskak,dinings (hotel root),2,0,false
+hotel,e5sbgltc4ta0yf8ldyusskak,banquets (listing page),1,1,true
+hotel,e5sbgltc4ta0yf8ldyusskak,banquets (hotel root),1,1,true
+hotel,e5sbgltc4ta0yf8ldyusskak,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,iq0ggiovctbvy6vshivlfz3p,rooms (listing page),8,0,false
+hotel,iq0ggiovctbvy6vshivlfz3p,rooms (hotel root),8,0,false
+hotel,iq0ggiovctbvy6vshivlfz3p,dinings (listing page),2,2,true
+hotel,iq0ggiovctbvy6vshivlfz3p,dinings (hotel root),2,0,false
+hotel,iq0ggiovctbvy6vshivlfz3p,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,rooms (listing page),2,0,false
+hotel,gkq13tosaf6d6ol2u2o4kvuu,rooms (hotel root),2,0,false
+hotel,gkq13tosaf6d6ol2u2o4kvuu,dinings (listing page),2,2,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,dinings (hotel root),2,0,false
+hotel,gkq13tosaf6d6ol2u2o4kvuu,banquets (listing page),1,1,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,banquets (hotel root),1,1,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,attractions (listing page),1,1,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,offers (hotel root),2,2,true
+hotel,gkq13tosaf6d6ol2u2o4kvuu,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,qiylpmyuzgutlu2nf1pawhxa,rooms (listing page),3,0,false
+hotel,qiylpmyuzgutlu2nf1pawhxa,rooms (hotel root),3,0,false
+hotel,qiylpmyuzgutlu2nf1pawhxa,dinings (listing page),4,4,true
+hotel,qiylpmyuzgutlu2nf1pawhxa,dinings (hotel root),4,0,false
+hotel,qiylpmyuzgutlu2nf1pawhxa,attractions (listing page),1,1,true
+hotel,qiylpmyuzgutlu2nf1pawhxa,offers (hotel root),1,1,true
+hotel,qiylpmyuzgutlu2nf1pawhxa,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rpmfc42m6nyd97zn7h9r9mz0,dinings (listing page),6,6,true
+hotel,rpmfc42m6nyd97zn7h9r9mz0,dinings (hotel root),6,0,false
+hotel,rpmfc42m6nyd97zn7h9r9mz0,attractions (listing page),1,1,true
+hotel,rpmfc42m6nyd97zn7h9r9mz0,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,dinings (listing page),4,4,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,dinings (hotel root),4,0,false
+hotel,z3i1yye4jqyvi7q7mzvmks84,banquets (listing page),1,1,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,banquets (hotel root),1,1,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,attractions (listing page),1,1,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,offers (hotel root),1,1,true
+hotel,z3i1yye4jqyvi7q7mzvmks84,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,rooms (listing page),4,0,false
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,rooms (hotel root),4,0,false
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,dinings (listing page),1,1,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,dinings (hotel root),1,0,false
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,banquets (listing page),1,1,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,banquets (hotel root),1,1,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,attractions (listing page),1,1,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,offers (hotel root),1,1,true
+hotel,kz2a1fb8hgo1wiq6r10mhnp1,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,dinings (listing page),5,5,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,dinings (hotel root),5,0,false
+hotel,gdpihuh8tywh8jhfnqlldh4a,banquets (listing page),1,1,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,banquets (hotel root),1,1,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,attractions (listing page),1,1,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,offers (hotel root),1,1,true
+hotel,gdpihuh8tywh8jhfnqlldh4a,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rbtnosd0eitqwls5ure6p6wo,rooms (listing page),3,0,false
+hotel,rbtnosd0eitqwls5ure6p6wo,rooms (hotel root),3,0,false
+hotel,rbtnosd0eitqwls5ure6p6wo,dinings (listing page),2,2,true
+hotel,rbtnosd0eitqwls5ure6p6wo,dinings (hotel root),2,0,false
+hotel,rbtnosd0eitqwls5ure6p6wo,attractions (listing page),1,1,true
+hotel,rbtnosd0eitqwls5ure6p6wo,offers (hotel root),1,1,true
+hotel,rbtnosd0eitqwls5ure6p6wo,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,rm561tf3834rlb6mra6g9f1o,rooms (listing page),2,0,false
+hotel,rm561tf3834rlb6mra6g9f1o,rooms (hotel root),2,0,false
+hotel,rm561tf3834rlb6mra6g9f1o,dinings (listing page),1,1,true
+hotel,rm561tf3834rlb6mra6g9f1o,dinings (hotel root),1,0,false
+hotel,rm561tf3834rlb6mra6g9f1o,attractions (listing page),1,1,true
+hotel,rm561tf3834rlb6mra6g9f1o,offers (hotel root),1,1,true
+hotel,rm561tf3834rlb6mra6g9f1o,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,vy36fssx9wwtmjuhqplr9uy9,rooms (listing page),9,0,false
+hotel,vy36fssx9wwtmjuhqplr9uy9,rooms (hotel root),9,0,false
+hotel,vy36fssx9wwtmjuhqplr9uy9,dinings (listing page),2,2,true
+hotel,vy36fssx9wwtmjuhqplr9uy9,dinings (hotel root),2,0,false
+hotel,vy36fssx9wwtmjuhqplr9uy9,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,yilu5qua4f2j6ugbs1tfgre7,rooms (listing page),5,0,false
+hotel,yilu5qua4f2j6ugbs1tfgre7,rooms (hotel root),5,0,false
+hotel,yilu5qua4f2j6ugbs1tfgre7,dinings (listing page),3,3,true
+hotel,yilu5qua4f2j6ugbs1tfgre7,dinings (hotel root),3,0,false
+hotel,yilu5qua4f2j6ugbs1tfgre7,banquets (listing page),3,3,true
+hotel,yilu5qua4f2j6ugbs1tfgre7,banquets (hotel root),3,3,true
+hotel,yilu5qua4f2j6ugbs1tfgre7,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,ad5iag5fvfvzdo2laageof0b,rooms (listing page),5,0,false
+hotel,ad5iag5fvfvzdo2laageof0b,rooms (hotel root),5,0,false
+hotel,ad5iag5fvfvzdo2laageof0b,dinings (listing page),4,4,true
+hotel,ad5iag5fvfvzdo2laageof0b,dinings (hotel root),4,0,false
+hotel,ad5iag5fvfvzdo2laageof0b,banquets (listing page),2,2,true
+hotel,ad5iag5fvfvzdo2laageof0b,banquets (hotel root),2,2,true
+hotel,ad5iag5fvfvzdo2laageof0b,"hotel_galleries (gallery page, capped at 48)",2,3,true
+hotel,yczwat3spjzrg7aczxbng90b,rooms (listing page),5,0,false
+hotel,yczwat3spjzrg7aczxbng90b,rooms (hotel root),5,0,false
+hotel,yczwat3spjzrg7aczxbng90b,dinings (listing page),2,2,true
+hotel,yczwat3spjzrg7aczxbng90b,dinings (hotel root),2,0,false
+hotel,yczwat3spjzrg7aczxbng90b,banquets (listing page),4,4,true
+hotel,yczwat3spjzrg7aczxbng90b,banquets (hotel root),4,4,true
+hotel,yczwat3spjzrg7aczxbng90b,"hotel_galleries (gallery page, capped at 48)",2,3,true
