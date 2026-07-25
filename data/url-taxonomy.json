@@ -1,0 +1,261 @@
+{
+  "totalUrls": 2772,
+  "buckets": [
+    {
+      "bucket": "room-detail",
+      "count": 618,
+      "example": "/abn-sarovar-portico-jim-corbett/rooms/cottage-double-bed-room-with-two-balconies.html",
+      "regex": "^/\\{hotel-slug\\}/rooms/\\{room-slug\\}\\.html$",
+      "strapiType": "room (existing)",
+      "nextRoute": "/[hotel]/rooms/[room]"
+    },
+    {
+      "bucket": "dining-detail",
+      "count": 306,
+      "example": "/abn-sarovar-portico-jim-corbett/dining/clove-the-bar.html",
+      "regex": "^/\\{hotel-slug\\}/dining/\\{outlet-slug\\}\\.html$",
+      "strapiType": "dining (existing)",
+      "nextRoute": "/[hotel]/dining/[outlet]"
+    },
+    {
+      "bucket": "banquet-detail",
+      "count": 291,
+      "example": "/abn-sarovar-portico-jim-corbett/banquets-conferences/clove.html",
+      "regex": "^/\\{hotel-slug\\}/\\{banquet-keyword\\}/\\{hall-slug\\}\\.html$",
+      "strapiType": "banquet (existing)",
+      "nextRoute": "/[hotel]/banquets/[hall]"
+    },
+    {
+      "bucket": "hotel-overview",
+      "count": 167,
+      "example": "/marigold-sarovar-portico-mashobra-shimla/",
+      "regex": "^/\\{hotel-slug\\}/$",
+      "strapiType": "hotel (existing)",
+      "nextRoute": "/[hotel]"
+    },
+    {
+      "bucket": "hotel-location",
+      "count": 155,
+      "example": "/abn-sarovar-portico-jim-corbett/location.html",
+      "regex": "^/\\{hotel-slug\\}/location\\.html$",
+      "strapiType": "hotel-page (section_key=location)",
+      "nextRoute": "/[hotel]/location"
+    },
+    {
+      "bucket": "hotel-amenities",
+      "count": 152,
+      "example": "/abn-sarovar-portico-jim-corbett/facilities.html",
+      "regex": "^/\\{hotel-slug\\}/facilities(/facilities)?\\.html$",
+      "strapiType": "hotel-page (section_key=overview, or amenity join)",
+      "nextRoute": "/[hotel]/amenities"
+    },
+    {
+      "bucket": "hotel-gallery-page",
+      "count": 152,
+      "example": "/abn-sarovar-portico-jim-corbett/gallery.html",
+      "regex": "^/\\{hotel-slug\\}/gallery\\.html$",
+      "strapiType": "hotel-gallery (existing, listing view)",
+      "nextRoute": "/[hotel]/gallery"
+    },
+    {
+      "bucket": "hotel-rooms-listing",
+      "count": 145,
+      "example": "/abn-sarovar-portico-jim-corbett/rooms.html",
+      "regex": "^/\\{hotel-slug\\}/rooms\\.html$",
+      "strapiType": "hotel-page (section_key=rooms)",
+      "nextRoute": "/[hotel]/rooms"
+    },
+    {
+      "bucket": "hotel-offer-detail",
+      "count": 111,
+      "example": "/crystal-sarovar-premiere-agra/promotions/summer-package.html",
+      "regex": "^/\\{hotel-slug\\}/(promotions|special-offers)/\\{offer-slug\\}\\.html$",
+      "strapiType": "offer (existing, hotel-scoped)",
+      "nextRoute": "/[hotel]/offers/[slug]"
+    },
+    {
+      "bucket": "hotel-dining-listing",
+      "count": 108,
+      "example": "/abn-sarovar-portico-jim-corbett/dining.html",
+      "regex": "^/\\{hotel-slug\\}/dining\\.html$",
+      "strapiType": "hotel-page (section_key=dining)",
+      "nextRoute": "/[hotel]/dining"
+    },
+    {
+      "bucket": "hotel-nearby-attraction",
+      "count": 94,
+      "example": "/aditya-hometel-hyderabad/explore-hyderabad/tourist-places-in-hyderabad---explore-the-entrancing-city.html",
+      "regex": "^/\\{hotel-slug\\}/explore-\\{city\\}/\\{article-slug\\}\\.html$",
+      "strapiType": "attraction (new)",
+      "nextRoute": "/[hotel]/nearby/[attraction]"
+    },
+    {
+      "bucket": "destination-city",
+      "count": 93,
+      "example": "/our-destinations/hotel-in-mahabalipuram.html",
+      "regex": "^/our-destinations/hotels-in-\\{city\\}\\.html$",
+      "strapiType": "destination (existing)",
+      "nextRoute": "/destinations/[slug]"
+    },
+    {
+      "bucket": "hotel-legal",
+      "count": 80,
+      "example": "/aditya-hometel-hyderabad/terms-and-conditions/terms-and-conditions.html",
+      "regex": "^/\\{hotel-slug\\}/(terms-and-conditions|privacy-policy)(/.+)?\\.html$",
+      "strapiType": "hotel-page (section_key=other)",
+      "nextRoute": "/[hotel]/legal"
+    },
+    {
+      "bucket": "hotel-other-subpage",
+      "count": 71,
+      "example": "/happiness-sarovar/crystal-sarovar-premiere---agra---holiday-package.html",
+      "regex": "^/\\{hotel-slug\\}/\\{unclassified-section\\}(/.+)?\\.html$",
+      "strapiType": "hotel-page (section_key=other) — needs manual review",
+      "nextRoute": "/[hotel]/[section]"
+    },
+    {
+      "bucket": "hotel-wellness",
+      "count": 56,
+      "example": "/ambrosia-sarovar-portico-haridwar/spa/gold-leaf-spa.html",
+      "regex": "^/\\{hotel-slug\\}/\\{wellness-keyword\\}(/.+)?\\.html$",
+      "strapiType": "hotel-page (section_key=wellness)",
+      "nextRoute": "/[hotel]/wellness"
+    },
+    {
+      "bucket": "hotel-banquets-listing",
+      "count": 51,
+      "example": "/abn-sarovar-portico-jim-corbett/banquets-conferences.html",
+      "regex": "^/\\{hotel-slug\\}/\\{banquet-keyword\\}\\.html$",
+      "strapiType": "hotel-page (section_key=meetings)",
+      "nextRoute": "/[hotel]/banquets"
+    },
+    {
+      "bucket": "blog-detail",
+      "count": 46,
+      "example": "/blogs/an-escape-to-poovar-island.html",
+      "regex": "^/blogs/\\{slug\\}\\.html$",
+      "strapiType": "article (new)",
+      "nextRoute": "/blog/[slug]"
+    },
+    {
+      "bucket": "hotel-scoped-blog",
+      "count": 17,
+      "example": "/geeta-sarovar-portico-hotels-panipat/blogs.html",
+      "regex": "^/\\{hotel-slug\\}/blogs/\\{slug\\}\\.html$",
+      "strapiType": "article (new, hotel relation)",
+      "nextRoute": "/[hotel]/blog/[slug]"
+    },
+    {
+      "bucket": "static-legal-misc",
+      "count": 15,
+      "example": "/amex-offer-terms-and-conditions.html",
+      "regex": "^/\\{page-slug\\}\\.html$",
+      "strapiType": "page (new, static/legal)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "hotel-home-delivery",
+      "count": 10,
+      "example": "/balaji-sarovar-premiere-solapur/home-delivery/home-delivery.html",
+      "regex": "^/\\{hotel-slug\\}/home-delivery(/home-delivery)?\\.html$",
+      "strapiType": "hotel-page (section_key=other)",
+      "nextRoute": "/[hotel]/home-delivery"
+    },
+    {
+      "bucket": "hotel-faqs",
+      "count": 10,
+      "example": "/golden-tulip-goa-mandrem/faqs.html",
+      "regex": "^/\\{hotel-slug\\}/faqs\\.html$",
+      "strapiType": "hotel-page (section_key=other, faq block)",
+      "nextRoute": "/[hotel]/faqs"
+    },
+    {
+      "bucket": "hotel-contact",
+      "count": 7,
+      "example": "/estuary-sarovar-Premiere-poovar/contact-us/contact-us.html",
+      "regex": "^/\\{hotel-slug\\}/contact(-us)?\\.html$",
+      "strapiType": "hotel-page (section_key=contact)",
+      "nextRoute": "/[hotel]/contact"
+    },
+    {
+      "bucket": "corporate-about",
+      "count": 4,
+      "example": "/about-us.html",
+      "regex": "^/about-us(/.+)?\\.html$",
+      "strapiType": "page (new, corporate)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "hotel-awards",
+      "count": 2,
+      "example": "/awards/awards.html",
+      "regex": "^/\\{hotel-slug\\}/awards(/.+)?\\.html$",
+      "strapiType": "hotel-page (section_key=other)",
+      "nextRoute": "/[hotel]/awards"
+    },
+    {
+      "bucket": "corporate-careers",
+      "count": 2,
+      "example": "/careers.html",
+      "regex": "^/careers(/.+)?\\.html$",
+      "strapiType": "page (new, corporate)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "corporate-contact",
+      "count": 2,
+      "example": "/contact-us/contact-sarovar-hotels.html",
+      "regex": "^/contact-us/.+\\.html$",
+      "strapiType": "page (new, corporate)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "hotel-pay-us",
+      "count": 2,
+      "example": "/lagoon-sarovar-premiere-pondicherry/pay-us/pay-us.html",
+      "regex": "^/\\{hotel-slug\\}/pay-us(/.+)?\\.html$",
+      "strapiType": "hotel-page (section_key=other)",
+      "nextRoute": "/[hotel]/pay"
+    },
+    {
+      "bucket": "home",
+      "count": 1,
+      "example": "/",
+      "regex": "^/$",
+      "strapiType": "singleton: home",
+      "nextRoute": "/"
+    },
+    {
+      "bucket": "blog-landing",
+      "count": 1,
+      "example": "/blogs.html",
+      "regex": "^/blogs(\\.html)?$",
+      "strapiType": "page (landing)",
+      "nextRoute": "/blog"
+    },
+    {
+      "bucket": "corporate-events-mice",
+      "count": 1,
+      "example": "/events/meetings-and-events.html",
+      "regex": "^/events/.+\\.html$",
+      "strapiType": "page (new, MICE landing)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "hotel-directory",
+      "count": 1,
+      "example": "/hotel-directory/hotel-directory.html",
+      "regex": "^/hotel-directory/.+\\.html$",
+      "strapiType": "page (new)",
+      "nextRoute": "/[...slug]"
+    },
+    {
+      "bucket": "destination-landing",
+      "count": 1,
+      "example": "/our-destinations.html",
+      "regex": "^/our-destinations\\.html$",
+      "strapiType": "page (landing)",
+      "nextRoute": "/destinations"
+    }
+  ]
+}

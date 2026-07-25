@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# backend/ is its own independent git repository (pre-existing Strapi scaffold
+# history) — commit there directly, don't fold it into this root repo.
+backend/
+
+# Strapi runtime/build artifacts
+backend/.tmp/
+backend/.strapi/
+backend/dist/
+backend/build/
+backend/public/uploads/
+backend/.env
+
+# Next.js runtime/build artifacts
+frontend/.next/
+frontend/out/
+frontend/.env.local
+
+# Ingestion runtime logs/state — regenerable by re-running the pipeline
+data/*.log
+data/ingest-state.json
+data/image-map.json
+data/image-backfill-state.json
+
+# OS
+.DS_Store
+Thumbs.db

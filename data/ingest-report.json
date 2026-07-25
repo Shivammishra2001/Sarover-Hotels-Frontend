@@ -1,0 +1,422 @@
+{
+  "generatedAt": "2026-07-25T12:02:22.762Z",
+  "mode": "mirror",
+  "dryRun": false,
+  "deadUrlsSkipped": 49,
+  "totals": {
+    "fetched": 939,
+    "created": 2625,
+    "updated": 4,
+    "unchanged": 68,
+    "failed": 25,
+    "imagesUploaded": 0
+  },
+  "byBucket": [
+    {
+      "bucket": "destination-city",
+      "fetched": 0,
+      "created": 89,
+      "updated": 3,
+      "unchanged": 1,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-overview",
+      "fetched": 0,
+      "created": 153,
+      "updated": 1,
+      "unchanged": 1,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-rooms-listing",
+      "fetched": 0,
+      "created": 145,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "room-detail",
+      "fetched": 0,
+      "created": 613,
+      "updated": 0,
+      "unchanged": 1,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-dining-listing",
+      "fetched": 0,
+      "created": 108,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "dining-detail",
+      "fetched": 0,
+      "created": 297,
+      "updated": 0,
+      "unchanged": 1,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-banquets-listing",
+      "fetched": 0,
+      "created": 43,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "banquet-detail",
+      "fetched": 1,
+      "created": 233,
+      "updated": 0,
+      "unchanged": 1,
+      "failed": 1,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-gallery-page",
+      "fetched": 59,
+      "created": 89,
+      "updated": 0,
+      "unchanged": 63,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-offer-detail",
+      "fetched": 90,
+      "created": 90,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-nearby-attraction",
+      "fetched": 77,
+      "created": 77,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-location",
+      "fetched": 155,
+      "created": 155,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-amenities",
+      "fetched": 147,
+      "created": 147,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-legal",
+      "fetched": 80,
+      "created": 78,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 2,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-wellness",
+      "fetched": 14,
+      "created": 14,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-home-delivery",
+      "fetched": 9,
+      "created": 8,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 1,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-faqs",
+      "fetched": 10,
+      "created": 10,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-contact",
+      "fetched": 7,
+      "created": 7,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-pay-us",
+      "fetched": 2,
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-awards",
+      "fetched": 2,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 1,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-other-subpage",
+      "fetched": 199,
+      "created": 179,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 20,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-scoped-blog",
+      "fetched": 17,
+      "created": 17,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "blog-detail",
+      "fetched": 46,
+      "created": 46,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "blog-landing",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "destination-landing",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "corporate-about",
+      "fetched": 4,
+      "created": 4,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "corporate-careers",
+      "fetched": 2,
+      "created": 2,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "corporate-contact",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "corporate-events-mice",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "hotel-directory",
+      "fetched": 1,
+      "created": 1,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    },
+    {
+      "bucket": "static-legal-misc",
+      "fetched": 13,
+      "created": 13,
+      "updated": 0,
+      "unchanged": 0,
+      "failed": 0,
+      "imagesUploaded": 0
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://www.sarovarhotels.com/golden-tulip-hotel-in-jaipur/meetings-events/meeting-room.html",
+      "bucket": "banquet-detail",
+      "reason": "Strapi POST /banquets -> 400: This attribute must be unique (slug: This attribute must be unique)"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/privacy-policy/privacy-policy.html",
+      "bucket": "hotel-legal",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/privacy-policy/privacy-policy.html: parent hotel \"privacy-policy\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/terms-and-conditions/terms-and-conditions.html",
+      "bucket": "hotel-legal",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/terms-and-conditions/terms-and-conditions.html: parent hotel \"terms-and-conditions\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/home-delivery/home-delivery.html",
+      "bucket": "hotel-home-delivery",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/home-delivery/home-delivery.html: parent hotel \"home-delivery\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/awards/awards.html",
+      "bucket": "hotel-awards",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/awards/awards.html: parent hotel \"undefined\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/beyond-consultancy/beyond-consultancy.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/beyond-consultancy/beyond-consultancy.html: parent hotel \"beyond-consultancy\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/experiences/business-hotels.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/experiences/business-hotels.html: parent hotel \"experiences\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/experiences/leisure-hotels.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/experiences/leisure-hotels.html: parent hotel \"experiences\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/experiences/pilgrimage-hotels.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/experiences/pilgrimage-hotels.html: parent hotel \"experiences\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/flash-sale/flash-sale.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/flash-sale/flash-sale.html: parent hotel \"flash-sale\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/happiness-sarovar/get-the-best-weekend-weekdays-offer-at-our-mashobra-hotel.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/happiness-sarovar/get-the-best-weekend-weekdays-offer-at-our-mashobra-hotel.html: parent hotel \"happiness-sarovar\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/happiness-sarovar/rs-sarovar-portico---summer-holiday-offers.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/happiness-sarovar/rs-sarovar-portico---summer-holiday-offers.html: parent hotel \"happiness-sarovar\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/lywwh/city-package.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/lywwh/city-package.html: parent hotel \"lywwh\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/lywwh/estuary-sarovar-premiere-poovar.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/lywwh/estuary-sarovar-premiere-poovar.html: parent hotel \"lywwh\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/newsletter/newsletter.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/newsletter/newsletter.html: parent hotel \"newsletter\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/newsroom/newsroom.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/newsroom/newsroom.html: parent hotel \"newsroom\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/offers/mice-offers.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/offers/mice-offers.html: parent hotel \"offers\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/offers/sarovar-hotels-x-fly91.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/offers/sarovar-hotels-x-fly91.html: parent hotel \"offers\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/offers/why-book-direct.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/offers/why-book-direct.html: parent hotel \"offers\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/partner-with-us/corporate-travel-agents.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/partner-with-us/corporate-travel-agents.html: parent hotel \"partner-with-us\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/partner-with-us/hotel-partner.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/partner-with-us/hotel-partner.html: parent hotel \"partner-with-us\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/partner-with-us/vendors-and-suppliers.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/partner-with-us/vendors-and-suppliers.html: parent hotel \"partner-with-us\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/spin-and-win/spin-and-win.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/spin-and-win/spin-and-win.html: parent hotel \"spin-and-win\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/summer-offer/special-summer-offer.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/summer-offer/special-summer-offer.html: parent hotel \"summer-offer\" not yet resolved"
+    },
+    {
+      "url": "https://www.sarovarhotels.com/weddings/terms-conditions-of-wedding-packages.html",
+      "bucket": "hotel-other-subpage",
+      "reason": "Cannot ingest hotel-page https://www.sarovarhotels.com/weddings/terms-conditions-of-wedding-packages.html: parent hotel \"weddings\" not yet resolved"
+    }
+  ]
+}
