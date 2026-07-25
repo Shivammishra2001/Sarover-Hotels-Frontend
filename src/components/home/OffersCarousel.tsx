@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { getMediaUrl, cn } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl, cn } from "@/lib/utils";
 import type { Offer } from "@/types";
 
 const GRID_COLS_BY_COUNT: Record<number, string> = {
@@ -46,6 +46,7 @@ export function OffersCarousel({ offers }: { offers: Offer[] }) {
                   fill
                   sizes="(min-width: 640px) 25vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(offer.banner_url))}
                 />
               ) : (
                 <div className="h-full w-full bg-muted" />

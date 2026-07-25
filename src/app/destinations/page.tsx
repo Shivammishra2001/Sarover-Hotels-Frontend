@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getDestinations } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Destinations",
@@ -37,6 +37,7 @@ export default async function DestinationsPage() {
                   fill
                   sizes="(min-width: 1024px) 33vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
                 />
               ) : (
                 <div className="h-full w-full bg-muted" />

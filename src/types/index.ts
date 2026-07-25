@@ -27,6 +27,78 @@ export interface StrapiSingleResponse<T> {
   meta: StrapiMeta;
 }
 
+export interface Seo {
+  meta_title?: string;
+  meta_description?: string;
+  canonical_url?: string;
+  og_title?: string;
+  og_description?: string;
+  og_image_url?: string;
+  keywords?: string;
+  no_index?: boolean;
+  structured_data?: unknown;
+}
+
+export interface RichTextBlock {
+  __component: "block.rich-text";
+  id: number;
+  body: string;
+}
+
+export interface ImageBlock {
+  __component: "block.image";
+  id: number;
+  url: string;
+  alt?: string;
+  caption?: string;
+}
+
+export interface GalleryBlock {
+  __component: "block.gallery";
+  id: number;
+  title?: string;
+  images?: Array<{ id: number; url: string; alt?: string; caption?: string }>;
+}
+
+export interface CtaBlock {
+  __component: "block.cta";
+  id: number;
+  label: string;
+  href: string;
+  style?: "primary" | "secondary" | "outline";
+}
+
+export interface FaqBlock {
+  __component: "block.faq";
+  id: number;
+  title?: string;
+  items?: Array<{ id: number; question: string; answer: string }>;
+}
+
+export interface EmbedBlock {
+  __component: "block.embed";
+  id: number;
+  title?: string;
+  embed_url?: string;
+  html?: string;
+}
+
+export interface StatsBlock {
+  __component: "block.stats";
+  id: number;
+  title?: string;
+  items?: Array<{ id: number; label: string; value: string }>;
+}
+
+export type Block =
+  | RichTextBlock
+  | ImageBlock
+  | GalleryBlock
+  | CtaBlock
+  | FaqBlock
+  | EmbedBlock
+  | StatsBlock;
+
 export type BrandTier = "luxury" | "upscale" | "midscale" | "economy";
 
 export interface Brand extends StrapiEntity {
@@ -41,6 +113,7 @@ export interface Brand extends StrapiEntity {
   is_active: boolean;
   hotels?: Hotel[];
   offers?: Offer[];
+  seo?: Seo;
 }
 
 export type RegionTag =
@@ -71,6 +144,10 @@ export interface Destination extends StrapiEntity {
   hero_image_url?: string;
   is_active: boolean;
   hotels?: Hotel[];
+  attractions?: Attraction[];
+  articles?: Article[];
+  seo?: Seo;
+  source_url?: string;
 }
 
 export type PropertyType =
@@ -110,6 +187,11 @@ export interface Hotel extends StrapiEntity {
   dinings?: Dining[];
   banquets?: Banquet[];
   offers?: Offer[];
+  hotel_pages?: HotelPage[];
+  attractions?: Attraction[];
+  articles?: Article[];
+  seo?: Seo;
+  source_url?: string;
 }
 
 export type GalleryMediaType = "image" | "video" | "view_360";
@@ -259,6 +341,7 @@ export interface Offer extends StrapiEntity {
   brand?: Brand;
   hotel?: Hotel;
   inquiries?: Inquiry[];
+  seo?: Seo;
 }
 
 export type InquiryType =
@@ -323,4 +406,84 @@ export interface InquiryPayload {
   hotel?: string;
   banquet?: string;
   offer?: string;
+}
+
+export type PageType = "static" | "legal" | "corporate" | "landing" | "faq" | "contact" | "other";
+
+export interface Page extends StrapiEntity {
+  title: string;
+  slug: string;
+  path: string;
+  page_type?: PageType;
+  excerpt?: string;
+  body?: Block[];
+  seo?: Seo;
+  source_url?: string;
+  is_active: boolean;
+}
+
+export type ArticleCategory = "blog" | "press" | "news" | "travel_guide" | "event" | "other";
+
+export interface Article extends StrapiEntity {
+  title: string;
+  slug: string;
+  path?: string;
+  category?: ArticleCategory;
+  excerpt?: string;
+  body?: Block[];
+  cover_image_url?: string;
+  author?: string;
+  published_on?: string;
+  seo?: Seo;
+  source_url?: string;
+  hotel?: Hotel;
+  destination?: Destination;
+}
+
+export type AttractionCategory = "sightseeing" | "transport" | "shopping" | "dining" | "business" | "other";
+
+export interface Attraction extends StrapiEntity {
+  name: string;
+  slug: string;
+  description?: string;
+  image_url?: string;
+  distance_km?: number;
+  category?: AttractionCategory;
+  source_url?: string;
+  hotel?: Hotel;
+  destination?: Destination;
+}
+
+export type HotelPageSectionKey =
+  | "overview"
+  | "location"
+  | "amenities"
+  | "rooms_listing"
+  | "dining_listing"
+  | "banquets_listing"
+  | "meetings"
+  | "wellness"
+  | "experiences"
+  | "offers_landing"
+  | "faqs"
+  | "legal"
+  | "home_delivery"
+  | "contact"
+  | "other";
+
+export interface HotelPage extends StrapiEntity {
+  section_key: HotelPageSectionKey;
+  title?: string;
+  path?: string;
+  body?: Block[];
+  seo?: Seo;
+  source_url?: string;
+  hotel?: Hotel;
+}
+
+export interface Redirect extends StrapiEntity {
+  from_path: string;
+  to_path: string;
+  status_code: "permanent" | "temporary";
+  is_active: boolean;
 }

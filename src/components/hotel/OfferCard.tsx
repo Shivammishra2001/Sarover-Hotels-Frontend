@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { formatDate, getMediaUrl } from "@/lib/utils";
+import { formatDate, getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Offer } from "@/types";
 
 function discountLabel(offer: Offer) {
@@ -28,6 +28,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
             fill
             sizes="320px"
             className="object-cover"
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(offer.banner_url))}
           />
         ) : (
           <div className="h-full w-full bg-muted" />

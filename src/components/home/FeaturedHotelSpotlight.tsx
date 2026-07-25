@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
 import { StarRating } from "@/components/ui/StarRating";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Hotel } from "@/types";
 
 export function FeaturedHotelSpotlight({ hotel }: { hotel: Hotel }) {
@@ -21,6 +21,7 @@ export function FeaturedHotelSpotlight({ hotel }: { hotel: Hotel }) {
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
+                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
                 />
               )}
             </div>

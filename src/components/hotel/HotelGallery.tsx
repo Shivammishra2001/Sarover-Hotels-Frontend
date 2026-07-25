@@ -3,18 +3,19 @@
 import Image from "next/image";
 import { useState } from "react";
 import { X } from "lucide-react";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { HotelGallery as HotelGalleryType } from "@/types";
 
-export function HotelGallery({ images }: { images: HotelGalleryType[] }) {
+export function HotelGallery({ images, limit = 8 }: { images: HotelGalleryType[]; limit?: number }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   if (images.length === 0) return null;
+  const visible = images.slice(0, limit);
 
   return (
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {images.slice(0, 8).map((image, index) => (
+        {visible.map((image, index) => (
           <button
             key={image.documentId}
             type="button"
@@ -29,6 +30,7 @@ export function HotelGallery({ images }: { images: HotelGalleryType[] }) {
               fill
               sizes="(min-width: 640px) 25vw, 50vw"
               className="object-cover transition-transform duration-300 hover:scale-105"
+              unoptimized={isUnoptimizedMediaUrl(getMediaUrl(image.media_url))}
             />
           </button>
         ))}
@@ -49,11 +51,12 @@ export function HotelGallery({ images }: { images: HotelGalleryType[] }) {
           </button>
           <div className="relative h-[80vh] w-full max-w-4xl">
             <Image
-              src={getMediaUrl(images[activeIndex].media_url)}
-              alt={images[activeIndex].alt_text ?? "Hotel gallery image"}
+              src={getMediaUrl(visible[activeIndex].media_url)}
+              alt={visible[activeIndex].alt_text ?? "Hotel gallery image"}
               fill
               sizes="100vw"
               className="object-contain"
+              unoptimized={isUnoptimizedMediaUrl(getMediaUrl(visible[activeIndex].media_url))}
             />
           </div>
         </div>

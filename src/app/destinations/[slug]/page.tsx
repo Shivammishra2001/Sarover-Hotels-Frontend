@@ -5,7 +5,8 @@ import { getAllDestinationSlugs, getDestinationBySlug } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HotelCard } from "@/components/hotel/HotelCard";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { buildMetadata } from "@/lib/seo";
 
 interface DestinationPageProps {
   params: Promise<{ slug: string }>;
@@ -21,10 +22,12 @@ export async function generateMetadata({ params }: DestinationPageProps): Promis
   const destination = await getDestinationBySlug(slug);
   if (!destination) return { title: "Destination Not Found" };
 
-  return {
-    title: destination.name,
-    description: destination.description?.slice(0, 160),
-  };
+  return buildMetadata({
+    seo: destination.seo,
+    fallbackTitle: destination.name,
+    fallbackDescription: destination.description,
+    path: `/destinations/${slug}`,
+  });
 }
 
 export default async function DestinationDetailPage({ params }: DestinationPageProps) {
@@ -44,6 +47,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
             priority
             sizes="100vw"
             className="object-cover"
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
           />
         ) : (
           <div className="absolute inset-0 bg-navy" />

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Destination, RegionTag } from "@/types";
 
 // Figma shows 5 experience-category tiles rather than literal destination
@@ -76,6 +76,7 @@ function DestinationTile({
           fill
           sizes="(min-width: 640px) 33vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
         />
       ) : (
         <div className="h-full w-full bg-border" />

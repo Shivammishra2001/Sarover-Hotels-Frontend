@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Brand } from "@/types";
 
 export function BrandShowcase({ brands }: { brands: Brand[] }) {
@@ -34,6 +34,7 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
                     fill
                     sizes="200px"
                     className="object-contain"
+                    unoptimized={isUnoptimizedMediaUrl(getMediaUrl(brand.logo_url))}
                   />
                 ) : (
                   <p className="font-display text-lg font-semibold text-navy">{brand.name}</p>
