@@ -13,7 +13,9 @@ import { DiningCard } from "@/components/hotel/DiningCard";
 import { BanquetTable } from "@/components/hotel/BanquetTable";
 import { OfferCard } from "@/components/hotel/OfferCard";
 import { InquiryForm } from "@/components/forms/InquiryForm";
-import { getMediaUrl, humanizeEnum } from "@/lib/utils";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { buildMetadata, hotelJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 interface HotelPageProps {
   params: Promise<{ slug: string }>;
@@ -29,15 +31,12 @@ export async function generateMetadata({ params }: HotelPageProps): Promise<Meta
   const hotel = await getHotelBySlug(slug);
   if (!hotel) return { title: "Hotel Not Found" };
 
-  return {
-    title: hotel.name,
-    description: hotel.description?.slice(0, 160),
-    openGraph: {
-      title: hotel.name,
-      description: hotel.description?.slice(0, 160),
-      images: hotel.hotel_galleries?.[0]?.media_url ? [getMediaUrl(hotel.hotel_galleries[0].media_url)] : undefined,
-    },
-  };
+  return buildMetadata({
+    seo: hotel.seo,
+    fallbackTitle: hotel.name,
+    fallbackDescription: hotel.description,
+    path: `/hotels/${slug}`,
+  });
 }
 
 export default async function HotelDetailPage({ params }: HotelPageProps) {
@@ -50,6 +49,16 @@ export default async function HotelDetailPage({ params }: HotelPageProps) {
 
   return (
     <div className="pb-20">
+      <JsonLd
+        data={[
+          hotelJsonLd(hotel),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Hotels", path: "/hotels" },
+            { name: hotel.name, path: `/hotels/${hotel.slug}` },
+          ]),
+        ]}
+      />
       <section className="relative flex h-[55vh] min-h-[420px] items-end">
         {cover?.media_url ? (
           <Image
@@ -59,6 +68,7 @@ export default async function HotelDetailPage({ params }: HotelPageProps) {
             priority
             sizes="100vw"
             className="object-cover"
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
           />
         ) : (
           <div className="absolute inset-0 bg-navy" />
@@ -125,7 +135,7 @@ export default async function HotelDetailPage({ params }: HotelPageProps) {
               <SectionHeading title="Rooms &amp; Suites" />
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {hotel.rooms.map((room) => (
-                  <RoomCard key={room.documentId} room={room} />
+                  <RoomCard key={room.documentId} room={room} hotelSlug={hotel.slug} />
                 ))}
               </div>
             </section>
@@ -136,7 +146,7 @@ export default async function HotelDetailPage({ params }: HotelPageProps) {
               <SectionHeading title="Dining" />
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {hotel.dinings.map((dining) => (
-                  <DiningCard key={dining.documentId} dining={dining} />
+                  <DiningCard key={dining.documentId} dining={dining} hotelSlug={hotel.slug} />
                 ))}
               </div>
             </section>
@@ -146,7 +156,7 @@ export default async function HotelDetailPage({ params }: HotelPageProps) {
             <section>
               <SectionHeading title="Banquets &amp; Event Spaces" />
               <div className="mt-6">
-                <BanquetTable banquets={hotel.banquets} />
+                <BanquetTable banquets={hotel.banquets} hotelSlug={hotel.slug} />
               </div>
             </section>
           )}

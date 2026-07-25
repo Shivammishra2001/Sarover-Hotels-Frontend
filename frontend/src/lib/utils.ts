@@ -29,6 +29,37 @@ export function getMediaUrl(path?: string | null) {
   return `${STRAPI_URL}${path}`;
 }
 
+const LOOPBACK_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
+
+/**
+ * Strapi-hosted media resolves to a loopback host in local dev. Next's built-in
+ * Image Optimizer proxy has a hardcoded, non-configurable 7s upstream-fetch
+ * timeout (node_modules/next/dist/server/image-optimizer.js) that this sandbox's
+ * flaky local `fetch` (undici) reliably blows past — the same class of issue
+ * already worked around with curl in backend/scripts/ingest/{fetcher,images}.ts.
+ * Pass `unoptimized={isUnoptimizedMediaUrl(src)}` on every `<Image>` sourced via
+ * `getMediaUrl()` so the browser fetches loopback-hosted images directly instead
+ * of round-tripping them through that proxy. A real deployment's Strapi host
+ * won't be loopback, so this only ever short-circuits local dev.
+ */
+export function isUnoptimizedMediaUrl(url?: string | null): boolean {
+  if (!url) return false;
+  try {
+    return LOOPBACK_HOSTNAMES.has(new URL(url).hostname);
+  } catch {
+    return false;
+  }
+}
+
+/** Room has no stored slug (Phase 1 schema) — derive a stable, URL-safe one from its name. */
+export function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function humanizeEnum(value?: string | null) {
   if (!value) return "";
   return value

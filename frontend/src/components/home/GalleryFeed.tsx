@@ -2,7 +2,7 @@ import Image from "next/image";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { getMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import type { HotelGallery } from "@/types";
 
@@ -29,6 +29,7 @@ export function GalleryFeed({ images }: { images: HotelGallery[] }) {
               fill
               sizes="(min-width: 1024px) 16vw, 33vw"
               className="object-cover transition-transform duration-300 group-hover:scale-110"
+              unoptimized={isUnoptimizedMediaUrl(getMediaUrl(image.media_url))}
             />
           </div>
         ))}

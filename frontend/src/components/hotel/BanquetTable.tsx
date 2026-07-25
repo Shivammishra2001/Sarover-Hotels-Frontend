@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { humanizeEnum } from "@/lib/utils";
 import type { Banquet } from "@/types";
 
@@ -12,9 +13,11 @@ const CAPACITY_COLUMNS: Array<{ key: keyof Banquet; label: string }> = [
 
 export function BanquetTable({
   banquets,
+  hotelSlug,
   onEnquire,
 }: {
   banquets: Banquet[];
+  hotelSlug?: string;
   onEnquire?: (banquet: Banquet) => void;
 }) {
   if (banquets.length === 0) return null;
@@ -38,7 +41,15 @@ export function BanquetTable({
         <tbody className="divide-y divide-border">
           {banquets.map((banquet) => (
             <tr key={banquet.documentId}>
-              <td className="px-4 py-3 font-semibold text-navy">{banquet.name}</td>
+              <td className="px-4 py-3 font-semibold text-navy">
+                {hotelSlug && banquet.slug ? (
+                  <Link href={`/hotels/${hotelSlug}/banquets/${banquet.slug}`} className="hover:text-accent">
+                    {banquet.name}
+                  </Link>
+                ) : (
+                  banquet.name
+                )}
+              </td>
               <td className="px-4 py-3 text-ink/70">{humanizeEnum(banquet.event_type ?? "")}</td>
               <td className="px-4 py-3 text-ink/70">
                 {banquet.area_sqft ? `${banquet.area_sqft} sq.ft` : "—"}

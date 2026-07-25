@@ -6,7 +6,8 @@ import { getAllOfferSlugs, getOfferBySlug } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/Badge";
 import { InquiryForm } from "@/components/forms/InquiryForm";
-import { formatDate, getMediaUrl } from "@/lib/utils";
+import { formatDate, getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { buildMetadata } from "@/lib/seo";
 
 interface OfferPageProps {
   params: Promise<{ slug: string }>;
@@ -22,13 +23,21 @@ export async function generateMetadata({ params }: OfferPageProps): Promise<Meta
   const offer = await getOfferBySlug(slug);
   if (!offer) return { title: "Offer Not Found" };
 
+  const metadata = buildMetadata({
+    seo: offer.seo,
+    fallbackTitle: offer.title,
+    fallbackDescription: offer.description,
+    path: `/offers/${slug}`,
+  });
   return {
-    title: offer.title,
-    description: offer.description?.slice(0, 160),
+    ...metadata,
     openGraph: {
-      title: offer.title,
-      description: offer.description?.slice(0, 160),
-      images: offer.banner_url ? [getMediaUrl(offer.banner_url)] : undefined,
+      ...metadata.openGraph,
+      images: offer.seo?.og_image_url
+        ? metadata.openGraph?.images
+        : offer.banner_url
+          ? [getMediaUrl(offer.banner_url)]
+          : undefined,
     },
   };
 }
@@ -50,6 +59,7 @@ export default async function OfferDetailPage({ params }: OfferPageProps) {
             priority
             sizes="100vw"
             className="object-cover"
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(offer.banner_url))}
           />
         ) : (
           <div className="absolute inset-0 bg-navy" />

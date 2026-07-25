@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { StarRating } from "@/components/ui/StarRating";
-import { getMediaUrl, humanizeEnum } from "@/lib/utils";
+import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Hotel } from "@/types";
 
 export function HotelCard({ hotel }: { hotel: Hotel }) {
@@ -24,6 +24,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
           />
         ) : (
           <div className="h-full w-full bg-muted" />

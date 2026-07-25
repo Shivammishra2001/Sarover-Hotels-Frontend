@@ -9,7 +9,7 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { getMediaUrl, humanizeEnum } from "@/lib/utils";
+import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Weddings & Events",
@@ -152,6 +152,7 @@ export default async function WeddingsEventsPage() {
                       fill
                       sizes="(min-width: 1024px) 33vw, 100vw"
                       className="object-cover"
+                      unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
