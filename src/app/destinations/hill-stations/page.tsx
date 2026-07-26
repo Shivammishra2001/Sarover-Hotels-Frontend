@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getDestinationsByCategory } from "@/lib/api";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Hill Destinations";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Hill Destinations",
-  fallbackDescription: "Hill station destinations across the Sarovar map.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
   path: "/destinations/hill-stations",
 });
 
-export default function HillStationsPage() {
+export default async function HillStationsPage() {
+  const destinations = await getDestinationsByCategory("hill-stations");
   return (
-    <StubLanding
+    <DestinationCollectionView
       eyebrow="Popular Destinations"
-      title="Hill Destinations"
-      description="Hill station destinations across the Sarovar map."
+      title={TITLE}
+      destinations={destinations}
+      emptyMessage="No destinations tagged for this category yet — check back soon."
     />
   );
 }

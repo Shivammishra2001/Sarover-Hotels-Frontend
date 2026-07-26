@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Boutique Hotels";
+const DESCRIPTION = "Smaller, characterful boutique properties.";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Boutique Hotels",
-  fallbackDescription: "Smaller, characterful boutique properties.",
+  fallbackTitle: TITLE,
+  fallbackDescription: DESCRIPTION,
   path: "/experiences/boutique-hotels",
 });
 
-export default function BoutiqueHotelsPage() {
+export default async function BoutiqueHotelsPage() {
+  const hotels = await getHotelsByTheme("boutique");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Experiences"
-      title="Boutique Hotels"
-      description="Smaller, characterful boutique properties."
+      title={TITLE}
+      description={DESCRIPTION}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

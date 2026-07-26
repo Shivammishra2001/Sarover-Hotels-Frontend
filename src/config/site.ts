@@ -82,7 +82,7 @@ export const siteConfig = {
         { label: "Luxury Hotels", href: "/hotels/luxury" },
         { label: "Business Hotels", href: "/hotels/business" },
         { label: "Pet Friendly Hotels", href: "/hotels/pet-friendly" },
-        { label: "New & Upcoming Hotels", href: "/hotels/new-and-upcoming" },
+        { label: "New & Upcoming Hotels", href: "/hotels/new-and-upcoming-hotels" },
       ],
     },
     {

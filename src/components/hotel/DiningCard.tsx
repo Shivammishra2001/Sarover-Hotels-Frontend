@@ -10,8 +10,18 @@ import type { Dining } from "@/types";
  * `hotelSlug` is required so both call sites link consistently; when the
  * record has no slug (a small minority — see slug-integrity.csv) the card
  * renders unlinked, same as before.
+ *
+ * `basePath` is additive - see RoomCard's comment for why it exists alongside `hotelSlug`.
  */
-export function DiningCard({ dining, hotelSlug }: { dining: Dining; hotelSlug: string }) {
+export function DiningCard({
+  dining,
+  hotelSlug,
+  basePath,
+}: {
+  dining: Dining;
+  hotelSlug: string;
+  basePath?: string;
+}) {
   const content = (
     <Card className="p-6">
       <p className="eyebrow text-accent">{humanizeEnum(dining.outlet_type ?? "")}</p>
@@ -38,7 +48,7 @@ export function DiningCard({ dining, hotelSlug }: { dining: Dining; hotelSlug: s
   );
 
   return dining.slug ? (
-    <Link href={`/hotels/${hotelSlug}/dining/${dining.slug}`} className="block">
+    <Link href={`${basePath ?? `/hotels/${hotelSlug}`}/dining/${dining.slug}`} className="block">
       {content}
     </Link>
   ) : (

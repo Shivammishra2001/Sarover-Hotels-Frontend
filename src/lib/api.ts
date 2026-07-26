@@ -411,3 +411,55 @@ export function findHotelPageByPathSegment(pages: HotelPage[] | undefined, segme
     return last === normalized;
   });
 }
+
+// ---- Root [city]/[hotel] IA: hotel URLs canonicalized to /{hotels-in-city}/{hotel-slug}/ ----
+
+/** `citySlug` is the full path segment, e.g. "hotels-in-jaipur" — matched against
+ * `destination.path`, which is stored as `/hotels-in-{destination-slug}/`. */
+export async function getCityBySlug(citySlug: string) {
+  const res = await fetchAPI<StrapiListResponse<Destination>>("/destinations", {
+    filters: { path: { $eq: `/${citySlug}/` } },
+    populate: {
+      hotels: { populate: { brand: true, hotel_galleries: true } },
+      attractions: true,
+      seo: true,
+    },
+  });
+  return res.data[0] ?? null;
+}
+
+export async function getAllCitySlugs() {
+  const destinations = await fetchAllPages<{ path?: string | null }>("/destinations", {
+    filters: { path: { $notNull: true } },
+    fields: ["path"],
+  });
+  return destinations
+    .map((d) => d.path?.replace(/^\/|\/$/g, ""))
+    .filter((slug): slug is string => Boolean(slug));
+}
+
+export async function getHotelsByCity(citySlug: string) {
+  const city = await getCityBySlug(citySlug);
+  return city?.hotels ?? [];
+}
+
+export async function getHotelByCityAndSlug(citySlug: string, hotelSlug: string) {
+  const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
+    filters: { path: { $eq: `/${citySlug}/${hotelSlug}/` } },
+    ...buildHotelDetailPopulate(),
+  });
+  return res.data[0] ?? null;
+}
+
+export async function getAllCityHotelParams() {
+  const hotels = await fetchAllPages<{ path?: string | null }>("/hotels", {
+    filters: { path: { $notNull: true } },
+    fields: ["path"],
+  });
+  return hotels
+    .map((h) => {
+      const segments = h.path?.split("/").filter(Boolean) ?? [];
+      return { city: segments[0], hotel: segments[1] };
+    })
+    .filter((p): p is { city: string; hotel: string } => Boolean(p.city && p.hotel));
+}

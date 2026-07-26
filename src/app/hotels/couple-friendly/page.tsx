@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Couple Friendly Hotels";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Couple Friendly Hotels",
-  fallbackDescription: "Romantic Sarovar stays for couples.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()} across our portfolio.`,
   path: "/hotels/couple-friendly",
 });
 
-export default function CoupleFriendlyPage() {
+export default async function CoupleFriendlyPage() {
+  const hotels = await getHotelsByTheme("couple-friendly");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Explore Hotels"
-      title="Couple Friendly Hotels"
-      description="Romantic Sarovar stays for couples."
+      title={TITLE}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

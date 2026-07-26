@@ -14,10 +14,12 @@ const CAPACITY_COLUMNS: Array<{ key: keyof Banquet; label: string }> = [
 export function BanquetTable({
   banquets,
   hotelSlug,
+  basePath,
   onEnquire,
 }: {
   banquets: Banquet[];
   hotelSlug?: string;
+  basePath?: string;
   onEnquire?: (banquet: Banquet) => void;
 }) {
   if (banquets.length === 0) return null;
@@ -43,7 +45,7 @@ export function BanquetTable({
             <tr key={banquet.documentId}>
               <td className="px-4 py-3 font-semibold text-navy">
                 {hotelSlug && banquet.slug ? (
-                  <Link href={`/hotels/${hotelSlug}/banquets/${banquet.slug}`} className="hover:text-accent">
+                  <Link href={`${basePath ?? `/hotels/${hotelSlug}`}/banquets/${banquet.slug}`} className="hover:text-accent">
                     {banquet.name}
                   </Link>
                 ) : (

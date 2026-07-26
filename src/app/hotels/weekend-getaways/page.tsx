@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Weekend Getaway Hotels";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Weekend Getaway Hotels",
-  fallbackDescription: "Sarovar hotels perfect for a short break.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()} across our portfolio.`,
   path: "/hotels/weekend-getaways",
 });
 
-export default function WeekendGetawaysPage() {
+export default async function WeekendGetawaysPage() {
+  const hotels = await getHotelsByTheme("weekend-getaways");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Explore Hotels"
-      title="Weekend Getaway Hotels"
-      description="Sarovar hotels perfect for a short break."
+      title={TITLE}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

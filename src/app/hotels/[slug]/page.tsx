@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
-import { getAllHotelSlugs, getHotelBySlug, getHotelsByTheme, getUpcomingHotels } from "@/lib/api";
+import { getAllHotelSlugs, getHotelBySlug } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { StarRating } from "@/components/ui/StarRating";
 import { Badge } from "@/components/ui/Badge";
 import { HotelGallery } from "@/components/hotel/HotelGallery";
-import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { RoomCard } from "@/components/hotel/RoomCard";
 import { DiningCard } from "@/components/hotel/DiningCard";
 import { BanquetTable } from "@/components/hotel/BanquetTable";
@@ -17,58 +16,18 @@ import { InquiryForm } from "@/components/forms/InquiryForm";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata, hotelJsonLd, breadcrumbJsonLd } from "@/lib/seo";
-import { THEME_SLUGS, type ThemeSlug } from "@/types";
 
 interface HotelPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Phase 7 IA: /hotels/[theme]/ and /hotels/new-and-upcoming/ are curated
-// collection pages that share this exact route file (reusing the existing
-// [slug] segment) rather than a sibling dynamic route — Next.js does not
-// allow two differently-named dynamic segments at the same path level, so
-// this checks the seed list first and only falls through to a hotel lookup
-// otherwise. See CLAUDE.md Phase 7 §4.
-const THEME_LABELS: Record<ThemeSlug, string> = {
-  "hill-stations": "Hotels in Hills",
-  beach: "Hotels on Beaches",
-  pilgrimage: "Pilgrimage Hotels",
-  "weekend-getaways": "Weekend Getaway Hotels",
-  wedding: "Wedding Hotels",
-  "couple-friendly": "Couple Friendly Hotels",
-  family: "Kid Friendly Hotels",
-  luxury: "Luxury Hotels",
-  business: "Business Hotels",
-  "pet-friendly": "Pet Friendly Hotels",
-};
-const NEW_AND_UPCOMING_SLUG = "new-and-upcoming";
-
-function isThemeSlug(value: string): value is ThemeSlug {
-  return (THEME_SLUGS as readonly string[]).includes(value);
-}
-
 export async function generateStaticParams() {
   const slugs = await getAllHotelSlugs();
-  return [...slugs, ...THEME_SLUGS, NEW_AND_UPCOMING_SLUG].map((slug) => ({ slug }));
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: HotelPageProps): Promise<Metadata> {
   const { slug } = await params;
-
-  if (slug === NEW_AND_UPCOMING_SLUG) {
-    return buildMetadata({
-      fallbackTitle: "New & Upcoming Hotels",
-      fallbackDescription: "Discover our newest and soon-to-open Sarovar properties.",
-      path: `/hotels/${slug}`,
-    });
-  }
-  if (isThemeSlug(slug)) {
-    return buildMetadata({
-      fallbackTitle: THEME_LABELS[slug],
-      fallbackDescription: `Explore ${THEME_LABELS[slug].toLowerCase()} across our portfolio.`,
-      path: `/hotels/${slug}`,
-    });
-  }
 
   const hotel = await getHotelBySlug(slug);
   if (!hotel) return { title: "Hotel Not Found" };
@@ -83,30 +42,6 @@ export async function generateMetadata({ params }: HotelPageProps): Promise<Meta
 
 export default async function HotelDetailPage({ params }: HotelPageProps) {
   const { slug } = await params;
-
-  if (slug === NEW_AND_UPCOMING_SLUG) {
-    const hotels = await getUpcomingHotels();
-    return (
-      <HotelCollectionView
-        eyebrow="Explore Hotels"
-        title="New & Upcoming Hotels"
-        description="Discover our newest and soon-to-open Sarovar properties."
-        hotels={hotels}
-        emptyMessage="No upcoming hotels flagged yet — check back soon."
-      />
-    );
-  }
-  if (isThemeSlug(slug)) {
-    const hotels = await getHotelsByTheme(slug);
-    return (
-      <HotelCollectionView
-        eyebrow="Explore Hotels"
-        title={THEME_LABELS[slug]}
-        hotels={hotels}
-        emptyMessage="No hotels tagged for this collection yet — check back soon."
-      />
-    );
-  }
 
   const hotel = await getHotelBySlug(slug);
 

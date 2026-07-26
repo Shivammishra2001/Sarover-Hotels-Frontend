@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Pilgrimage Hotels";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Pilgrimage Hotels",
-  fallbackDescription: "Sarovar hotels near pilgrimage destinations.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()} across our portfolio.`,
   path: "/hotels/pilgrimage",
 });
 
-export default function PilgrimagePage() {
+export default async function PilgrimagePage() {
+  const hotels = await getHotelsByTheme("pilgrimage");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Explore Hotels"
-      title="Pilgrimage Hotels"
-      description="Sarovar hotels near pilgrimage destinations."
+      title={TITLE}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

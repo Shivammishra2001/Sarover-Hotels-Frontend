@@ -10,10 +10,24 @@ import type { Room } from "@/types";
  * fine, but this card previously rendered no link to them at all — 640 rooms
  * across 152 hotels were reachable only by guessing/constructing the URL
  * directly. `hotelSlug` is required so every render site links consistently.
+ *
+ * `basePath` is additive: the new `/{city}/{hotel}` tree passes its own base
+ * so links resolve to the canonical URL, while the old `/hotels/{slug}` tree
+ * (still live as a fallback) keeps building links from `hotelSlug` alone.
  */
-export function RoomCard({ room, hotelSlug, onEnquire }: { room: Room; hotelSlug: string; onEnquire?: () => void }) {
+export function RoomCard({
+  room,
+  hotelSlug,
+  basePath,
+  onEnquire,
+}: {
+  room: Room;
+  hotelSlug: string;
+  basePath?: string;
+  onEnquire?: () => void;
+}) {
   return (
-    <Link href={`/hotels/${hotelSlug}/rooms/${slugify(room.name)}`} className="block">
+    <Link href={`${basePath ?? `/hotels/${hotelSlug}`}/rooms/${slugify(room.name)}`} className="block">
       <Card className="flex flex-col p-6">
         <div className="flex items-start justify-between gap-4">
           <div>

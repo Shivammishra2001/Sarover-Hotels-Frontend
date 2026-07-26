@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getDestinationsByCategory } from "@/lib/api";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Hot Destinations";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Hot Destinations",
-  fallbackDescription: "Trending-right-now Sarovar destinations.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
   path: "/destinations/hot",
 });
 
-export default function HotPage() {
+export default async function HotPage() {
+  const destinations = await getDestinationsByCategory("hot");
   return (
-    <StubLanding
+    <DestinationCollectionView
       eyebrow="Popular Destinations"
-      title="Hot Destinations"
-      description="Trending-right-now Sarovar destinations."
+      title={TITLE}
+      destinations={destinations}
+      emptyMessage="No destinations tagged for this category yet — check back soon."
     />
   );
 }

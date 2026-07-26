@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getDestinationsByCategory } from "@/lib/api";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Weekend Destinations";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Weekend Destinations",
-  fallbackDescription: "Destinations perfect for a short break.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
   path: "/destinations/weekend",
 });
 
-export default function WeekendPage() {
+export default async function WeekendPage() {
+  const destinations = await getDestinationsByCategory("weekend");
   return (
-    <StubLanding
+    <DestinationCollectionView
       eyebrow="Popular Destinations"
-      title="Weekend Destinations"
-      description="Destinations perfect for a short break."
+      title={TITLE}
+      destinations={destinations}
+      emptyMessage="No destinations tagged for this category yet — check back soon."
     />
   );
 }

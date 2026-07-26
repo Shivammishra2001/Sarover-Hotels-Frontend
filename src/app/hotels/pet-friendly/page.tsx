@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Pet Friendly Hotels";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Pet Friendly Hotels",
-  fallbackDescription: "Sarovar hotels that welcome pets.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()} across our portfolio.`,
   path: "/hotels/pet-friendly",
 });
 
-export default function PetFriendlyPage() {
+export default async function PetFriendlyPage() {
+  const hotels = await getHotelsByTheme("pet-friendly");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Explore Hotels"
-      title="Pet Friendly Hotels"
-      description="Sarovar hotels that welcome pets."
+      title={TITLE}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }
