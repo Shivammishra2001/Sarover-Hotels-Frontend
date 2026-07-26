@@ -62,7 +62,7 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
     return (
       <div className="py-16 sm:py-20">
         <Container>
-          <SectionHeading eyebrow="Popular Destinations" title={`Destinations in ${country.name}`} />
+          <SectionHeading eyebrow="Browse by State" title={`Destinations in ${country.name}`} />
           {country.states && country.states.length > 0 ? (
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {country.states.map((state) => (
