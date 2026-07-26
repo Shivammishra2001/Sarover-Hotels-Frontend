@@ -45,7 +45,7 @@ function NavDropdown({ item }: { item: NavItem }) {
       </button>
 
       {open && item.children && (
-        <div className="absolute left-1/2 top-full z-50 mt-3 w-48 -translate-x-1/2 rounded-lg border border-border bg-surface py-2 shadow-lg">
+        <div className="absolute left-1/2 top-full z-50 mt-0 w-48 -translate-x-1/2 rounded-lg border border-border bg-surface py-2 shadow-lg">
           {item.children.map((child) => (
             <Link
               key={child.href}
@@ -95,7 +95,7 @@ export function Header() {
         scrolled ? "shadow-md shadow-black/5" : "shadow-sm shadow-black/[0.03]"
       )}
     >
-      <Container className="flex h-[60px] items-center gap-8 sm:h-[82px] lg:gap-14">
+      <Container className="flex h-[88px] items-center gap-8 lg:gap-12">
    <div className="flex items-center gap-5 lg:gap-6 -ml-8">
           <button
   type="button"
@@ -110,9 +110,9 @@ export function Header() {
           <Logo />
         </div>
 
-        <nav className="hidden items-center gap-10 lg:flex">
+       <nav className="hidden h-full items-center gap-10 lg:flex">
           {siteConfig.nav.map((item) => (
-            <div key={item.label} className="flex items-center">
+           <div key={item.label} className="flex h-full items-center">
               {item.children ? (
                 <NavDropdown item={item} />
               ) : (
@@ -140,7 +140,7 @@ export function Header() {
           <Container className="flex flex-col gap-1 py-4">
             {siteConfig.nav.map((item) =>
               item.children ? (
-                <div key={item.label} className="px-3 py-2.5">
+               <div key={item.label} className="flex h-full items-center">
                   <p className="text-sm font-semibold uppercase tracking-wide text-ink/60">
                     {item.label}
                   </p>

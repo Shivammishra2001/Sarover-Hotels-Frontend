@@ -4,7 +4,9 @@ import type {
   Attraction,
   Banquet,
   Brand,
+  BrandGroup,
   Destination,
+  DestinationCategorySlug,
   Hotel,
   HotelGallery,
   HotelPage,
@@ -14,6 +16,8 @@ import type {
   Page,
   StrapiListResponse,
   StrapiSingleResponse,
+  Theme,
+  ThemeSlug,
 } from "@/types";
 
 /**
@@ -139,6 +143,73 @@ export async function getBrands() {
   });
 }
 
+// ---- Phase 7 IA: brand hierarchy ----
+
+/** Brands shown under a burger-menu brand group. Golden Tulip is canonically
+ * `louvre` but also carries `shown_in_sarovar_group:true` (see CLAUDE.md Phase 7
+ * §2.1) — the Sarovar group query includes it via an $or, never duplicating
+ * the record. */
+export async function getBrandsByGroup(group: BrandGroup) {
+  const filters =
+    group === "sarovar"
+      ? { is_active: { $eq: true }, $or: [{ brand_group: { $eq: "sarovar" } }, { shown_in_sarovar_group: { $eq: true } }] }
+      : { is_active: { $eq: true }, brand_group: { $eq: group } };
+
+  return fetchAllPages<Brand>("/brands", {
+    filters,
+    populate: { hotels: { fields: ["name"] } },
+    sort: ["sort_order:asc"],
+  });
+}
+
+export async function getBrandBySlug(slug: string) {
+  const res = await fetchAPI<StrapiListResponse<Brand>>("/brands", {
+    filters: { slug: { $eq: slug }, is_active: { $eq: true } },
+    populate: { hotels: { populate: { destination: true, hotel_galleries: true } }, seo: true },
+  });
+  return res.data[0] ?? null;
+}
+
+// ---- Phase 7 IA: hotel themes (/hotels/[theme]/) ----
+
+export async function getThemes() {
+  return fetchAllPages<Theme>("/themes", { sort: ["sort_order:asc"] });
+}
+
+export async function getThemeBySlug(slug: ThemeSlug) {
+  const res = await fetchAPI<StrapiListResponse<Theme>>("/themes", {
+    filters: { slug: { $eq: slug } },
+  });
+  return res.data[0] ?? null;
+}
+
+export async function getHotelsByTheme(themeSlug: ThemeSlug) {
+  return fetchAllPages<Hotel>("/hotels", {
+    filters: { status: { $eq: "active" }, themes: { slug: { $eq: themeSlug } } },
+    populate: { brand: true, destination: true, hotel_galleries: true, rooms: true },
+    sort: ["name:asc"],
+  });
+}
+
+export async function getUpcomingHotels() {
+  return fetchAllPages<Hotel>("/hotels", {
+    filters: { is_upcoming: { $eq: true } },
+    populate: { brand: true, destination: true, hotel_galleries: true },
+    sort: ["name:asc"],
+  });
+}
+
+// ---- Phase 7 IA: destination categories (/destinations/[category]/) ----
+
+/** `category` is a Strapi `json` field (array of strings) — server-side
+ * `$contains` filtering on JSON columns isn't reliable, so this fetches every
+ * active destination (a small, ~95-record set) and filters client-side,
+ * which is provably correct regardless of how Strapi's ORM handles JSON. */
+export async function getDestinationsByCategory(category: DestinationCategorySlug) {
+  const all = await getDestinations();
+  return all.filter((d) => Array.isArray(d.category) && d.category.includes(category));
+}
+
 export async function getActiveOffers() {
   return fetchAllPages<Offer>("/offers", {
     filters: { is_active: { $eq: true } },
@@ -247,6 +318,24 @@ export async function getArticleBySlug(slug: string) {
     },
   });
   return res.data[0] ?? null;
+}
+
+/**
+ * `article.category` is 100% `"blog"` in the ingested data (never
+ * differentiated at ingest time — confirmed via DB query) so there's no
+ * structured signal for the burger menu's blog sub-categories
+ * (destination-guides/travel-tips/food-and-dining/weekend-getaways). Falls
+ * back to keyword-matching the title/excerpt against each category's
+ * keyword list (see PHASE7_BLOG_CATEGORIES in @/config/site) — a documented
+ * heuristic, not a guess, and articles matching zero categories simply don't
+ * appear on any /blogs/[category]/ page (only on /blogs/ itself).
+ */
+export async function getArticlesByKeywordCategory(keywords: readonly string[]) {
+  const all = await getArticles(1000);
+  return all.filter((a) => {
+    const haystack = `${a.title} ${a.excerpt ?? ""}`.toLowerCase();
+    return keywords.some((k) => haystack.includes(k.toLowerCase()));
+  });
 }
 
 export async function getAllArticleSlugs() {

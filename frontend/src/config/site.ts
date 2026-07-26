@@ -51,31 +51,107 @@ export const siteConfig = {
     { heading: "Partner with us", links: [{ label: "Partner", href: "/" }] },
     { heading: "Are you a travel agent?", links: [{ label: "Travel Agent", href: "/" }] },
   ],
-  // Restructured to match the redesign's nav (dropdowns for F&B / More).
-  // Items with no dedicated route yet are mapped to the closest existing page
-  // and flagged inline below rather than inventing new routes.
+  // Phase 7 burger-menu IA — single source of truth for both the header nav
+  // and route generation (see PHASE7_IA in this file). Additive: ingested
+  // source-path pages (e.g. /efcee-sarovar-portico-bhavnagar/) stay live
+  // alongside this curated taxonomy layer, per the operator's "keep both"
+  // decision. The header dropdown shows one level of children; deeper nodes
+  // (e.g. an individual brand under a group) are reached by clicking through
+  // from that group's own landing page.
   nav: [
-    { label: "Destinations", href: "/destinations" },
-    { label: "Weddings", href: "/weddings-events" },
-    { label: "MICE", href: "/weddings-events" }, // no dedicated MICE route; weddings-events already covers banquet/MICE content
-    { label: "Deals", href: "/offers" },
-    { label: "Experiences", href: "/hotels" }, // no dedicated experiences route yet
     {
-      label: "F&B",
+      label: "Our Brands",
+      href: "/brands",
       children: [
-        { label: "Restaurants", href: "/hotels" }, // no dedicated dining route yet
-        { label: "Bars & Lounges", href: "/hotels" },
+        { label: "Sarovar Brands", href: "/brands/sarovar" },
+        { label: "Louvre Brands", href: "/brands/louvre" },
+        { label: "Partner Brands", href: "/brands/partner" },
       ],
     },
-    { label: "Rewards", href: "/" }, // no loyalty page yet
     {
-      label: "More",
+      label: "Explore Hotels",
+      href: "/hotels",
       children: [
-        { label: "About", href: "/#about" },
-        { label: "Contact", href: "/#contact" },
+        { label: "Hotels in Hills", href: "/hotels/hill-stations" },
+        { label: "Hotels on Beaches", href: "/hotels/beach" },
+        { label: "Pilgrimage Hotels", href: "/hotels/pilgrimage" },
+        { label: "Weekend Getaway Hotels", href: "/hotels/weekend-getaways" },
+        { label: "Wedding Hotels", href: "/hotels/wedding" },
+        { label: "Couple Friendly Hotels", href: "/hotels/couple-friendly" },
+        { label: "Kid Friendly Hotels", href: "/hotels/family" },
+        { label: "Luxury Hotels", href: "/hotels/luxury" },
+        { label: "Business Hotels", href: "/hotels/business" },
+        { label: "Pet Friendly Hotels", href: "/hotels/pet-friendly" },
+        { label: "New & Upcoming Hotels", href: "/hotels/new-and-upcoming" },
+      ],
+    },
+    {
+      label: "Popular Destinations",
+      href: "/destinations",
+      children: [
+        { label: "Popular Wedding Destinations", href: "/destinations/popular" },
+        { label: "Hot Destinations", href: "/destinations/hot" },
+        { label: "Trending Cities", href: "/destinations/trending" },
+        { label: "Weekend Destinations", href: "/destinations/weekend" },
+        { label: "Beach Destinations", href: "/destinations/beaches" },
+        { label: "Hill Destinations", href: "/destinations/hill-stations" },
+        { label: "Pilgrimage Destinations", href: "/destinations/pilgrimage" },
+        { label: "International Destinations", href: "/destinations/international" },
+      ],
+    },
+    {
+      label: "Deals & Offers",
+      href: "/offers",
+      children: [
+        { label: "MICE Offers", href: "/offers/mice-offers" },
+        { label: "Sarovar x Fly91", href: "/offers/sarovar-hotels-x-fly91" },
+        { label: "Why Book Direct", href: "/offers/why-book-direct" },
+      ],
+    },
+    {
+      label: "Radisson Rewards",
+      href: "/rewards",
+      children: [
+        { label: "Discover", href: "/rewards" },
+        { label: "Member Benefits", href: "/rewards/benefits" },
+        { label: "How to Earn", href: "/rewards/earn" },
+        { label: "How to Redeem", href: "/rewards/redeem" },
+        { label: "Member Deals", href: "/rewards/offers" },
+        { label: "Join Now", href: "/rewards/join" },
+      ],
+    },
+    {
+      label: "Blog & Travel Guides",
+      href: "/blogs",
+      children: [
+        { label: "Destination Guides", href: "/blogs/destination-guides" },
+        { label: "Travel Tips", href: "/blogs/travel-tips" },
+        { label: "Food & Dining", href: "/blogs/food-and-dining" },
+        { label: "Weekend Getaways", href: "/blogs/weekend-getaways" },
+        { label: "Weddings", href: "/weddings" },
+        { label: "Hotel News", href: "/newsroom" },
+        { label: "All Blogs", href: "/blogs" },
       ],
     },
   ] satisfies NavItem[],
 };
+
+/** Phase 7 IA seed lists — the single source both the [theme]/[category] route
+ * branches (validate-against-seed-list) and the QA coverage report read from. */
+export const PHASE7_BRAND_GROUPS = ["sarovar", "louvre", "partner"] as const;
+export const PHASE7_REWARDS_PAGES = [
+  { slug: "", title: "Discover" },
+  { slug: "benefits", title: "Member Benefits" },
+  { slug: "earn", title: "How to Earn" },
+  { slug: "redeem", title: "How to Redeem" },
+  { slug: "offers", title: "Member Deals" },
+  { slug: "join", title: "Join Now" },
+] as const;
+export const PHASE7_BLOG_CATEGORIES = [
+  { slug: "destination-guides", title: "Destination Guides", keywords: ["destination", "explore", "visit", "places to visit", "attractions", "heritage", "beauty of"] },
+  { slug: "travel-tips", title: "Travel Tips", keywords: ["tips", "guide", "how to", "planning", "safe", "monsoon"] },
+  { slug: "food-and-dining", title: "Food & Dining", keywords: ["food", "recipe", "cuisine", "dining", "khana", "trail"] },
+  { slug: "weekend-getaways", title: "Weekend Getaways", keywords: ["weekend", "getaway", "drivable", "long weekend"] },
+] as const;
 
 export type SiteConfig = typeof siteConfig;
