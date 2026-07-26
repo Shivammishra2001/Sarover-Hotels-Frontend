@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllCitySlugs, getCityBySlug, getPageByPath } from "@/lib/api";
+import { getAllCitySlugs, getChildPages, getCityBySlug, getPageByPath } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HotelCard } from "@/components/hotel/HotelCard";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { BlockRenderer } from "@/components/blocks/BlockRenderer";
+import { GenericPageView } from "@/components/page/GenericPageView";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 
@@ -73,16 +73,8 @@ export default async function CityPage({ params }: CityPageProps) {
   if (!destination) {
     const page = await getPageByPath(`/${city}`);
     if (!page) notFound();
-    return (
-      <div className="pb-20 pt-10">
-        <Container className="max-w-3xl">
-          <SectionHeading title={page.title} description={page.excerpt} />
-          <div className="mt-10">
-            <BlockRenderer blocks={page.body} />
-          </div>
-        </Container>
-      </div>
-    );
+    const childPages = await getChildPages(`/${city}`);
+    return <GenericPageView page={page} childPages={childPages.map((p) => ({ path: p.path, title: p.title }))} />;
   }
 
   return (
