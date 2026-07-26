@@ -5,6 +5,7 @@ import type {
   Banquet,
   Brand,
   BrandGroup,
+  Country,
   Destination,
   DestinationCategorySlug,
   Hotel,
@@ -14,6 +15,8 @@ import type {
   InquiryPayload,
   Offer,
   Page,
+  Redirect,
+  State,
   StrapiListResponse,
   StrapiSingleResponse,
   Theme,
@@ -451,6 +454,52 @@ export async function getHotelByCityAndSlug(citySlug: string, hotelSlug: string)
   return res.data[0] ?? null;
 }
 
+// ---- Phase 6: SEO parity — 301/302 map from ingested old-path redirects ----
+
+export async function getAllRedirects() {
+  const redirects = await fetchAllPages<Redirect>("/redirects", {
+    filters: { is_active: { $eq: true } },
+  });
+  return redirects.map((r) => ({
+    from_path: r.from_path,
+    to_path: r.to_path,
+    status_code: r.status_code,
+  }));
+}
+
+// ---- /destinations/{country}/{state}/ geo browse funnel ----
+
+export async function getCountryBySlug(slug: string) {
+  const res = await fetchAPI<StrapiListResponse<Country>>("/countries", {
+    filters: { slug: { $eq: slug } },
+    populate: { states: { sort: ["name:asc"] }, seo: true },
+  });
+  return res.data[0] ?? null;
+}
+
+export async function getAllCountrySlugs() {
+  const countries = await fetchAllPages<{ slug: string }>("/countries", { fields: ["slug"] });
+  return countries.map((c) => c.slug);
+}
+
+export async function getStateBySlugs(countrySlug: string, stateSlug: string) {
+  const res = await fetchAPI<StrapiListResponse<State>>("/states", {
+    filters: { slug: { $eq: stateSlug }, country: { slug: { $eq: countrySlug } } },
+    populate: { country: true, destinations: { populate: { hotels: { fields: ["name"] } } }, seo: true },
+  });
+  return res.data[0] ?? null;
+}
+
+export async function getAllCountryStateParams() {
+  const states = await fetchAllPages<{ slug: string; country?: { slug: string } }>("/states", {
+    fields: ["slug"],
+    populate: { country: { fields: ["slug"] } },
+  });
+  return states
+    .filter((s): s is { slug: string; country: { slug: string } } => Boolean(s.country?.slug))
+    .map((s) => ({ country: s.country!.slug, state: s.slug }));
+}
+
 export async function getAllCityHotelParams() {
   const hotels = await fetchAllPages<{ path?: string | null }>("/hotels", {
     filters: { path: { $notNull: true } },
@@ -462,4 +511,44 @@ export async function getAllCityHotelParams() {
       return { city: segments[0], hotel: segments[1] };
     })
     .filter((p): p is { city: string; hotel: string } => Boolean(p.city && p.hotel));
+}
+
+// ---- Phase 6: app/sitemap.ts feeders — slug/path + updatedAt only, for lastmod.
+// Nested per-hotel resources (rooms/dining/banquets/attractions) and the flat
+// city/hotel section fan-out are built directly in app/sitemap.ts from the
+// slug-only fetchers above; there's no distinct updatedAt worth surfacing for
+// those synthetic section URLs, so they're not repeated here. ----
+
+export async function getSitemapDestinations() {
+  return fetchAllPages<{ slug: string; updatedAt: string }>("/destinations", {
+    filters: { is_active: { $eq: true } },
+    fields: ["slug", "updatedAt"],
+  });
+}
+
+export async function getSitemapHotels() {
+  return fetchAllPages<{ path?: string | null; updatedAt: string }>("/hotels", {
+    filters: { status: { $eq: "active" } },
+    fields: ["path", "updatedAt"],
+  });
+}
+
+export async function getSitemapPages() {
+  return fetchAllPages<{ path: string; updatedAt: string }>("/pages", {
+    filters: { is_active: { $eq: true } },
+    fields: ["path", "updatedAt"],
+  });
+}
+
+export async function getSitemapArticles() {
+  return fetchAllPages<{ slug: string; updatedAt: string }>("/articles", {
+    fields: ["slug", "updatedAt"],
+  });
+}
+
+export async function getSitemapOffers() {
+  return fetchAllPages<{ slug: string; updatedAt: string }>("/offers", {
+    filters: { is_active: { $eq: true } },
+    fields: ["slug", "updatedAt"],
+  });
 }

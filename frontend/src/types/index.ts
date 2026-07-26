@@ -533,6 +533,23 @@ export interface HotelPage extends StrapiEntity {
   hotel?: Hotel;
 }
 
+export interface Country extends StrapiEntity {
+  name: string;
+  slug: string;
+  path: string;
+  seo?: Seo;
+  states?: State[];
+}
+
+export interface State extends StrapiEntity {
+  name: string;
+  slug: string;
+  path: string;
+  seo?: Seo;
+  country?: Country;
+  destinations?: Destination[];
+}
+
 export interface Redirect extends StrapiEntity {
   from_path: string;
   to_path: string;

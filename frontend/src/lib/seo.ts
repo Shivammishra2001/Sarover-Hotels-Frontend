@@ -81,7 +81,7 @@ export function hotelJsonLd(hotel: Hotel) {
     description: hotel.description,
     telephone: hotel.phone,
     email: hotel.email,
-    url: absoluteUrl(`/hotels/${hotel.slug}`),
+    url: absoluteUrl(hotel.path ?? `/hotels/${hotel.slug}`),
     image: cover?.media_url ? getMediaUrl(cover.media_url) : undefined,
     address: hotel.address_line1
       ? {
