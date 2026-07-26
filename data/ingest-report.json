@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-07-25T17:32:16.906Z",
+  "generatedAt": "2026-07-26T07:59:59.149Z",
   "mode": "mirror",
   "dryRun": false,
   "deadUrlsSkipped": 49,
   "totals": {
-    "fetched": 4,
-    "created": 2645,
-    "updated": 8,
-    "unchanged": 69,
+    "fetched": 75,
+    "created": 2556,
+    "updated": 98,
+    "unchanged": 68,
     "failed": 0,
     "imagesUploaded": 0
   },
   "byBucket": [
     {
       "bucket": "destination-city",
-      "fetched": 0,
-      "created": 89,
-      "updated": 3,
-      "unchanged": 1,
+      "fetched": 75,
+      "created": 0,
+      "updated": 93,
+      "unchanged": 0,
       "failed": 0,
       "imagesUploaded": 0
     },
@@ -194,7 +194,7 @@
     },
     {
       "bucket": "hotel-other-subpage",
-      "fetched": 1,
+      "fetched": 0,
       "created": 178,
       "updated": 1,
       "unchanged": 0,
@@ -293,7 +293,7 @@
     },
     {
       "bucket": "site-utility-page",
-      "fetched": 3,
+      "fetched": 0,
       "created": 20,
       "updated": 3,
       "unchanged": 0,
