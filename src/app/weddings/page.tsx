@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/seo";
 // sub-node has no distinct source content beyond this page itself (checked:
 // no separate /weddings/weddings.html record exists) — not built as a
 // separate route to avoid a pointless duplicate.
-const SOURCE_PATH = "/weddings.html";
+const SOURCE_PATH = "/weddings";
 
 export const revalidate = 3600;
 

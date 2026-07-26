@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
 export default function CareersPage() {
   return (
     <CmsBackedPage
-      path="/careers/"
+      path="/careers"
       eyebrow="Join Us"
       title="Careers"
       description="Career opportunities across the Sarovar Hotels group."

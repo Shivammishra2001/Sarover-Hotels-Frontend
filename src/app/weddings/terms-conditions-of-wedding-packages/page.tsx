@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/layout/SectionHeading";
 import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { buildMetadata } from "@/lib/seo";
 
-const SOURCE_PATH = "/weddings/terms-conditions-of-wedding-packages.html";
+const SOURCE_PATH = "/weddings/terms-conditions-of-wedding-packages";
 
 export const revalidate = 3600;
 

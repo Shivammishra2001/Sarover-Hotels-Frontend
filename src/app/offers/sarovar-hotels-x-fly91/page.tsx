@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/layout/SectionHeading";
 import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { buildMetadata } from "@/lib/seo";
 
-const SOURCE_PATH = "/site/offers/sarovar-hotels-x-fly91.html";
+const SOURCE_PATH = "/site/offers/sarovar-hotels-x-fly91";
 
 export const revalidate = 3600;
 
