@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function CulinaryCaravanPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/restaurants/culinary-caravan/"
       eyebrow="Restaurants"
       title="Culinary Caravan"
       description="A rotating showcase of regional cuisines."

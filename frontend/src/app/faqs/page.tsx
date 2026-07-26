@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function FaqsPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/faqs/"
       eyebrow="Help Centre"
       title="Frequently Asked Questions"
       description="Answers to common questions about stays, bookings, and rewards."

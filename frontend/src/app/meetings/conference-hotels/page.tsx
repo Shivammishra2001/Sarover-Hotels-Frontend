@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function ConferenceHotelsPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/meetings/conference-hotels/"
       eyebrow="Meetings & Events"
       title="Conference Hotels"
       description="Hotels built for conferences and large-scale events."

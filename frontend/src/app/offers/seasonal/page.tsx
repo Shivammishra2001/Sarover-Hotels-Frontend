@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function SeasonalPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/offers/seasonal/"
       eyebrow="Deals & Offers"
       title="Seasonal Offers"
       description="Limited-time seasonal offers across Sarovar hotels."

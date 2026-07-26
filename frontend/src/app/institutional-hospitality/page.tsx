@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function InstitutionalHospitalityPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/institutional-hospitality/"
       eyebrow="Institutional Hospitality"
       title="Institutional Hospitality"
       description="Hospitality management for institutions and campuses."

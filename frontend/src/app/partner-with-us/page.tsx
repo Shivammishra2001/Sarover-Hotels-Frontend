@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PartnerWithUsPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/partner-with-us/"
       eyebrow="Grow With Us"
       title="Partner With Us"
       description="Franchise and management partnership opportunities with Sarovar Hotels."
