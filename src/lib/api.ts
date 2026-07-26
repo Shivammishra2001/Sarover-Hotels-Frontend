@@ -103,21 +103,20 @@ export async function getHotelBySlug(slug: string) {
 }
 
 export async function getAllHotelSlugs() {
-  const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
-    fields: ["slug"],
-    pagination: { limit: 100 },
-  });
-  return res.data.map((hotel) => hotel.slug);
+  // 162 hotels > the old single-page `limit: 100` — silently dropped 62 hotels
+  // from generateStaticParams. Must loop all pages, never assume a fixed cap.
+  const hotels = await fetchAllPages<{ slug: string }>("/hotels", { fields: ["slug"] });
+  return hotels.map((hotel) => hotel.slug);
 }
 
 export async function getDestinations() {
-  const res = await fetchAPI<StrapiListResponse<Destination>>("/destinations", {
+  // 96 destinations > the old single-page `limit: 50` — this was the destinations-
+  // capped-at-~50 bug. Must loop all pages, never assume a fixed cap.
+  return fetchAllPages<Destination>("/destinations", {
     filters: { is_active: { $eq: true } },
     populate: { hotels: { fields: ["name"] } },
     sort: ["name:asc"],
-    pagination: { limit: 50 },
   });
-  return res.data;
 }
 
 export async function getDestinationBySlug(slug: string) {
@@ -129,30 +128,23 @@ export async function getDestinationBySlug(slug: string) {
 }
 
 export async function getAllDestinationSlugs() {
-  const res = await fetchAPI<StrapiListResponse<Destination>>("/destinations", {
-    fields: ["slug"],
-    pagination: { limit: 100 },
-  });
-  return res.data.map((destination) => destination.slug);
+  const destinations = await fetchAllPages<{ slug: string }>("/destinations", { fields: ["slug"] });
+  return destinations.map((destination) => destination.slug);
 }
 
 export async function getBrands() {
-  const res = await fetchAPI<StrapiListResponse<Brand>>("/brands", {
+  return fetchAllPages<Brand>("/brands", {
     filters: { is_active: { $eq: true } },
     sort: ["sort_order:asc"],
-    pagination: { limit: 50 },
   });
-  return res.data;
 }
 
 export async function getActiveOffers() {
-  const res = await fetchAPI<StrapiListResponse<Offer>>("/offers", {
+  return fetchAllPages<Offer>("/offers", {
     filters: { is_active: { $eq: true } },
     populate: { brand: true, hotel: { populate: { destination: true } } },
     sort: ["starts_at:desc"],
-    pagination: { limit: 20 },
   });
-  return res.data;
 }
 
 export async function getOfferBySlug(slug: string) {
@@ -164,21 +156,16 @@ export async function getOfferBySlug(slug: string) {
 }
 
 export async function getAllOfferSlugs() {
-  const res = await fetchAPI<StrapiListResponse<Offer>>("/offers", {
-    fields: ["slug"],
-    pagination: { limit: 100 },
-  });
-  return res.data.map((offer) => offer.slug);
+  const offers = await fetchAllPages<{ slug: string }>("/offers", { fields: ["slug"] });
+  return offers.map((offer) => offer.slug);
 }
 
 export async function getBanquets() {
-  const res = await fetchAPI<StrapiListResponse<Banquet>>("/banquets", {
+  return fetchAllPages<Banquet>("/banquets", {
     filters: { is_active: { $eq: true } },
     populate: { hotel: { populate: { destination: true } } },
     sort: ["theatre_capacity:desc"],
-    pagination: { limit: 50 },
   });
-  return res.data;
 }
 
 export async function getGallerySample(limit = 12) {
@@ -239,12 +226,14 @@ export async function getAllPagePaths() {
 // ---- Articles (blog) ----
 
 export async function getArticles(limit = 20) {
-  const res = await fetchAPI<StrapiListResponse<Article>>("/articles", {
+  // `limit` is a caller-chosen display cap (e.g. homepage wants fewer than the
+  // full blog listing), not a Strapi page-size assumption — fetch every page
+  // first so a growing article count never silently truncates below `limit`.
+  const articles = await fetchAllPages<Article>("/articles", {
     populate: { hotel: { fields: ["name", "slug"] } },
     sort: ["published_on:desc", "createdAt:desc"],
-    pagination: { limit },
   });
-  return res.data;
+  return articles.slice(0, limit);
 }
 
 export async function getArticleBySlug(slug: string) {
