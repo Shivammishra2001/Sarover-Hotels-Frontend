@@ -131,6 +131,12 @@ export const THEME_SLUGS = [
   "luxury",
   "business",
   "pet-friendly",
+  // Phase 4 IA rebuild: /experiences/* editorial aliases with no 1:1 mapping
+  // onto the original 10 theme slugs above — see backend/scripts/fix/seed-new-themes.ts.
+  "heritage",
+  "wellness",
+  "boutique",
+  "long-stay",
 ] as const;
 export type ThemeSlug = (typeof THEME_SLUGS)[number];
 
@@ -190,6 +196,7 @@ export interface Destination extends StrapiEntity {
   articles?: Article[];
   seo?: Seo;
   source_url?: string;
+  path?: string;
 }
 
 export type PropertyType =
@@ -236,6 +243,7 @@ export interface Hotel extends StrapiEntity {
   articles?: Article[];
   seo?: Seo;
   source_url?: string;
+  path?: string;
 }
 
 export type GalleryMediaType = "image" | "video" | "view_360";

@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getDestinationsByCategory } from "@/lib/api";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Pilgrimage Destinations";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Pilgrimage Destinations",
-  fallbackDescription: "Destinations near major pilgrimage sites.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
   path: "/destinations/pilgrimage",
 });
 
-export default function PilgrimagePage() {
+export default async function PilgrimagePage() {
+  const destinations = await getDestinationsByCategory("pilgrimage");
   return (
-    <StubLanding
+    <DestinationCollectionView
       eyebrow="Popular Destinations"
-      title="Pilgrimage Destinations"
-      description="Destinations near major pilgrimage sites."
+      title={TITLE}
+      destinations={destinations}
+      emptyMessage="No destinations tagged for this category yet — check back soon."
     />
   );
 }

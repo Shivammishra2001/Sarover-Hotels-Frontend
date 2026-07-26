@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getDestinationsByCategory } from "@/lib/api";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Popular Wedding Destinations";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Popular Destinations",
-  fallbackDescription: "The most-booked Sarovar destinations.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
   path: "/destinations/popular",
 });
 
-export default function PopularPage() {
+export default async function PopularPage() {
+  const destinations = await getDestinationsByCategory("popular");
   return (
-    <StubLanding
+    <DestinationCollectionView
       eyebrow="Popular Destinations"
-      title="Popular Destinations"
-      description="The most-booked Sarovar destinations."
+      title={TITLE}
+      destinations={destinations}
+      emptyMessage="No destinations tagged for this category yet — check back soon."
     />
   );
 }

@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Long Stay Hotels";
+const DESCRIPTION = "Hotels suited for extended stays.";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Long Stay Hotels",
-  fallbackDescription: "Hotels suited for extended stays.",
+  fallbackTitle: TITLE,
+  fallbackDescription: DESCRIPTION,
   path: "/experiences/long-stay-hotels",
 });
 
-export default function LongStayHotelsPage() {
+export default async function LongStayHotelsPage() {
+  const hotels = await getHotelsByTheme("long-stay");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Experiences"
-      title="Long Stay Hotels"
-      description="Hotels suited for extended stays."
+      title={TITLE}
+      description={DESCRIPTION}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Family Hotels";
+const DESCRIPTION = "Hotels great for family holidays.";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Family Hotels",
-  fallbackDescription: "Hotels great for family holidays.",
+  fallbackTitle: TITLE,
+  fallbackDescription: DESCRIPTION,
   path: "/experiences/family-hotels",
 });
 
-export default function FamilyHotelsPage() {
+export default async function FamilyHotelsPage() {
+  const hotels = await getHotelsByTheme("family");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Experiences"
-      title="Family Hotels"
-      description="Hotels great for family holidays."
+      title={TITLE}
+      description={DESCRIPTION}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }

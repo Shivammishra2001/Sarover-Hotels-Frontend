@@ -3,16 +3,16 @@ import { getDestinationsByCategory } from "@/lib/api";
 import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
-const TITLE = "Beach Destinations";
+const TITLE = "International Destinations";
 
 export const metadata: Metadata = buildMetadata({
   fallbackTitle: TITLE,
   fallbackDescription: `Explore ${TITLE.toLowerCase()}.`,
-  path: "/destinations/beaches",
+  path: "/destinations/international",
 });
 
-export default async function BeachesPage() {
-  const destinations = await getDestinationsByCategory("beaches");
+export default async function InternationalPage() {
+  const destinations = await getDestinationsByCategory("international");
   return (
     <DestinationCollectionView
       eyebrow="Popular Destinations"

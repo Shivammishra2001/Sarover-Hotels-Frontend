@@ -7,16 +7,19 @@ import { StarRating } from "@/components/ui/StarRating";
 import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Hotel } from "@/types";
 
-export function HotelCard({ hotel }: { hotel: Hotel }) {
+export function HotelCard({ hotel, href }: { hotel: Hotel; href?: string }) {
   const cover =
     hotel.hotel_galleries?.find((item) => item.is_cover) ?? hotel.hotel_galleries?.[0];
   const startingPrice = hotel.rooms?.length
     ? Math.min(...hotel.rooms.map((room) => room.base_price))
     : undefined;
+  // `href` lets city-hub pages point at the new canonical `hotel.path`
+  // (`/{city}/{hotel}/`) — the old `/hotels/{slug}` tree still relies on the default.
+  const target = href ?? `/hotels/${hotel.slug}`;
 
   return (
     <Card className="group flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-      <Link href={`/hotels/${hotel.slug}`} className="relative block aspect-[4/3] overflow-hidden">
+      <Link href={target} className="relative block aspect-[4/3] overflow-hidden">
         {cover?.media_url ? (
           <Image
             src={getMediaUrl(cover.media_url)}
@@ -39,7 +42,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
         {hotel.brand?.name && (
           <p className="eyebrow text-accent">{hotel.brand.name}</p>
         )}
-        <Link href={`/hotels/${hotel.slug}`}>
+        <Link href={target}>
           <h3 className="mt-1 font-display text-lg font-semibold text-navy">{hotel.name}</h3>
         </Link>
         <div className="mt-2 flex items-center gap-3 text-sm text-ink/60">
@@ -63,7 +66,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
           ) : (
             <span />
           )}
-          <Link href={`/hotels/${hotel.slug}`} className="text-sm font-semibold text-accent hover:underline">
+          <Link href={target} className="text-sm font-semibold text-accent hover:underline">
             View Details
           </Link>
         </div>

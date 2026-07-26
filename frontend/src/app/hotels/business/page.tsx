@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { getHotelsByTheme } from "@/lib/api";
+import { HotelCollectionView } from "@/components/hotel/HotelCollectionView";
 import { buildMetadata } from "@/lib/seo";
 
+const TITLE = "Business Hotels";
+
 export const metadata: Metadata = buildMetadata({
-  fallbackTitle: "Business Hotels",
-  fallbackDescription: "Sarovar hotels suited for business travel.",
+  fallbackTitle: TITLE,
+  fallbackDescription: `Explore ${TITLE.toLowerCase()} across our portfolio.`,
   path: "/hotels/business",
 });
 
-export default function BusinessPage() {
+export default async function BusinessPage() {
+  const hotels = await getHotelsByTheme("business");
   return (
-    <StubLanding
+    <HotelCollectionView
       eyebrow="Explore Hotels"
-      title="Business Hotels"
-      description="Sarovar hotels suited for business travel."
+      title={TITLE}
+      hotels={hotels}
+      emptyMessage="No hotels tagged for this collection yet — check back soon."
     />
   );
 }
