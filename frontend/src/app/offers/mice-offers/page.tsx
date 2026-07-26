@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/seo";
 // `/site/offers/mice-offers.html` at ingest (see backend/scripts/ingest/
 // extractors/page.ts collisionSafePath) — this route surfaces it at the
 // burger-menu's intended path without re-ingesting anything.
-const SOURCE_PATH = "/site/offers/mice-offers.html";
+const SOURCE_PATH = "/site/offers/mice-offers";
 
 export const revalidate = 3600;
 

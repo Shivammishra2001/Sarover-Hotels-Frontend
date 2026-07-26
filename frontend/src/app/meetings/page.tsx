@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 // Real ingested content at /events/meetings-and-events.html, matching the
 // "MICE"/Meetings nav item — same pattern as /weddings (getPageByPath +
 // BlockRenderer), see that route for the shared reasoning.
-const SOURCE_PATH = "/events/meetings-and-events.html";
+const SOURCE_PATH = "/events/meetings-and-events";
 
 export const revalidate = 3600;
 

@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/layout/SectionHeading";
 import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { buildMetadata } from "@/lib/seo";
 
-const SOURCE_PATH = "/site/offers/why-book-direct.html";
+const SOURCE_PATH = "/site/offers/why-book-direct";
 
 export const revalidate = 3600;
 

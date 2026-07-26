@@ -212,7 +212,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Generic CMS pages (about/legal/corporate/etc, driven by the [...slug] catch-all).
-  for (const p of pagePaths) add(p, pageLastmod.get(p));
+  // Some ingested `page.path` values carry a trailing slash - the app itself
+  // never serves URLs with one (trailingSlash defaults false), so emitting
+  // them as-is here would list a sitemap URL that immediately 308s to its
+  // own canonical form. Strip it before adding, but still look up lastmod by
+  // the original stored path (that's the map's key).
+  for (const p of pagePaths) add(p.replace(/\/$/, '') || '/', pageLastmod.get(p));
 
   return entries;
 }

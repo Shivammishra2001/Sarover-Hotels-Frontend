@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/layout/SectionHeading";
 import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { buildMetadata } from "@/lib/seo";
 
-const SOURCE_PATH = "/newsroom/newsroom.html";
+const SOURCE_PATH = "/newsroom/newsroom";
 
 export const revalidate = 3600;
 
