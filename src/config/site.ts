@@ -51,86 +51,50 @@ export const siteConfig = {
     { heading: "Partner with us", links: [{ label: "Partner", href: "/" }] },
     { heading: "Are you a travel agent?", links: [{ label: "Travel Agent", href: "/" }] },
   ],
-  // Phase 7 burger-menu IA — single source of truth for both the header nav
-  // and route generation (see PHASE7_IA in this file). Additive: ingested
-  // source-path pages (e.g. /efcee-sarovar-portico-bhavnagar/) stay live
-  // alongside this curated taxonomy layer, per the operator's "keep both"
-  // decision. The header dropdown shows one level of children; deeper nodes
-  // (e.g. an individual brand under a group) are reached by clicking through
-  // from that group's own landing page.
+  // Flat top-level nav per the operator-approved header redesign: only F&B
+  // and More carry a dropdown; every other top-level item is a plain link to
+  // its own section index, which then links onward to its own sub-pages
+  // (destinations/weddings/MICE/deals/experiences/rewards all have their own
+  // in-page navigation — see each section's own landing page). Deeper nodes
+  // that used to live in a mega-dropdown here are reached by clicking through
+  // from that section's own landing page, or via "More" for the pages that
+  // have no natural top-level section of their own.
   nav: [
+    { label: "Destinations", href: "/destinations" },
+    { label: "Weddings", href: "/weddings" },
+    { label: "MICE", href: "/meetings" },
+    { label: "Deals", href: "/offers" },
+    { label: "Experiences", href: "/experiences" },
     {
-      label: "Our Brands",
-      href: "/brands",
+      label: "F&B",
+      href: "/restaurants",
       children: [
-        { label: "Sarovar Brands", href: "/brands/sarovar" },
-        { label: "Louvre Brands", href: "/brands/louvre" },
-        { label: "Partner Brands", href: "/brands/partner" },
+        { label: "FoodGully", href: "/restaurants/foodgully" },
+        { label: "Ghar Mehfil", href: "/restaurants/ghar-mehfil" },
+        { label: "Culinary Caravan", href: "/restaurants/culinary-caravan" },
+        { label: "Private Dining", href: "/restaurants/private-dining" },
+        { label: "Chef Specials", href: "/restaurants/chef-specials" },
+        { label: "Reservations", href: "/restaurants/reservations" },
       ],
     },
+    { label: "Rewards", href: "/rewards" },
     {
-      label: "Explore Hotels",
-      href: "/hotels",
+      label: "More",
       children: [
-        { label: "Hotels in Hills", href: "/hotels/hill-stations" },
-        { label: "Hotels on Beaches", href: "/hotels/beach" },
-        { label: "Pilgrimage Hotels", href: "/hotels/pilgrimage" },
-        { label: "Weekend Getaway Hotels", href: "/hotels/weekend-getaways" },
-        { label: "Wedding Hotels", href: "/hotels/wedding" },
-        { label: "Couple Friendly Hotels", href: "/hotels/couple-friendly" },
-        { label: "Kid Friendly Hotels", href: "/hotels/family" },
-        { label: "Luxury Hotels", href: "/hotels/luxury" },
-        { label: "Business Hotels", href: "/hotels/business" },
-        { label: "Pet Friendly Hotels", href: "/hotels/pet-friendly" },
+        { label: "Our Brands", href: "/brands" },
+        { label: "Explore Hotels", href: "/hotels" },
+        { label: "Blog & Travel Guides", href: "/blogs" },
         { label: "New & Upcoming Hotels", href: "/hotels/new-and-upcoming-hotels" },
-      ],
-    },
-    {
-      label: "Popular Destinations",
-      href: "/destinations",
-      children: [
-        { label: "Popular Wedding Destinations", href: "/destinations/popular" },
-        { label: "Hot Destinations", href: "/destinations/hot" },
-        { label: "Trending Cities", href: "/destinations/trending" },
-        { label: "Weekend Destinations", href: "/destinations/weekend" },
-        { label: "Beach Destinations", href: "/destinations/beaches" },
-        { label: "Hill Destinations", href: "/destinations/hill-stations" },
-        { label: "Pilgrimage Destinations", href: "/destinations/pilgrimage" },
-        { label: "International Destinations", href: "/destinations/international" },
-      ],
-    },
-    {
-      label: "Deals & Offers",
-      href: "/offers",
-      children: [
-        { label: "MICE Offers", href: "/offers/mice-offers" },
-        { label: "Sarovar x Fly91", href: "/offers/sarovar-hotels-x-fly91" },
-        { label: "Why Book Direct", href: "/offers/why-book-direct" },
-      ],
-    },
-    {
-      label: "Radisson Rewards",
-      href: "/rewards",
-      children: [
-        { label: "Discover", href: "/rewards" },
-        { label: "Member Benefits", href: "/rewards/benefits" },
-        { label: "How to Earn", href: "/rewards/earn" },
-        { label: "How to Redeem", href: "/rewards/redeem" },
-        { label: "Member Deals", href: "/rewards/offers" },
-        { label: "Join Now", href: "/rewards/join" },
-      ],
-    },
-    {
-      label: "Blog & Travel Guides",
-      href: "/blogs",
-      children: [
-        { label: "Destination Guides", href: "/blogs/destination-guides" },
-        { label: "Travel Tips", href: "/blogs/travel-tips" },
-        { label: "Food & Dining", href: "/blogs/food-and-dining" },
-        { label: "Weekend Getaways", href: "/blogs/weekend-getaways" },
-        { label: "Weddings", href: "/weddings" },
-        { label: "Hotel News", href: "/newsroom" },
-        { label: "All Blogs", href: "/blogs" },
+        { label: "About Us", href: "/about" },
+        { label: "Careers", href: "/careers" },
+        { label: "Media", href: "/media" },
+        { label: "Investors", href: "/investors" },
+        { label: "Sustainability", href: "/sustainability" },
+        { label: "CSR", href: "/csr" },
+        { label: "Partner With Us", href: "/partner-with-us" },
+        { label: "Hotel Directory", href: "/hotel-directory" },
+        { label: "FAQs", href: "/faqs" },
+        { label: "Contact", href: "/contact" },
       ],
     },
   ] satisfies NavItem[],

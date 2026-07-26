@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
-import { getAllCityHotelParams, getHotelByCityAndSlug } from "@/lib/api";
+import { getAllCityHotelParams, getHotelByCityAndSlug, getPageByPath } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { StarRating } from "@/components/ui/StarRating";
@@ -14,8 +14,14 @@ import { BanquetTable } from "@/components/hotel/BanquetTable";
 import { OfferCard } from "@/components/hotel/OfferCard";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata, hotelJsonLd, breadcrumbJsonLd, absoluteUrl } from "@/lib/seo";
+
+// Same routing-precedence fallback as app/[city]/page.tsx: a two-segment
+// dynamic route (`[city]/[hotel]`) also wins over the catch-all for any
+// two-segment path, real hotel or not - fall back to the generic `page`
+// collection before notFound() so paths like /about-us/discover still work.
 
 interface HotelPageProps {
   params: Promise<{ city: string; hotel: string }>;
@@ -28,13 +34,22 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: HotelPageProps): Promise<Metadata> {
   const { city, hotel: hotelSlug } = await params;
   const hotel = await getHotelByCityAndSlug(city, hotelSlug);
-  if (!hotel) return { title: "Hotel Not Found" };
+  if (hotel) {
+    return buildMetadata({
+      seo: hotel.seo,
+      fallbackTitle: hotel.name,
+      fallbackDescription: hotel.description,
+      path: hotel.path ?? `/${city}/${hotelSlug}`,
+    });
+  }
 
+  const page = await getPageByPath(`/${city}/${hotelSlug}`);
+  if (!page) return { title: "Not Found" };
   return buildMetadata({
-    seo: hotel.seo,
-    fallbackTitle: hotel.name,
-    fallbackDescription: hotel.description,
-    path: hotel.path ?? `/${city}/${hotelSlug}`,
+    seo: page.seo,
+    fallbackTitle: page.title,
+    fallbackDescription: page.excerpt,
+    path: `/${city}/${hotelSlug}`,
   });
 }
 
@@ -42,7 +57,20 @@ export default async function CityHotelPage({ params }: HotelPageProps) {
   const { city, hotel: hotelSlug } = await params;
   const hotel = await getHotelByCityAndSlug(city, hotelSlug);
 
-  if (!hotel) notFound();
+  if (!hotel) {
+    const page = await getPageByPath(`/${city}/${hotelSlug}`);
+    if (!page) notFound();
+    return (
+      <div className="pb-20 pt-10">
+        <Container className="max-w-3xl">
+          <SectionHeading title={page.title} description={page.excerpt} />
+          <div className="mt-10">
+            <BlockRenderer blocks={page.body} />
+          </div>
+        </Container>
+      </div>
+    );
+  }
 
   const basePath = `/${city}/${hotelSlug}`;
   const cover = hotel.hotel_galleries?.find((img) => img.is_cover) ?? hotel.hotel_galleries?.[0];

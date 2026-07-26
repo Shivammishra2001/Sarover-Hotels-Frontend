@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import {
+  getAllCountrySlugs,
   getAllDestinationSlugs,
+  getCountryBySlug,
   getDestinationBySlug,
 } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
@@ -15,13 +18,30 @@ interface DestinationPageProps {
   params: Promise<{ slug: string }>;
 }
 
+// This single dynamic segment does double duty: a real destination slug
+// (e.g. "jaipur") renders the destination detail page below; a real country
+// slug (e.g. "india") renders a states/destinations browse page instead.
+// Next.js disallows two differently-named dynamic segments as siblings at
+// the same depth, so — same as the theme/category collections before them —
+// both live cases share this one `[slug]` route rather than a sibling
+// `[country]` folder.
 export async function generateStaticParams() {
-  const slugs = await getAllDestinationSlugs();
-  return slugs.map((slug) => ({ slug }));
+  const [destinationSlugs, countrySlugs] = await Promise.all([getAllDestinationSlugs(), getAllCountrySlugs()]);
+  return [...destinationSlugs, ...countrySlugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: DestinationPageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  const country = await getCountryBySlug(slug);
+  if (country) {
+    return buildMetadata({
+      seo: country.seo,
+      fallbackTitle: `Destinations in ${country.name}`,
+      fallbackDescription: `Explore Sarovar destinations across ${country.name}.`,
+      path: `/destinations/${slug}`,
+    });
+  }
 
   const destination = await getDestinationBySlug(slug);
   if (!destination) return { title: "Destination Not Found" };
@@ -36,6 +56,32 @@ export async function generateMetadata({ params }: DestinationPageProps): Promis
 
 export default async function DestinationDetailPage({ params }: DestinationPageProps) {
   const { slug } = await params;
+
+  const country = await getCountryBySlug(slug);
+  if (country) {
+    return (
+      <div className="py-16 sm:py-20">
+        <Container>
+          <SectionHeading eyebrow="Popular Destinations" title={`Destinations in ${country.name}`} />
+          {country.states && country.states.length > 0 ? (
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {country.states.map((state) => (
+                <Link
+                  key={state.documentId}
+                  href={`/destinations/${country.slug}/${state.slug}`}
+                  className="rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent"
+                >
+                  <p className="font-display text-lg font-semibold">{state.name}</p>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-10 text-sm text-ink/60">No states listed for {country.name} yet.</p>
+          )}
+        </Container>
+      </div>
+    );
+  }
 
   const destination = await getDestinationBySlug(slug);
 

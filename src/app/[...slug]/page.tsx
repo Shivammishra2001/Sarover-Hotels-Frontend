@@ -21,7 +21,15 @@ export const revalidate = 3600;
  */
 export async function generateStaticParams() {
   const paths = await getAllPagePaths();
-  return paths.map((path) => ({ slug: path.replace(/^\/+/, "").split("/") }));
+  // Some ingested `page.path` values carry a trailing slash (e.g. "/about/") -
+  // splitting on "/" without stripping it first produces a slug segment array
+  // ending in an empty string, which is an invalid catch-all param and was
+  // breaking static param generation for this ENTIRE shared route (every page
+  // routed through here 404'd, not just the malformed ones).
+  return paths
+    .map((path) => path.replace(/^\/+|\/+$/g, "").split("/").filter(Boolean))
+    .filter((slug) => slug.length > 0)
+    .map((slug) => ({ slug }));
 }
 
 async function resolvePage(slug: string[]) {

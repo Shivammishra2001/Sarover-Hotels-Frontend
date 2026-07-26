@@ -2,13 +2,22 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getAllCitySlugs, getCityBySlug } from "@/lib/api";
+import { getAllCitySlugs, getCityBySlug, getPageByPath } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HotelCard } from "@/components/hotel/HotelCard";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
+
+// A single dynamic segment `[city]` always wins Next.js route-matching
+// precedence over the sibling catch-all `app/[...slug]/page.tsx` (dynamic
+// beats catch-all) - so every single-segment path that ISN'T a real city
+// (e.g. /about-us, /disclaimer) gets intercepted here, never reaching the
+// generic `page` collection the catch-all serves. Falling back to that same
+// lookup here (instead of notFound() as soon as the city lookup misses)
+// restores those pages instead of 404ing every non-city single-segment path.
 
 interface CityPageProps {
   params: Promise<{ city: string }>;
@@ -38,12 +47,21 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
   const { city } = await params;
   const destination = await getCityBySlug(city);
-  if (!destination) return { title: "Destination Not Found" };
+  if (destination) {
+    return buildMetadata({
+      seo: destination.seo,
+      fallbackTitle: destination.name,
+      fallbackDescription: destination.description,
+      path: `/${city}`,
+    });
+  }
 
+  const page = await getPageByPath(`/${city}`);
+  if (!page) return { title: "Not Found" };
   return buildMetadata({
-    seo: destination.seo,
-    fallbackTitle: destination.name,
-    fallbackDescription: destination.description,
+    seo: page.seo,
+    fallbackTitle: page.title,
+    fallbackDescription: page.excerpt,
     path: `/${city}`,
   });
 }
@@ -52,7 +70,20 @@ export default async function CityPage({ params }: CityPageProps) {
   const { city } = await params;
   const destination = await getCityBySlug(city);
 
-  if (!destination) notFound();
+  if (!destination) {
+    const page = await getPageByPath(`/${city}`);
+    if (!page) notFound();
+    return (
+      <div className="pb-20 pt-10">
+        <Container className="max-w-3xl">
+          <SectionHeading title={page.title} description={page.excerpt} />
+          <div className="mt-10">
+            <BlockRenderer blocks={page.body} />
+          </div>
+        </Container>
+      </div>
+    );
+  }
 
   return (
     <div className="pb-20">
