@@ -116,6 +116,43 @@ export async function getAllHotelSlugs() {
   return hotels.map((hotel) => hotel.slug);
 }
 
+export interface SearchIndexEntry {
+  type: "hotel" | "destination";
+  title: string;
+  subtitle?: string;
+  href: string;
+}
+
+/** Small enough (~260 records) to ship the whole index client-side and filter
+ * in the browser as the user types - no backend search engine needed for v1
+ * (per the IA spec's own note on /search). */
+export async function getSearchIndex(): Promise<SearchIndexEntry[]> {
+  const [hotels, destinations] = await Promise.all([
+    fetchAllPages<{ name: string; slug: string; path?: string | null; destination?: { city?: string } }>("/hotels", {
+      fields: ["name", "slug", "path"],
+      populate: { destination: { fields: ["city"] } },
+    }),
+    fetchAllPages<{ name: string; slug: string; path?: string | null; city?: string; state?: string }>("/destinations", {
+      fields: ["name", "slug", "path", "city", "state"],
+    }),
+  ]);
+
+  return [
+    ...hotels.map((h): SearchIndexEntry => ({
+      type: "hotel",
+      title: h.name,
+      subtitle: h.destination?.city,
+      href: h.path ?? `/hotels/${h.slug}`,
+    })),
+    ...destinations.map((d): SearchIndexEntry => ({
+      type: "destination",
+      title: d.name,
+      subtitle: d.state,
+      href: d.path ?? `/destinations/${d.slug}`,
+    })),
+  ];
+}
+
 export async function getDestinations() {
   // 96 destinations > the old single-page `limit: 50` — this was the destinations-
   // capped-at-~50 bug. Must loop all pages, never assume a fixed cap.
@@ -438,7 +475,9 @@ export async function getCityBySlug(citySlug: string) {
   const res = await fetchAPI<StrapiListResponse<Destination>>("/destinations", {
     filters: { path: { $eq: `/${citySlug}/` } },
     populate: {
-      hotels: { populate: { brand: true, hotel_galleries: true } },
+      hotels: {
+        populate: { brand: true, hotel_galleries: true, dinings: true, offers: true, banquets: true },
+      },
       attractions: true,
       seo: true,
     },
