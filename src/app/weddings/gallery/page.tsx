@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { StubLanding } from "@/components/layout/StubLanding";
+import { CmsBackedPage } from "@/components/page/CmsBackedPage";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -10,7 +10,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function GalleryPage() {
   return (
-    <StubLanding
+    <CmsBackedPage
+      path="/weddings/gallery/"
       eyebrow="Weddings"
       title="Wedding Gallery"
       description="A look at real weddings hosted at Sarovar hotels."
