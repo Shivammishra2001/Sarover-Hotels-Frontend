@@ -1,24 +1,58 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getAllDestinationSlugs, getDestinationBySlug } from "@/lib/api";
+import {
+  getAllDestinationSlugs,
+  getDestinationBySlug,
+  getDestinationsByCategory,
+} from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HotelCard } from "@/components/hotel/HotelCard";
+import { DestinationCollectionView } from "@/components/destination/DestinationCollectionView";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata } from "@/lib/seo";
+import { DESTINATION_CATEGORY_SLUGS, type DestinationCategorySlug } from "@/types";
 
 interface DestinationPageProps {
   params: Promise<{ slug: string }>;
 }
 
+// Phase 7 IA: /destinations/[category]/ (popular, hot, trending, weekend,
+// beaches, hill-stations, pilgrimage, international) shares this exact route
+// file rather than a sibling dynamic route, for the same reason as
+// /hotels/[theme]/ — see that file's comment.
+const CATEGORY_LABELS: Record<DestinationCategorySlug, string> = {
+  popular: "Popular Wedding Destinations",
+  hot: "Hot Destinations",
+  trending: "Trending Cities",
+  weekend: "Weekend Destinations",
+  beaches: "Beach Destinations",
+  "hill-stations": "Hill Destinations",
+  pilgrimage: "Pilgrimage Destinations",
+  international: "International Destinations",
+};
+
+function isCategorySlug(value: string): value is DestinationCategorySlug {
+  return (DESTINATION_CATEGORY_SLUGS as readonly string[]).includes(value);
+}
+
 export async function generateStaticParams() {
   const slugs = await getAllDestinationSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return [...slugs, ...DESTINATION_CATEGORY_SLUGS].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: DestinationPageProps): Promise<Metadata> {
   const { slug } = await params;
+
+  if (isCategorySlug(slug)) {
+    return buildMetadata({
+      fallbackTitle: CATEGORY_LABELS[slug],
+      fallbackDescription: `Explore ${CATEGORY_LABELS[slug].toLowerCase()}.`,
+      path: `/destinations/${slug}`,
+    });
+  }
+
   const destination = await getDestinationBySlug(slug);
   if (!destination) return { title: "Destination Not Found" };
 
@@ -32,6 +66,19 @@ export async function generateMetadata({ params }: DestinationPageProps): Promis
 
 export default async function DestinationDetailPage({ params }: DestinationPageProps) {
   const { slug } = await params;
+
+  if (isCategorySlug(slug)) {
+    const destinations = await getDestinationsByCategory(slug);
+    return (
+      <DestinationCollectionView
+        eyebrow="Popular Destinations"
+        title={CATEGORY_LABELS[slug]}
+        destinations={destinations}
+        emptyMessage="No destinations tagged for this category yet — check back soon."
+      />
+    );
+  }
+
   const destination = await getDestinationBySlug(slug);
 
   if (!destination) notFound();

@@ -100,6 +100,7 @@ export type Block =
   | StatsBlock;
 
 export type BrandTier = "luxury" | "upscale" | "midscale" | "economy";
+export type BrandGroup = "sarovar" | "louvre" | "partner";
 
 export interface Brand extends StrapiEntity {
   name: string;
@@ -111,10 +112,48 @@ export interface Brand extends StrapiEntity {
   brand_color?: string;
   sort_order: number;
   is_active: boolean;
+  brand_group?: BrandGroup;
+  shown_in_sarovar_group?: boolean;
   hotels?: Hotel[];
   offers?: Offer[];
   seo?: Seo;
 }
+
+// Phase 7 IA — curated hotel-collection tag (/hotels/collections/[theme]/)
+export const THEME_SLUGS = [
+  "hill-stations",
+  "beach",
+  "pilgrimage",
+  "weekend-getaways",
+  "wedding",
+  "couple-friendly",
+  "family",
+  "luxury",
+  "business",
+  "pet-friendly",
+] as const;
+export type ThemeSlug = (typeof THEME_SLUGS)[number];
+
+export interface Theme extends StrapiEntity {
+  name: string;
+  slug: string;
+  description?: string;
+  sort_order: number;
+  hotels?: Hotel[];
+}
+
+// Phase 7 IA — curated destination category (/destinations/[category]/)
+export const DESTINATION_CATEGORY_SLUGS = [
+  "popular",
+  "hot",
+  "trending",
+  "weekend",
+  "beaches",
+  "hill-stations",
+  "pilgrimage",
+  "international",
+] as const;
+export type DestinationCategorySlug = (typeof DESTINATION_CATEGORY_SLUGS)[number];
 
 export type RegionTag =
   | "north"
@@ -143,6 +182,9 @@ export interface Destination extends StrapiEntity {
   description?: string;
   hero_image_url?: string;
   is_active: boolean;
+  category?: DestinationCategorySlug[];
+  aliases?: string[];
+  canonical_destination?: Destination;
   hotels?: Hotel[];
   attractions?: Attraction[];
   articles?: Article[];
@@ -180,8 +222,10 @@ export interface Hotel extends StrapiEntity {
   opened_on?: string;
   status: HotelStatus;
   is_featured: boolean;
+  is_upcoming?: boolean;
   brand?: Brand;
   destination?: Destination;
+  themes?: Theme[];
   hotel_galleries?: HotelGallery[];
   rooms?: Room[];
   dinings?: Dining[];
