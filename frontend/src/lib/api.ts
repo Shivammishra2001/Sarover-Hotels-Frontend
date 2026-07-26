@@ -297,6 +297,21 @@ export async function getAllPagePaths() {
   return pages.map((p) => p.path);
 }
 
+/** Immediate child pages of `parentPath` (e.g. "/about-us" -> "/about-us/discover",
+ * "/about-us/our-brands", but not a deeper grandchild) - used to render a real
+ * sub-nav for hub pages whose ingested body is just plain-text tab labels with
+ * no working links (the source markup had hrefs, but the generic extractor
+ * only pulls text). */
+export async function getChildPages(parentPath: string) {
+  const prefix = parentPath.endsWith("/") ? parentPath : `${parentPath}/`;
+  const depth = prefix.split("/").filter(Boolean).length + 1;
+  const pages = await fetchAllPages<Page>("/pages", {
+    filters: { path: { $startsWith: prefix }, is_active: { $eq: true } },
+    fields: ["path", "title"],
+  });
+  return pages.filter((p) => p.path.replace(/^\/+|\/+$/g, "").split("/").length === depth);
+}
+
 // ---- Articles (blog) ----
 
 export async function getArticles(limit = 20) {

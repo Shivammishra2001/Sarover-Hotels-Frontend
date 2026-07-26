@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MapPin, Phone, Clock } from "lucide-react";
-import { getAllCityHotelParams, getHotelByCityAndSlug, getPageByPath } from "@/lib/api";
+import { getAllCityHotelParams, getChildPages, getHotelByCityAndSlug, getPageByPath } from "@/lib/api";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { StarRating } from "@/components/ui/StarRating";
@@ -14,7 +14,7 @@ import { BanquetTable } from "@/components/hotel/BanquetTable";
 import { OfferCard } from "@/components/hotel/OfferCard";
 import { InquiryForm } from "@/components/forms/InquiryForm";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { BlockRenderer } from "@/components/blocks/BlockRenderer";
+import { GenericPageView } from "@/components/page/GenericPageView";
 import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { buildMetadata, hotelJsonLd, breadcrumbJsonLd, absoluteUrl } from "@/lib/seo";
 
@@ -60,16 +60,8 @@ export default async function CityHotelPage({ params }: HotelPageProps) {
   if (!hotel) {
     const page = await getPageByPath(`/${city}/${hotelSlug}`);
     if (!page) notFound();
-    return (
-      <div className="pb-20 pt-10">
-        <Container className="max-w-3xl">
-          <SectionHeading title={page.title} description={page.excerpt} />
-          <div className="mt-10">
-            <BlockRenderer blocks={page.body} />
-          </div>
-        </Container>
-      </div>
-    );
+    const childPages = await getChildPages(`/${city}/${hotelSlug}`);
+    return <GenericPageView page={page} childPages={childPages.map((p) => ({ path: p.path, title: p.title }))} />;
   }
 
   const basePath = `/${city}/${hotelSlug}`;

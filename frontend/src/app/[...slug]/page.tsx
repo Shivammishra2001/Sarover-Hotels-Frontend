@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPagePaths, getPageByPath } from "@/lib/api";
-import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/layout/SectionHeading";
-import { BlockRenderer } from "@/components/blocks/BlockRenderer";
+import { getAllPagePaths, getChildPages, getPageByPath } from "@/lib/api";
+import { GenericPageView } from "@/components/page/GenericPageView";
 import { buildMetadata } from "@/lib/seo";
 
 interface Props {
@@ -55,14 +53,6 @@ export default async function GenericPage({ params }: Props) {
   const page = await resolvePage(slug);
   if (!page) notFound();
 
-  return (
-    <div className="pb-20 pt-10">
-      <Container className="max-w-3xl">
-        <SectionHeading title={page.title} description={page.excerpt} />
-        <div className="mt-10">
-          <BlockRenderer blocks={page.body} />
-        </div>
-      </Container>
-    </div>
-  );
+  const childPages = await getChildPages(`/${slug.join("/")}`);
+  return <GenericPageView page={page} childPages={childPages.map((p) => ({ path: p.path, title: p.title }))} />;
 }
