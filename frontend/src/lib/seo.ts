@@ -41,7 +41,7 @@ export function buildMetadata({
     openGraph: {
       title: seo?.og_title || title,
       description: seo?.og_description || description,
-      images: seo?.og_image_url ? [seo.og_image_url] : undefined,
+      images: seo?.og_image_url ? [getMediaUrl(seo.og_image_url)] : undefined,
       url: canonical,
     },
   };
