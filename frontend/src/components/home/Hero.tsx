@@ -1,4 +1,5 @@
 import Image from "next/image";
+import heroVideo from "@/assets/hero.mp4";
 import { Container } from "@/components/layout/Container";
 import { HomeCtaButton } from "@/components/home/HomeCtaButton";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
@@ -17,7 +18,9 @@ export function Hero({ destinations }: { destinations: Destination[] }) {
 
   return (
     <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-navy">
+      
       {heroImage ? (
+        
         <Image
           src={getMediaUrl(heroImage)}
           alt=""
@@ -28,13 +31,30 @@ export function Hero({ destinations }: { destinations: Destination[] }) {
           unoptimized={isUnoptimizedMediaUrl(getMediaUrl(heroImage))}
         />
       ) : null}
+
+
+       {/* Video overlay */}
+      <video
+        className="absolute inset-0 z-[1] h-full w-full object-cover opacity-40"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+      >
+         <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+
       <div className="absolute inset-0 bg-navy/55" />
 
       <Container className="relative flex flex-col items-center py-24 text-center">
+      
+
         <h1 className="font-display text-[42px] font-normal leading-[1.1] text-white sm:text-[56px] lg:text-[70px]">
           Where Every Stay
           <br />
-          Feels Personal
+          Feels Personal 
         </h1>
         <p className="mt-6 text-lg font-medium leading-[1.1] text-white sm:text-xl lg:text-[26px]">
           Thoughtful hospitality, wherever you go.

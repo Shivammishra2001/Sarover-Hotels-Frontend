@@ -20,7 +20,7 @@ export function HomeCtaButton({
     <Link
       href={href}
       className={cn(
-        "flex items-center justify-center rounded-full bg-[#c1392a] px-10 py-5 text-[13px] font-extrabold uppercase tracking-[0.78px] text-white transition-colors hover:bg-[#c1392a]/90 lg:px-[60px] lg:py-[26px]",
+        "flex items-center justify-center rounded-full bg-[#c1392a] px-10 py-5 text-[13px] font-extrabold uppercase tracking-[0.78px] text-white transition-colors hover:bg-[#c1392a]/90 lg:px-[60px] lg:py-[20px]",
         className
       )}
     >

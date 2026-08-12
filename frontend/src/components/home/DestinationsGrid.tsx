@@ -46,7 +46,7 @@ export function DestinationsGrid({
       : "Hotels across destinations in India, Nepal and Africa";
 
   return (
-    <section className="bg-muted py-20 sm:py-28">
+    <section className="bg-muted py-20 sm:py-15 bg1">
       <Container>
         <HomeSectionHeading eyebrow="Destinations" title="Explore Our Top Destinations" description={description} />
 

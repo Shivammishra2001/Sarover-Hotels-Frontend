@@ -32,3 +32,4 @@ Thumbs.db
 env related/
 env related.zip
 data/*.bak
+.next/

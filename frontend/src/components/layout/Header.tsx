@@ -69,10 +69,11 @@ function Logo() {
         src="/brand/sarovar-logo.png"
         alt={siteConfig.name}
         width={355}
-        height={178}
+        height={179}
         priority
         className="h-16 w-auto object-contain sm:h-20"
       />
+      
     </Link>
   );
 }
