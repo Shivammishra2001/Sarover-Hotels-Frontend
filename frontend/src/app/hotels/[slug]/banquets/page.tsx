@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllHotelSlugs, getHotelBySlug, findHotelPage } from "@/lib/api";
-import { HotelSectionContent } from "@/components/hotel/HotelSectionContent";
-import { BanquetTable } from "@/components/hotel/BanquetTable";
+import { getAllHotelSlugs, getHotelBySlug } from "@/lib/api";
+import { Container } from "@/components/layout/Container";
+import { HotelHero } from "@/components/hotel/HotelHero";
+import { HotelPageNav } from "@/components/hotel/HotelPageNav";
+import { HotelBanquets } from "@/components/hotel/HotelBanquets";
 import { buildMetadata } from "@/lib/seo";
 
 interface Props {
@@ -20,29 +22,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const hotel = await getHotelBySlug(slug);
   if (!hotel) return { title: "Not Found" };
-  const page = findHotelPage(hotel.hotel_pages, "banquets_listing");
-  return buildMetadata({
-    seo: page?.seo,
-    fallbackTitle: `Banquets & Conferences | ${hotel.name}`,
-    path: `/hotels/${slug}/banquets`,
-  });
+  return buildMetadata({ fallbackTitle: `Banquets & Conferences | ${hotel.name}`, path: `/hotels/${slug}/banquets` });
 }
 
+// Same hero + page-nav shell as /rooms and /dining, with the real Banquet
+// data rendered through the "Plan Your Events with Us" band (Figma node
+// 1297:788) already built for the main hotel-overview page.
 export default async function HotelBanquetsPage({ params }: Props) {
   const { slug } = await params;
   const hotel = await getHotelBySlug(slug);
   if (!hotel) notFound();
 
-  const page = findHotelPage(hotel.hotel_pages, "banquets_listing");
   const banquets = hotel.banquets ?? [];
+  const basePath = `/hotels/${hotel.slug}`;
+
+  const navLinks = [
+    { href: basePath, label: hotel.name },
+    { href: `${basePath}/rooms`, label: "Rooms" },
+    { href: `${basePath}/dining`, label: "Dining" },
+    { href: `${basePath}/banquets`, label: "Banquets & Conferences" },
+    { href: `${basePath}/amenities`, label: "Facilities" },
+    { href: `${basePath}/gallery`, label: "Gallery" },
+    { href: `${basePath}/nearby`, label: `Explore ${hotel.destination?.city ?? ""}`.trim() },
+  ];
 
   return (
-    <HotelSectionContent hotel={hotel} current="/banquets" fallbackTitle="Banquets & Conferences" page={page}>
+    <div className="pb-20">
+      <HotelHero hotel={hotel} basePath={basePath} />
+      <HotelPageNav links={navLinks} current={`${basePath}/banquets`} />
+
       {banquets.length > 0 ? (
-        <BanquetTable banquets={banquets} hotelSlug={hotel.slug} />
+        <HotelBanquets banquets={banquets} basePath={basePath} />
       ) : (
-        <p className="text-ink/60">Event space details for this hotel are being updated.</p>
+        <section className="bg-white py-20">
+          <Container>
+            <p className="text-center text-[#2d3e50]/60">Event space details for this hotel are being updated.</p>
+          </Container>
+        </section>
       )}
-    </HotelSectionContent>
+    </div>
   );
 }

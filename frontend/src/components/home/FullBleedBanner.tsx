@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { Play, X } from "lucide-react";
+import { getMediaUrl } from "@/lib/utils";
 
-export function FullBleedBanner() {
+export function FullBleedBanner({ image }: { image?: string }) {
   const [videoOpen, setVideoOpen] = useState(false);
+  const bgUrl = image ? getMediaUrl(image) : undefined;
 
   return (
     <section
-      className="relative flex h-[55vh] min-h-[420px] items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url(https://picsum.photos/seed/atmospheric-banner/1920/900)" }}
+      className="relative flex h-[55vh] min-h-[420px] items-center justify-center bg-navy bg-cover bg-center"
+      style={bgUrl ? { backgroundImage: `url(${bgUrl})` } : undefined}
     >
       <div className="absolute inset-0 bg-black/20" />
 

@@ -27,3 +27,8 @@ data/image-backfill-state.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Local environment and backup files
+env related/
+env related.zip
+data/*.bak

@@ -5,14 +5,15 @@ import Link from "next/link";
 import { useState } from "react";
 import { Car, Dumbbell, Sparkles, UtensilsCrossed, Waves } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { cn } from "@/lib/utils";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
+import { cn, getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import type { Hotel } from "@/types";
 
-const EXPERIENCES = [
+const EXPERIENCE_META = [
   {
     key: "business",
     label: "Sarovar Business Hotels",
     href: "/hotels?property_type=business_hotel",
-    image: "experience-business",
     description:
       "Our personalised services are sure to keep the discerning business traveller happy and relaxed. Comfort and convenience meet in our cosy rooms, enriching your stay with ultimate relaxation.",
   },
@@ -20,7 +21,6 @@ const EXPERIENCES = [
     key: "leisure",
     label: "Sarovar Leisure Hotels",
     href: "/hotels?property_type=resort",
-    image: "experience-leisure",
     description: "Resorts and getaways built for rest and rediscovery, wherever you choose to unwind.",
   },
   {
@@ -29,7 +29,6 @@ const EXPERIENCES = [
     // region_tag, so this links to the existing pilgrimage-tagged destination.
     label: "Sarovar Pilgrimage Hotels",
     href: "/hotels?destination=rishikesh",
-    image: "experience-pilgrimage",
     description: "Peaceful stays close to India's most cherished spiritual destinations.",
   },
 ] as const;
@@ -42,24 +41,25 @@ const AMENITIES = [
   { icon: Sparkles, label: "Spa & Massage" },
 ];
 
-export function ExperienceTabs() {
-  const [active, setActive] = useState<(typeof EXPERIENCES)[number]["key"]>("business");
-  const current = EXPERIENCES.find((exp) => exp.key === active) ?? EXPERIENCES[0];
+// `hotels` supplies one representative hotel per experience key (business,
+// leisure, pilgrimage) so each tab's photo is a real CMS hotel image rather
+// than a placeholder.
+export function ExperienceTabs({ hotels = {} }: { hotels?: Partial<Record<(typeof EXPERIENCE_META)[number]["key"], Hotel>> }) {
+  const [active, setActive] = useState<(typeof EXPERIENCE_META)[number]["key"]>("business");
+  const current = EXPERIENCE_META.find((exp) => exp.key === active) ?? EXPERIENCE_META[0];
+  const currentHotel = hotels[active];
+  const cover =
+    currentHotel?.hotel_galleries?.find((item) => item.is_cover) ?? currentHotel?.hotel_galleries?.[0];
 
   return (
     <section className="bg-muted py-20 sm:py-28">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr]">
           <div>
-            <p className="eyebrow text-ink/60">Experiences</p>
-            <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-navy">
-              Explore Stays
-              <br />
-              by Experience
-            </h2>
+            <HomeSectionHeading align="left" eyebrow="Experiences" title="Explore Stays by Experience" className="max-w-none" />
 
             <div className="mt-10 flex flex-col gap-6">
-              {EXPERIENCES.map((exp) => (
+              {EXPERIENCE_META.map((exp) => (
                 <button
                   key={exp.key}
                   type="button"
@@ -74,7 +74,7 @@ export function ExperienceTabs() {
                   >
                     {exp.label}
                   </span>
-                  {active === exp.key && <span className="h-px flex-1 bg-accent" aria-hidden />}
+                  {active === exp.key && <span className="h-px flex-1 bg-[#c1392a]" aria-hidden />}
                 </button>
               ))}
             </div>
@@ -84,20 +84,23 @@ export function ExperienceTabs() {
             {/* Decorative peeking layer behind the main image — subtle depth effect */}
             <div className="absolute -left-6 top-8 hidden h-[85%] w-24 rounded-2xl bg-navy/30 lg:block" aria-hidden />
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-lg sm:aspect-[16/9]">
-              <Image
-                src={`https://picsum.photos/seed/${current.image}/1200/750`}
-                alt={current.label}
-                fill
-                sizes="(min-width: 1024px) 65vw, 100vw"
-                className="object-cover"
-              />
+            <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-navy shadow-lg sm:aspect-[16/9]">
+              {cover?.media_url && (
+                <Image
+                  src={getMediaUrl(cover.media_url)}
+                  alt={current.label}
+                  fill
+                  sizes="(min-width: 1024px) 65vw, 100vw"
+                  className="object-cover"
+                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 max-w-lg p-6 sm:p-10">
                 <p className="text-base leading-relaxed text-white sm:text-lg">{current.description}</p>
                 <Link
                   href={current.href}
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-accent/90"
+                  className="mt-6 inline-flex items-center justify-center rounded-full bg-[#c1392a] px-6 py-2.5 text-[13px] font-extrabold uppercase tracking-[0.78px] text-white transition-colors hover:bg-[#c1392a]/90"
                 >
                   Explore More
                 </Link>

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
-import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/layout/SectionHeading";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import type { HotelGallery } from "@/types";
@@ -9,18 +8,24 @@ import type { HotelGallery } from "@/types";
 export function GalleryFeed({ images }: { images: HotelGallery[] }) {
   if (images.length === 0) return null;
 
-  const photos = images.slice(0, 5);
+  const photos = images.slice(0, 6);
 
   return (
     <section className="py-20 sm:py-28">
-      <SectionHeading
-        eyebrow="Instagram"
-        title="@Sarovar Hotels"
-        align="center"
-        className="mx-auto px-4"
-      />
+      <div className="mx-auto flex max-w-2xl flex-col items-center gap-3 px-4 text-center">
+        <HomeSectionHeading eyebrow="Instagram" title="@Sarovar Hotels" />
+        <a
+          href={siteConfig.social.instagram}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#c1392a] hover:text-[#c1392a]/80"
+        >
+          <InstagramIcon width={18} height={18} />
+          Follow us on Instagram
+        </a>
+      </div>
 
-      <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {photos.map((image) => (
           <div key={image.documentId} className="group relative aspect-square overflow-hidden">
             <Image
@@ -33,17 +38,6 @@ export function GalleryFeed({ images }: { images: HotelGallery[] }) {
             />
           </div>
         ))}
-        <a
-          href={siteConfig.social.instagram}
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Follow Sarovar Hotels on Instagram"
-          className="relative flex aspect-square items-center justify-center bg-gradient-to-br from-[#feda75] via-[#d62976] to-[#4f5bd5]"
-        >
-          <span className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-white text-white">
-            <InstagramIcon width={24} height={24} />
-          </span>
-        </a>
       </div>
     </section>
   );

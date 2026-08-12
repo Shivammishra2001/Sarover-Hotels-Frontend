@@ -29,13 +29,13 @@ export function SectionHeading({
       <h2
         className={cn(
           "font-display text-3xl sm:text-4xl font-medium leading-tight",
-          light ? "text-white" : "text-navy"
+          light ? "text-white" : "text-[#2d3e50]"
         )}
       >
         {title}
       </h2>
       {description && (
-        <p className={cn("mt-4 text-base leading-relaxed", light ? "text-white/70" : "text-ink/70")}>
+        <p className={cn("mt-4 text-base leading-relaxed", light ? "text-white/70" : "text-[#2d3e50]/90")}>
           {description}
         </p>
       )}

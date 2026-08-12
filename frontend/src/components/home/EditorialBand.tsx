@@ -3,11 +3,27 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Play, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
+import { HomeCtaButton } from "@/components/home/HomeCtaButton";
+import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import type { HotelGallery } from "@/types";
 
-export function EditorialBand() {
+export function EditorialBand({
+  images = [],
+  totalHotels,
+  totalDestinations,
+}: {
+  images?: HotelGallery[];
+  totalHotels?: number;
+  totalDestinations?: number;
+}) {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [mainImage, thumbImage] = images;
+  const scaleCopy =
+    totalHotels && totalDestinations
+      ? `With ${totalHotels} hotels across ${totalDestinations} destinations in India, Nepal, and Africa, `
+      : "Across India, Nepal, and Africa, ";
 
   return (
     <section className="relative overflow-hidden bg-surface py-20 sm:py-28">
@@ -25,54 +41,54 @@ export function EditorialBand() {
 
       <Container className="relative grid items-center gap-12 lg:grid-cols-2">
         <div>
-          <p className="eyebrow text-ink/60">Sarovar Hotels &amp; Resorts</p>
-          <h2 className="mt-4 font-display text-3xl font-medium leading-tight text-navy sm:text-4xl">
-            Stay Inspired. Stay Delighted. Stay Happy.
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-ink/70">
-            With 149 hotels across 87 destinations in India, Nepal, and Africa, Sarovar blends
-            warm hospitality with modern comfort. Each property reflects its local charm while
-            delivering consistent quality, thoughtful service, and well-appointed stays for
-            business and leisure travelers alike.
+          <HomeSectionHeading align="left" eyebrow="Sarovar Hotels & Resorts" title="Stay Inspired. Stay Delighted. Stay Happy." />
+          <p className="mt-6 max-w-[790px] text-lg font-medium leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[23px]">
+            {scaleCopy}Sarovar blends warm hospitality with modern comfort. Each property
+            reflects its local charm while delivering consistent quality, thoughtful service,
+            and well-appointed stays for business and leisure travelers alike.
           </p>
-          <p className="mt-6 text-base leading-relaxed text-ink/70">
+          <p className="mt-6 max-w-[790px] text-lg font-medium leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[23px]">
             From vibrant city hubs to serene retreats, every Sarovar stay is designed to be
             welcoming, convenient, and reliably delightful—wherever your journey takes you.
           </p>
-          <p className="mt-6 font-display italic text-navy">
+          <p className="mt-6 max-w-[790px] font-display text-lg italic leading-[2] text-[#2d3e50] lg:text-[23px]">
             Come explore the world of convenience and comfort!
           </p>
           <div className="mt-8">
-            <Button href="/hotels" variant="primary" className="uppercase tracking-wide">
-              Explore More
-            </Button>
+            <HomeCtaButton href="/hotels">Explore More</HomeCtaButton>
           </div>
         </div>
 
         <div className="relative mx-auto aspect-[4/3] w-full max-w-lg lg:max-w-none">
-          <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src="https://picsum.photos/seed/editorial-sanctuary/1000/900"
-              alt="A Sarovar hotel exterior at dusk"
-              fill
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover"
-            />
+          <div className="relative h-full w-full overflow-hidden rounded-2xl bg-navy shadow-lg">
+            {mainImage?.media_url && (
+              <Image
+                src={getMediaUrl(mainImage.media_url)}
+                alt={mainImage.alt_text ?? "A Sarovar hotel exterior"}
+                fill
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="object-cover"
+                unoptimized={isUnoptimizedMediaUrl(getMediaUrl(mainImage.media_url))}
+              />
+            )}
           </div>
 
           <button
             type="button"
             onClick={() => setVideoOpen(true)}
             aria-label="Play hotel showcase video"
-            className="group absolute -bottom-8 left-0 aspect-[4/3] w-2/5 overflow-hidden rounded-xl shadow-xl"
+            className="group absolute -bottom-8 left-0 aspect-[4/3] w-2/5 overflow-hidden rounded-xl bg-navy shadow-xl"
           >
-            <Image
-              src="https://picsum.photos/seed/editorial-video-thumb/500/400"
-              alt=""
-              fill
-              sizes="200px"
-              className="object-cover"
-            />
+            {thumbImage?.media_url && (
+              <Image
+                src={getMediaUrl(thumbImage.media_url)}
+                alt=""
+                fill
+                sizes="200px"
+                className="object-cover"
+                unoptimized={isUnoptimizedMediaUrl(getMediaUrl(thumbImage.media_url))}
+              />
+            )}
             <div className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/40" />
             <span className="absolute inset-0 flex items-center justify-center">
               <span className="absolute h-12 w-12 animate-ping rounded-full border border-white/70" />

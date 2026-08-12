@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { Container } from "./Container";
@@ -22,20 +23,14 @@ const SOCIAL_ICONS = [
 function FooterLogo() {
   return (
     <Link href="/" className="inline-flex flex-col">
-      <span className="flex items-center gap-2">
-        <svg width="28" height="16" viewBox="0 0 46 24" fill="none" className="text-[#3b82f6]">
-          <path
-            d="M4 18C10 6 16 6 23 12C30 18 36 6 42 6"
-            stroke="currentColor"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-          />
-        </svg>
-        <span className="font-display text-xl font-semibold tracking-wide text-white">
-          SAROVAR HOTELS
-        </span>
-      </span>
-      <span className="mt-1 h-[3px] w-full bg-gradient-to-r from-[#3b82f6] via-accent to-gold" />
+      <Image
+        src="/brand/sarovar-logo.png"
+        alt={siteConfig.name}
+        width={197}
+        height={56}
+        className="h-14 w-auto rounded-md bg-white/95 object-contain p-2"
+      />
+      <span className="mt-2 h-[2px] w-full bg-gradient-to-r from-[#1965a1] via-[#76c04f] to-[#f3cf23]" />
     </Link>
   );
 }
@@ -125,11 +120,17 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10 py-6">
-        <Container className="flex flex-col items-center justify-between gap-2 text-xs sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-3 text-xs sm:flex-row">
           <p>
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            © {siteConfig.name}, {new Date().getFullYear()}. All rights reserved.
           </p>
-          <p>Where every stay feels personal.</p>
+          <div className="flex items-center gap-4 text-white/70">
+            <Link href="/sitemap.xml" className="hover:text-white">
+              Sitemap
+            </Link>
+            <span className="h-3 w-px bg-white/20" aria-hidden />
+            <span>Simplotel - Hotel Website Design &amp; Booking Engine</span>
+          </div>
         </Container>
       </div>
     </footer>
