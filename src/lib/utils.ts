@@ -22,10 +22,33 @@ export function formatDate(value?: string | null) {
   }).format(new Date(value));
 }
 
-/** Resolves a media path to an absolute URL, prefixing relative Strapi upload paths with the API host. */
+/**
+ * Resolves a media path to an absolute URL pointed at the current Strapi host.
+ *
+ * Relative `/uploads/...` paths are simply prefixed with `STRAPI_URL`. Some
+ * content fields (e.g. `hero_image_url`, `media_url`) were ingested with an
+ * already-absolute URL baked in at ingest time — using whatever host Strapi
+ * resolved to then (often `localhost:1337`). If left as-is, those stale hosts
+ * would never track `NEXT_PUBLIC_STRAPI_URL` changes, so any absolute URL
+ * whose path is a Strapi upload has its origin rewritten to `STRAPI_URL`.
+ * Absolute URLs that aren't Strapi uploads (external CDNs, picsum, etc.) are
+ * passed through untouched.
+ */
 export function getMediaUrl(path?: string | null) {
   if (!path) return "";
-  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    try {
+      const url = new URL(path);
+      if (url.pathname.startsWith("/uploads/")) {
+        return `${STRAPI_URL}${url.pathname}${url.search}`;
+      }
+    } catch {
+      // Malformed URL — fall through and return it unchanged.
+    }
+    return path;
+  }
+
   return `${STRAPI_URL}${path}`;
 }
 
