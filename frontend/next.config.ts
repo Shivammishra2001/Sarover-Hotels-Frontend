@@ -5,7 +5,29 @@ const strapiUrl = new URL(
 );
 
 const LOOPBACK_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
-const isLoopbackStrapi = LOOPBACK_HOSTNAMES.has(strapiUrl.hostname);
+
+/**
+ * RFC 1918 private IPv4 ranges — matches Strapi hosted on a bare LAN IP
+ * (e.g. `10.40.27.11`), not just loopback.
+ */
+const PRIVATE_IPV4_RANGES = [
+  /^10\.\d{1,3}\.\d{1,3}\.\d{1,3}$/,
+  /^172\.(1[6-9]|2\d|3[01])\.\d{1,3}\.\d{1,3}$/,
+  /^192\.168\.\d{1,3}\.\d{1,3}$/,
+];
+
+/**
+ * Next's built-in Image Optimizer resolves the upstream hostname and
+ * unconditionally rejects the request (`"url" parameter is not allowed`) if
+ * it resolves to a loopback OR private/LAN IP, unless
+ * `images.dangerouslyAllowLocalIP` is set — see
+ * node_modules/next/dist/server/image-optimizer.js `fetchExternalImage`.
+ * Strapi commonly runs on a bare private LAN IP in this project's dev/
+ * staging setups, so loopback hostnames alone aren't enough here.
+ */
+const isLoopbackStrapi =
+  LOOPBACK_HOSTNAMES.has(strapiUrl.hostname) ||
+  PRIVATE_IPV4_RANGES.some((pattern) => pattern.test(strapiUrl.hostname));
 
 /**
  * `next.config.ts` loads before webpack/tsconfig path aliases are wired up, so
