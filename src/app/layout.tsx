@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingOfferTab } from "@/components/layout/FloatingOfferTab";
@@ -8,14 +8,14 @@ import { siteConfig } from "@/config/site";
 import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Figma "Homepage V4" uses a single typeface — Noto Sans — across every text
+// style (hero H1: Regular, eyebrow labels: SemiBold, subheads: Medium). Match
+// it exactly instead of the previous Inter (body) + Playfair Display (serif
+// headings) pairing.
+const notoSans = Noto_Sans({
+  variable: "--font-noto",
   subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -43,9 +43,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${notoSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-surface text-ink">
+      <body className="min-h-full flex flex-col bg-surface text-ink font-sans">
         <JsonLd data={organizationJsonLd()} />
         <Header />
         <main className="flex-1">{children}</main>

@@ -1,20 +1,26 @@
 import type { Metadata } from "next";
-import { CmsBackedPage } from "@/components/page/CmsBackedPage";
+import { AboutHero } from "@/components/about/AboutHero";
+import { OurStory } from "@/components/about/OurStory";
+import { GuidedByValues } from "@/components/about/GuidedByValues";
+import { OurPhilosophy } from "@/components/about/OurPhilosophy";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
   fallbackTitle: "About Us",
-  fallbackDescription: "Learn about Sarovar Hotels and its multi-brand hospitality group.",
+  fallbackDescription:
+    "For over three decades, Sarovar Hotels has delivered heartfelt hospitality through exceptional stays across India, Nepal and Africa.",
   path: "/about",
 });
 
+// Bespoke composition mirroring the Figma "About Us" design (node 2950:81130),
+// same pattern as HomePage — hand-built sections rather than CmsBackedPage.
 export default function AboutPage() {
   return (
-    <CmsBackedPage
-      path="/about/"
-      eyebrow="Our Story"
-      title="About Us"
-      description="Learn about Sarovar Hotels and its multi-brand hospitality group."
-    />
+    <>
+      <AboutHero />
+      <OurStory />
+      <GuidedByValues />
+      <OurPhilosophy />
+    </>
   );
 }

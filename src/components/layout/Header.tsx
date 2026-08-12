@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Calendar, ChevronDown, Menu, X } from "lucide-react";
 import { Container } from "./Container";
 import { siteConfig, type NavItem } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -38,10 +38,10 @@ function NavDropdown({ item }: { item: NavItem }) {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex items-center gap-1 text-[15px] font-semibold text-navy transition-colors hover:text-accent"
+        className="flex items-center gap-1 text-[14px] font-bold text-[#2d3e50] transition-colors hover:text-accent"
       >
         {item.label}
-        <ChevronDown size={15} className={cn("transition-transform", open && "rotate-180")} />
+        <ChevronDown size={14} className={cn("transition-transform", open && "rotate-180")} />
       </button>
 
       {open && item.children && (
@@ -95,22 +95,19 @@ export function Header() {
         scrolled ? "shadow-md shadow-black/5" : "shadow-sm shadow-black/[0.03]"
       )}
     >
-      <Container className="flex h-[88px] items-center gap-8 lg:gap-12">
-   <div className="flex items-center gap-5 lg:gap-6 -ml-8">
-          <button
-  type="button"
-  aria-label={mobileOpen ? "Close menu" : "Open menu"}
-  className="-ml-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border
-   border-border text-ink shadow-sm"
-  onClick={() => setMobileOpen((open) => !open)}
->
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+      <Container className="flex h-[88px] items-center gap-8 lg:gap-0">
+        <button
+          type="button"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border text-ink shadow-sm lg:hidden"
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
 
-          <Logo />
-        </div>
+        <Logo />
 
-       <nav className="hidden h-full items-center gap-10 lg:flex">
+       <nav className="hidden h-full items-center gap-9 lg:ml-[98px] lg:flex">
           {siteConfig.nav.map((item) => (
            <div key={item.label} className="flex h-full items-center">
               {item.children ? (
@@ -118,7 +115,7 @@ export function Header() {
               ) : (
                 <Link
                   href={item.href!}
-                  className="text-[15px] font-semibold text-navy transition-colors hover:text-accent"
+                  className="text-[14px] font-bold text-[#2d3e50] transition-colors hover:text-accent"
                 >
                   {item.label}
                 </Link>
@@ -127,12 +124,13 @@ export function Header() {
           ))}
         </nav>
 
-        <a
+        <Link
           href="/hotels"
-          className="ml-auto hidden shrink-0 items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-accent/90 lg:inline-flex"
+          className="ml-auto hidden shrink-0 items-center gap-1 rounded-full bg-accent px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.78px] text-white transition-colors hover:bg-accent/90 lg:ml-[132px] lg:inline-flex"
         >
+          <Calendar size={20} />
           Book Your Stay
-        </a>
+        </Link>
       </Container>
 
       {mobileOpen && (
@@ -168,13 +166,13 @@ export function Header() {
                 </Link>
               )
             )}
-            <a
+            <Link
               href="/hotels"
               className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white"
               onClick={() => setMobileOpen(false)}
             >
               Book Your Stay
-            </a>
+            </Link>
           </Container>
         </div>
       )}

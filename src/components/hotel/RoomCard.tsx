@@ -40,9 +40,9 @@ export function RoomCard({
           </div>
           <div className="text-right">
             <p className="font-display text-2xl font-semibold text-accent">
-              {formatCurrency(room.base_price, room.currency)}
+              {room.base_price ? formatCurrency(room.base_price, room.currency) : "Price on request"}
             </p>
-            <p className="text-xs text-ink/50">per night</p>
+            {room.base_price ? <p className="text-xs text-ink/50">per night</p> : null}
           </div>
         </div>
 

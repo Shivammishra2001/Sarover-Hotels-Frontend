@@ -66,13 +66,18 @@ export function buildHotelDetailPopulate() {
 }
 
 export async function getFeaturedHotels(limit = 4) {
-  const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
-    filters: { is_featured: { $eq: true }, status: { $eq: "active" } },
-    populate: { brand: true, destination: true, hotel_galleries: true },
-    pagination: { limit },
-    sort: ["name:asc"],
-  });
-  return res.data;
+  try {
+    const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
+      filters: { is_featured: { $eq: true }, status: { $eq: "active" } },
+      populate: { brand: true, destination: true, hotel_galleries: true },
+      pagination: { limit },
+      sort: ["name:asc"],
+    });
+    return res.data;
+  } catch (err) {
+    console.error("[api] getFeaturedHotels failed:", err);
+    return [];
+  }
 }
 
 export interface HotelFilters {
@@ -92,13 +97,18 @@ export async function getHotels(filters: HotelFilters = {}) {
   if (filters.property_type) filterParams.property_type = { $eq: filters.property_type };
   if (filters.star_rating) filterParams.star_rating = { $eq: filters.star_rating };
 
-  const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
-    filters: filterParams,
-    populate: { brand: true, destination: true, hotel_galleries: true, rooms: true },
-    pagination: { page: filters.page ?? 1, pageSize: filters.pageSize ?? 12 },
-    sort: ["is_featured:desc", "name:asc"],
-  });
-  return res;
+  try {
+    const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
+      filters: filterParams,
+      populate: { brand: true, destination: true, hotel_galleries: true, rooms: true },
+      pagination: { page: filters.page ?? 1, pageSize: filters.pageSize ?? 12 },
+      sort: ["is_featured:desc", "name:asc"],
+    });
+    return res;
+  } catch (err) {
+    console.error("[api] getHotels failed:", err);
+    return { data: [], meta: {} } as StrapiListResponse<Hotel>;
+  }
 }
 
 export async function getHotelBySlug(slug: string) {
@@ -156,11 +166,16 @@ export async function getSearchIndex(): Promise<SearchIndexEntry[]> {
 export async function getDestinations() {
   // 96 destinations > the old single-page `limit: 50` — this was the destinations-
   // capped-at-~50 bug. Must loop all pages, never assume a fixed cap.
-  return fetchAllPages<Destination>("/destinations", {
-    filters: { is_active: { $eq: true } },
-    populate: { hotels: { fields: ["name"] } },
-    sort: ["name:asc"],
-  });
+  try {
+    return await fetchAllPages<Destination>("/destinations", {
+      filters: { is_active: { $eq: true } },
+      populate: { hotels: { fields: ["name"] } },
+      sort: ["name:asc"],
+    });
+  } catch (err) {
+    console.error("[api] getDestinations failed:", err);
+    return [];
+  }
 }
 
 export async function getDestinationBySlug(slug: string) {
@@ -177,10 +192,15 @@ export async function getAllDestinationSlugs() {
 }
 
 export async function getBrands() {
-  return fetchAllPages<Brand>("/brands", {
-    filters: { is_active: { $eq: true } },
-    sort: ["sort_order:asc"],
-  });
+  try {
+    return await fetchAllPages<Brand>("/brands", {
+      filters: { is_active: { $eq: true } },
+      sort: ["sort_order:asc"],
+    });
+  } catch (err) {
+    console.error("[api] getBrands failed:", err);
+    return [];
+  }
 }
 
 // ---- Phase 7 IA: brand hierarchy ----
@@ -251,11 +271,16 @@ export async function getDestinationsByCategory(category: DestinationCategorySlu
 }
 
 export async function getActiveOffers() {
-  return fetchAllPages<Offer>("/offers", {
-    filters: { is_active: { $eq: true } },
-    populate: { brand: true, hotel: { populate: { destination: true } } },
-    sort: ["starts_at:desc"],
-  });
+  try {
+    return await fetchAllPages<Offer>("/offers", {
+      filters: { is_active: { $eq: true } },
+      populate: { brand: true, hotel: { populate: { destination: true } } },
+      sort: ["starts_at:desc"],
+    });
+  } catch (err) {
+    console.error("[api] getActiveOffers failed:", err);
+    return [];
+  }
 }
 
 export async function getOfferBySlug(slug: string) {
@@ -272,21 +297,31 @@ export async function getAllOfferSlugs() {
 }
 
 export async function getBanquets() {
-  return fetchAllPages<Banquet>("/banquets", {
-    filters: { is_active: { $eq: true } },
-    populate: { hotel: { populate: { destination: true } } },
-    sort: ["theatre_capacity:desc"],
-  });
+  try {
+    return await fetchAllPages<Banquet>("/banquets", {
+      filters: { is_active: { $eq: true } },
+      populate: { hotel: { populate: { destination: true } } },
+      sort: ["theatre_capacity:desc"],
+    });
+  } catch (err) {
+    console.error("[api] getBanquets failed:", err);
+    return [];
+  }
 }
 
 export async function getGallerySample(limit = 12) {
-  const res = await fetchAPI<StrapiListResponse<HotelGallery>>("/hotel-galleries", {
-    filters: { media_type: { $eq: "image" } },
-    populate: { hotel: { fields: ["name", "slug"] } },
-    sort: ["createdAt:desc"],
-    pagination: { limit },
-  });
-  return res.data;
+  try {
+    const res = await fetchAPI<StrapiListResponse<HotelGallery>>("/hotel-galleries", {
+      filters: { media_type: { $eq: "image" } },
+      populate: { hotel: { fields: ["name", "slug"] } },
+      sort: ["createdAt:desc"],
+      pagination: { limit },
+    });
+    return res.data;
+  } catch (err) {
+    console.error("[api] getGallerySample failed:", err);
+    return [];
+  }
 }
 
 export async function createInquiry(payload: InquiryPayload) {

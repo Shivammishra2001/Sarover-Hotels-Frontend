@@ -1,6 +1,9 @@
+import Image from "next/image";
 import { FileSearch, UserCheck, Umbrella, Wine } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { cn } from "@/lib/utils";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
+import { cn, getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import type { HotelGallery } from "@/types";
 
 const VALUE_PROPS = [
   {
@@ -15,14 +18,31 @@ const VALUE_PROPS = [
   { icon: UserCheck, title: "Exceptional Guest Experience" },
 ];
 
-export function ValueProps() {
+// Figma's reference design shows a full-bleed background photo behind this
+// band. There's no dedicated CMS slot for it, so `backgroundImage` is an
+// already-fetched real gallery photo reused from the homepage's existing
+// sample (see app/page.tsx) rather than a new asset — omit the prop entirely
+// to keep the current flat `bg-muted` look if no distinct photo is available.
+export function ValueProps({ backgroundImage }: { backgroundImage?: HotelGallery }) {
+  const bgUrl = backgroundImage?.media_url ? getMediaUrl(backgroundImage.media_url) : undefined;
+
   return (
     <section className="relative overflow-hidden bg-muted py-20 sm:py-28">
+      {bgUrl && (
+        <>
+          <Image
+            src={bgUrl}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            unoptimized={isUnoptimizedMediaUrl(bgUrl)}
+          />
+          <div className="absolute inset-0 bg-muted/90" />
+        </>
+      )}
       <Container className="relative text-center">
-        <p className="eyebrow text-ink/50">Best Rate. Always Online.</p>
-        <h2 className="mt-4 font-display text-3xl font-medium text-navy sm:text-4xl">
-          Unbeatable Online Value
-        </h2>
+        <HomeSectionHeading eyebrow="Best Rate. Always Online." title="Unbeatable Online Value" />
 
         <div className="mt-16 flex flex-col items-center gap-6 lg:flex-row lg:justify-center lg:gap-0">
           {VALUE_PROPS.map((prop, index) => (

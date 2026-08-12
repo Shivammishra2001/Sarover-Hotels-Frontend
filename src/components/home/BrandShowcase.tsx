@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Brand } from "@/types";
 
@@ -8,9 +9,12 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
     <section className="py-20 sm:py-28">
       <Container>
         <div className="grid gap-8 overflow-hidden rounded-2xl lg:grid-cols-2 lg:rounded-none lg:bg-transparent">
-          <div className="rounded-2xl bg-navy px-8 py-12 text-white sm:px-12 sm:py-16 lg:pb-28">
-            <p className="eyebrow text-white/70">Our Brands</p>
-            <h2 className="mt-4 font-display text-4xl font-medium text-white">Stronger Together.</h2>
+          {/* pb bumped up further than it looks like it should need — the
+              53px heading (up from the old 4xl/36px) needs more clearance
+              before the brand-card row's negative margin starts overlapping
+              this box, or "Stronger Together." gets covered by the cards. */}
+          <div className="rounded-2xl bg-navy px-8 py-12 text-white sm:px-12 sm:py-16 lg:pb-40">
+            <HomeSectionHeading light align="left" eyebrow="Our Brands" title="Stronger Together." />
           </div>
           <div className="flex items-start px-2 pt-2 lg:pt-14">
             <p className="max-w-md text-lg leading-relaxed text-navy/70">
@@ -24,7 +28,7 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
           {brands.map((brand) => (
             <div
               key={brand.documentId}
-              className="flex flex-col items-center rounded-2xl bg-surface p-8 text-center shadow-lg"
+              className="flex flex-col items-center rounded-3xl border border-border bg-surface p-8 text-center shadow-[6px_6px_54px_0px_rgba(0,0,0,0.08)]"
             >
               <div className="relative h-16 w-full">
                 {brand.logo_url ? (
@@ -37,10 +41,10 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
                     unoptimized={isUnoptimizedMediaUrl(getMediaUrl(brand.logo_url))}
                   />
                 ) : (
-                  <p className="font-display text-lg font-semibold text-navy">{brand.name}</p>
+                  <p className="font-display text-lg font-semibold text-[#2d3e50]">{brand.name}</p>
                 )}
               </div>
-              <h3 className="mt-6 font-display text-xl font-bold leading-snug text-navy">
+              <h3 className="mt-6 font-display text-xl font-bold leading-snug text-[#2d3e50]">
                 {brand.tagline ?? brand.name}
               </h3>
               {brand.description && (

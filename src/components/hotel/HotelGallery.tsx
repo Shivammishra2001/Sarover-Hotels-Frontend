@@ -20,8 +20,12 @@ export function HotelGallery({ images, limit = 8 }: { images: HotelGalleryType[]
             key={image.documentId}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className={`relative aspect-square overflow-hidden rounded-xl ${
-              index === 0 ? "col-span-2 row-span-2 aspect-square sm:aspect-auto" : ""
+            className={`relative overflow-hidden rounded-xl ${
+              index === 0 && visible.length > 1
+                ? "col-span-2 row-span-2 aspect-square sm:aspect-auto"
+                : index === 0
+                  ? "col-span-2 aspect-[21/9] sm:col-span-4"
+                  : "aspect-square"
             }`}
           >
             <Image

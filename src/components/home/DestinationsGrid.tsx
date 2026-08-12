@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
-import { SectionHeading } from "@/components/layout/SectionHeading";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
+import { HomeCtaButton } from "@/components/home/HomeCtaButton";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
 import type { Destination, RegionTag } from "@/types";
 
@@ -18,7 +19,15 @@ const CATEGORIES: { label: string; regionTag?: RegionTag; fallbackSlug?: string 
   { label: "Wedding Hotels", fallbackSlug: "jaipur" }, // approximated — heritage destination stands in
 ];
 
-export function DestinationsGrid({ destinations }: { destinations: Destination[] }) {
+export function DestinationsGrid({
+  destinations,
+  totalHotels,
+  totalDestinations,
+}: {
+  destinations: Destination[];
+  totalHotels?: number;
+  totalDestinations?: number;
+}) {
   const tiles = CATEGORIES.map((category) => {
     const destination = category.regionTag
       ? destinations.find((d) => d.region_tag === category.regionTag)
@@ -31,25 +40,30 @@ export function DestinationsGrid({ destinations }: { destinations: Destination[]
   const topRow = tiles.slice(0, 3);
   const bottomRow = tiles.slice(3, 5);
 
+  const description =
+    totalHotels && totalDestinations
+      ? `${totalHotels} Hotels in ${totalDestinations} Destinations Across India, Nepal and Africa`
+      : "Hotels across destinations in India, Nepal and Africa";
+
   return (
     <section className="bg-muted py-20 sm:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="Destinations"
-          title="Explore Our Top Destinations"
-          description="150 Hotels in 87 Destinations Across India, Nepal and Africa"
-          align="center"
-        />
+        <HomeSectionHeading eyebrow="Destinations" title="Explore Our Top Destinations" description={description} />
 
-        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {topRow.map((tile) => (
-            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[4/3]" />
+            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[516/350]" />
           ))}
         </div>
+
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {bottomRow.map((tile) => (
-            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[16/10]" />
+            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[787/350]" />
           ))}
+        </div>
+
+        <div className="mt-[26px] flex justify-center">
+          <HomeCtaButton href="/destinations">Explore More</HomeCtaButton>
         </div>
       </Container>
     </section>

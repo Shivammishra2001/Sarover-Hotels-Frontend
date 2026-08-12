@@ -81,8 +81,14 @@ export default async function RoomDetailPage({ params }: Props) {
             )}
 
             <p className="font-display text-2xl font-semibold text-accent">
-              {formatCurrency(room.base_price, room.currency)}
-              <span className="ml-1 text-sm font-normal text-ink/50">per night</span>
+              {room.base_price ? (
+                <>
+                  {formatCurrency(room.base_price, room.currency)}
+                  <span className="ml-1 text-sm font-normal text-ink/50">per night</span>
+                </>
+              ) : (
+                "Price on request"
+              )}
             </p>
           </div>
 
