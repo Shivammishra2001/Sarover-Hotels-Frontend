@@ -26,8 +26,18 @@ export function EditorialBand({
       : "Across India, Nepal, and Africa, ";
 
   return (
-    <section className="relative overflow-hidden bg-surface py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-surface py-20 sm:py-28 ">
       {/* Decorative geometric watermark — purely presentational */}
+
+      {/* Decorative SVG Image */}
+<img
+  src="/bg2.svg"
+  alt=""
+  aria-hidden="true"
+  className="pointer-events-none absolute right-0 top-1/2 z-0 h-[100%] w-1/2 -translate-y-1/2 object-contain"
+/>
+     
+{/*      
       <svg
         aria-hidden
         className="pointer-events-none absolute -right-24 top-0 h-full w-1/2 text-navy/5"
@@ -37,21 +47,21 @@ export function EditorialBand({
         <circle cx="250" cy="150" r="150" stroke="currentColor" />
         <path d="M100 300 L250 150 L340 260 L200 380 Z" stroke="currentColor" />
         <path d="M180 20 L340 260" stroke="currentColor" />
-      </svg>
+      </svg> */}
 
       <Container className="relative grid items-center gap-12 lg:grid-cols-2">
-        <div>
+        <div className="pr-10 max-w-[790px] text-lg  leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[18px] ptagmt20">
           <HomeSectionHeading align="left" eyebrow="Sarovar Hotels & Resorts" title="Stay Inspired. Stay Delighted. Stay Happy." />
-          <p className="mt-6 max-w-[790px] text-lg font-medium leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[23px]">
+          <p>
             {scaleCopy}Sarovar blends warm hospitality with modern comfort. Each property
             reflects its local charm while delivering consistent quality, thoughtful service,
             and well-appointed stays for business and leisure travelers alike.
           </p>
-          <p className="mt-6 max-w-[790px] text-lg font-medium leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[23px]">
+          <p>
             From vibrant city hubs to serene retreats, every Sarovar stay is designed to be
             welcoming, convenient, and reliably delightful—wherever your journey takes you.
           </p>
-          <p className="mt-6 max-w-[790px] font-display text-lg italic leading-[2] text-[#2d3e50] lg:text-[23px]">
+          <p className="font-style-italic font-weight-semibold">
             Come explore the world of convenience and comfort!
           </p>
           <div className="mt-8">
@@ -77,7 +87,7 @@ export function EditorialBand({
             type="button"
             onClick={() => setVideoOpen(true)}
             aria-label="Play hotel showcase video"
-            className="group absolute -bottom-8 left-0 aspect-[4/3] w-2/5 overflow-hidden rounded-xl bg-navy shadow-xl"
+            className="group absolute -bottom-8 left50 aspect-[4/3] w-2/5 overflow-hidden rounded-xl bg-navy shadow-xl"
           >
             {thumbImage?.media_url && (
               <Image

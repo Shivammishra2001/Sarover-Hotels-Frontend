@@ -96,7 +96,7 @@ export function Header() {
         scrolled ? "shadow-md shadow-black/5" : "shadow-sm shadow-black/[0.03]"
       )}
     >
-      <Container className="flex h-[88px] items-center gap-8 lg:gap-0">
+      <Container className="flex h-[88px] items-center headerfullwidth gap-8 lg:gap-0">
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -108,7 +108,7 @@ export function Header() {
 
         <Logo />
 
-       <nav className="hidden h-full items-center gap-9 lg:ml-[98px] lg:flex">
+       <nav className="hidden h-full items-center gap-9 lg:ml-[0px] lg:flex">
           {siteConfig.nav.map((item) => (
            <div key={item.label} className="flex h-full items-center">
               {item.children ? (
@@ -127,7 +127,7 @@ export function Header() {
 
         <Link
           href="/hotels"
-          className="ml-auto hidden shrink-0 items-center gap-1 rounded-full bg-accent px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.78px] text-white transition-colors hover:bg-accent/90 lg:ml-[132px] lg:inline-flex"
+          className="ml-auto hidden shrink-0 items-center gap-1 rounded-full bg-accent px-7 py-3.5 text-[13px] font-semibold uppercase tracking-[0.78px] text-white transition-colors hover:bg-accent/90 lg:ml-[0px] lg:inline-flex"
         >
           <Calendar size={20} />
           Book Your Stay

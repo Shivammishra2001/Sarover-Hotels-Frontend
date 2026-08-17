@@ -68,7 +68,7 @@ h4,
 
 @layer utilities {
   .max-w-brand {
-    max-width: 1440px;
+    max-width: 1640px;
     width: 100%;
     margin-inline: auto;
   }
@@ -88,4 +88,17 @@ h4,
    background-image: url("/bg2.svg");
    background-position: right top;
   background-repeat: no-repeat;
+  }
+
+  .ptagmt20 p{margin-top: 28px;
+  line-height: 29px; font-size: 18px;}
+  .font-style-italic{font-style: italic; }
+  .font-weight-semibold{
+  font-weight: 600;
+  }
+  .left50{ left: -50px;}
+
+  .headerfullwidth{
+    display: flex;
+    justify-content: space-between;
   }
