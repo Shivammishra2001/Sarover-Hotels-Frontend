@@ -50,33 +50,24 @@ export function EditorialBand({
 
   return (
     <section className="relative overflow-hidden bg-surface py-20 sm:py-28">
-      {/* Decorative geometric watermark — purely presentational */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute -right-24 top-0 h-full w-1/2 text-navy/5"
-        viewBox="0 0 400 400"
-        fill="none"
-      >
-        <circle cx="250" cy="150" r="150" stroke="currentColor" />
-        <path d="M100 300 L250 150 L340 260 L200 380 Z" stroke="currentColor" />
-        <path d="M180 20 L340 260" stroke="currentColor" />
-      </svg>
+      {/* Decorative watermark — purely presentational */}
+      <img
+        src="/bg2.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-1/2 z-0 h-[100%] w-1/2 -translate-y-1/2 object-contain"
+      />
 
       <Container className="relative grid items-center gap-12 lg:grid-cols-2">
-        <div>
+        <div className="ptagmt20 max-w-[790px] pr-10 text-lg leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[18px]">
           <HomeSectionHeading align="left" eyebrow={eyebrow} title={title} />
           {bodyParagraphs.map((paragraph, index) => (
-            <p
-              key={paragraph}
-              className="mt-6 max-w-[790px] text-lg font-medium leading-[2] tracking-[-0.2px] text-[#2d3e50]/90 lg:text-[23px]"
-            >
+            <p key={paragraph}>
               {index === 0 ? scaleCopy : null}
               {paragraph}
             </p>
           ))}
-          <p className="mt-6 max-w-[790px] font-display text-lg italic leading-[2] text-[#2d3e50] lg:text-[23px]">
-            {tagline}
-          </p>
+          <p className="font-display font-style-italic font-weight-semibold">{tagline}</p>
           <div className="mt-8">
             <HomeCtaButton href="/hotels">{ctaLabel}</HomeCtaButton>
           </div>
@@ -100,7 +91,7 @@ export function EditorialBand({
             type="button"
             onClick={() => setVideoOpen(true)}
             aria-label="Play hotel showcase video"
-            className="group absolute -bottom-8 left-0 aspect-[4/3] w-2/5 overflow-hidden rounded-xl bg-navy shadow-xl"
+            className="group absolute -bottom-8 left50 aspect-[4/3] w-2/5 overflow-hidden rounded-xl bg-navy shadow-xl"
           >
             {thumbImageSrc && (
               <Image

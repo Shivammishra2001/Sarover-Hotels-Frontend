@@ -64,3 +64,27 @@ h4,
   font-size: 0.75rem;
   font-weight: 600;
 }
+
+@layer utilities {
+  /* Editorial band's paragraph rhythm (Kundan's home page section2/3 update) —
+     applied to the paragraphs' shared wrapper rather than per-<p>. */
+  .ptagmt20 p {
+    margin-top: 28px;
+    line-height: 29px;
+    font-size: 18px;
+  }
+  .font-style-italic {
+    font-style: italic;
+  }
+  .font-weight-semibold {
+    font-weight: 600;
+  }
+  .left50 {
+    left: -50px;
+  }
+
+  .headerfullwidth {
+    display: flex;
+    justify-content: space-between;
+  }
+}
