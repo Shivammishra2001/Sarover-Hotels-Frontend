@@ -4,36 +4,26 @@ import { Container } from "@/components/layout/Container";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { HomeCtaButton } from "@/components/home/HomeCtaButton";
 import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
-import type { Destination, RegionTag } from "@/types";
-
-// Figma shows 5 experience-category tiles rather than literal destination
-// names. Three map cleanly to the existing `region_tag` field; the last two
-// ("Weekend Getaway", "Wedding Hotels") have no matching field in the data
-// model, so a reasonable real destination stands in for each (flagged below).
-// Every tile still links to a real /destinations/[slug] page.
-const CATEGORIES: { label: string; regionTag?: RegionTag; fallbackSlug?: string }[] = [
-  { label: "Hotels in Hills", regionTag: "hill_station" },
-  { label: "Hotels in Beaches", regionTag: "coastal" },
-  { label: "Hotels in Pilgrimages", regionTag: "pilgrimage" },
-  { label: "Weekend Getaway Hotels", fallbackSlug: "delhi" }, // no "trip purpose" field exists; approximated
-  { label: "Wedding Hotels", fallbackSlug: "jaipur" }, // approximated — heritage destination stands in
-];
+import type { Homepage, HomepageDestinationTile } from "@/types";
 
 export function DestinationsGrid({
-  destinations,
   totalHotels,
   totalDestinations,
+  content,
 }: {
-  destinations: Destination[];
   totalHotels?: number;
   totalDestinations?: number;
+  content?: Homepage;
 }) {
-  const tiles = CATEGORIES.map((category) => {
-    const destination = category.regionTag
-      ? destinations.find((d) => d.region_tag === category.regionTag)
-      : destinations.find((d) => d.slug === category.fallbackSlug);
-    return destination ? { ...category, destination } : null;
-  }).filter((tile): tile is { label: string; regionTag?: RegionTag; fallbackSlug?: string; destination: Destination } => tile !== null);
+  if (content?.destinations?.is_enabled === false) return null;
+
+  // Every tile is fully self-contained (own image, own hotels, own link) —
+  // configured entirely from Content Manager -> Homepage -> Destinations ->
+  // Tiles. A tile with no image and is_enabled !== false is skipped rather
+  // than rendered blank; there is no destination/hotel-image fallback.
+  const tiles = (content?.destinations?.tiles ?? []).filter(
+    (tile): tile is HomepageDestinationTile => tile.is_enabled !== false && Boolean(tile.image?.url)
+  );
 
   if (tiles.length === 0) return null;
 
@@ -48,55 +38,55 @@ export function DestinationsGrid({
   return (
     <section className="bg-muted py-20 sm:py-28">
       <Container>
-        <HomeSectionHeading eyebrow="Destinations" title="Explore Our Top Destinations" description={description} />
+        <HomeSectionHeading
+          eyebrow={content?.destinations?.eyebrow ?? "Destinations"}
+          title={content?.destinations?.title ?? "Explore Our Top Destinations"}
+          description={description}
+        />
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {topRow.map((tile) => (
-            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[516/350]" />
+            <DestinationTile key={tile.id} tile={tile} aspect="aspect-[516/350]" />
           ))}
         </div>
 
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {bottomRow.map((tile) => (
-            <DestinationTile key={tile.label} tile={tile} aspect="aspect-[787/350]" />
+            <DestinationTile key={tile.id} tile={tile} aspect="aspect-[787/350]" />
           ))}
         </div>
 
         <div className="mt-[26px] flex justify-center">
-          <HomeCtaButton href="/destinations">Explore More</HomeCtaButton>
+          <HomeCtaButton href="/destinations">{content?.destinations?.cta_label ?? "Explore More"}</HomeCtaButton>
         </div>
       </Container>
     </section>
   );
 }
 
-function DestinationTile({
-  tile,
-  aspect,
-}: {
-  tile: { label: string; destination: Destination };
-  aspect: string;
-}) {
-  const { label, destination } = tile;
+function DestinationTile({ tile, aspect }: { tile: HomepageDestinationTile; aspect: string }) {
+  const imageSrc = tile.image?.url;
+  // No admin-set link -> the built-in page listing this tile's own selected hotels.
+  const href = tile.cta_href || `/hotels/collection/${tile.id}`;
   return (
     <Link
-      href={`/destinations/${destination.slug}`}
+      href={href}
       className={`group relative block ${aspect} overflow-hidden rounded-2xl`}
     >
-      {destination.hero_image_url ? (
+      {imageSrc ? (
         <Image
-          src={getMediaUrl(destination.hero_image_url)}
-          alt={label}
+          src={getMediaUrl(imageSrc)}
+          alt={tile.label}
           fill
           sizes="(min-width: 640px) 33vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
+          unoptimized={isUnoptimizedMediaUrl(getMediaUrl(imageSrc))}
         />
       ) : (
         <div className="h-full w-full bg-border" />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-      <p className="absolute bottom-4 left-4 font-display text-lg font-semibold text-white">{label}</p>
+      <p className="absolute bottom-4 left-4 font-display text-lg font-semibold text-white">{tile.label}</p>
     </Link>
   );
 }

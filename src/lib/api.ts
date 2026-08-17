@@ -1,5 +1,6 @@
 import { fetchAPI } from "./strapi";
 import type {
+  Amenity,
   Article,
   Attraction,
   Banquet,
@@ -8,6 +9,8 @@ import type {
   Country,
   Destination,
   DestinationCategorySlug,
+  GlobalSetting,
+  Homepage,
   Hotel,
   HotelGallery,
   HotelPage,
@@ -53,7 +56,7 @@ export function buildHotelDetailPopulate() {
     populate: {
       brand: true,
       destination: true,
-      hotel_galleries: { sort: ["sort_order:asc"] },
+      hotel_galleries: { sort: ["sort_order:asc"], populate: { media: true } },
       rooms: { populate: { amenities: true } },
       dinings: true,
       banquets: true,
@@ -65,17 +68,75 @@ export function buildHotelDetailPopulate() {
   };
 }
 
-export async function getFeaturedHotels(limit = 4) {
+// ---- Home page & site-wide CMS-managed copy (homepage / global-setting singleTypes) ----
+
+/** Editable copy/CTAs for every Home page section. Falls back to `{}` (never
+ * throws) so a missing/unseeded singleType degrades to each component's own
+ * hardcoded default text rather than breaking the page. */
+export async function getHomepage(): Promise<Homepage> {
   try {
-    const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
-      filters: { is_featured: { $eq: true }, status: { $eq: "active" } },
-      populate: { brand: true, destination: true, hotel_galleries: true },
-      pagination: { limit },
+    const res = await fetchAPI<StrapiSingleResponse<Homepage>>("/homepage", {
+      populate: {
+        hero: true,
+        destinations: {
+          populate: {
+            tiles: {
+              populate: {
+                image: true,
+                hotels: {
+                  populate: { brand: true, destination: true, hotel_galleries: { populate: { media: true } }, rooms: true },
+                },
+              },
+            },
+          },
+        },
+        editorial: { populate: { main_image: true, thumb_image: true } },
+        offers: true,
+        weddings: { populate: { main_image: true, thumbnails: true } },
+        value_props: { populate: { items: true, background_image: true } },
+        plan_event: { populate: { main_image: true, side_image_a: true, side_image_b: true } },
+        brands: true,
+        gallery: true,
+        video_modal: { populate: { background_image: true } },
+      },
+    });
+    return res.data ?? {};
+  } catch (err) {
+    console.error("[api] getHomepage failed:", err);
+    return {};
+  }
+}
+
+/** Site-wide config: contact info, social links, footer columns, newsletter copy. */
+export async function getGlobalSettings(): Promise<GlobalSetting> {
+  try {
+    const res = await fetchAPI<StrapiSingleResponse<GlobalSetting>>("/global-setting", {
+      populate: {
+        social_links: true,
+        footer_link_groups: { populate: { links: true } },
+        footer_secondary_link_groups: { populate: { links: true } },
+      },
+    });
+    return res.data ?? {};
+  } catch (err) {
+    console.error("[api] getGlobalSettings failed:", err);
+    return {};
+  }
+}
+
+/** A small, representative set of amenities for decorative "what's included"
+ * strips (e.g. the homepage Experience Tabs) — real Strapi data instead of a
+ * hardcoded icon+label list. */
+export async function getTopAmenities(limit = 5) {
+  try {
+    const res = await fetchAPI<StrapiListResponse<Amenity>>("/amenities", {
+      filters: { is_active: { $eq: true } },
       sort: ["name:asc"],
+      pagination: { limit },
     });
     return res.data;
   } catch (err) {
-    console.error("[api] getFeaturedHotels failed:", err);
+    console.error("[api] getTopAmenities failed:", err);
     return [];
   }
 }
@@ -100,7 +161,12 @@ export async function getHotels(filters: HotelFilters = {}) {
   try {
     const res = await fetchAPI<StrapiListResponse<Hotel>>("/hotels", {
       filters: filterParams,
-      populate: { brand: true, destination: true, hotel_galleries: true, rooms: true },
+      populate: {
+        brand: true,
+        destination: true,
+        hotel_galleries: { populate: { media: true } },
+        rooms: true,
+      },
       pagination: { page: filters.page ?? 1, pageSize: filters.pageSize ?? 12 },
       sort: ["is_featured:desc", "name:asc"],
     });
@@ -169,7 +235,7 @@ export async function getDestinations() {
   try {
     return await fetchAllPages<Destination>("/destinations", {
       filters: { is_active: { $eq: true } },
-      populate: { hotels: { fields: ["name"] } },
+      populate: { hotels: { fields: ["name"] }, hero_image: true },
       sort: ["name:asc"],
     });
   } catch (err) {
@@ -181,7 +247,11 @@ export async function getDestinations() {
 export async function getDestinationBySlug(slug: string) {
   const res = await fetchAPI<StrapiListResponse<Destination>>("/destinations", {
     filters: { slug: { $eq: slug } },
-    populate: { hotels: { populate: { brand: true, hotel_galleries: true } }, seo: true },
+    populate: {
+      hotels: { populate: { brand: true, hotel_galleries: { populate: { media: true } } } },
+      hero_image: true,
+      seo: true,
+    },
   });
   return res.data[0] ?? null;
 }
@@ -195,6 +265,7 @@ export async function getBrands() {
   try {
     return await fetchAllPages<Brand>("/brands", {
       filters: { is_active: { $eq: true } },
+      populate: { logo: true },
       sort: ["sort_order:asc"],
     });
   } catch (err) {
@@ -217,7 +288,7 @@ export async function getBrandsByGroup(group: BrandGroup) {
 
   return fetchAllPages<Brand>("/brands", {
     filters,
-    populate: { hotels: { fields: ["name"] } },
+    populate: { hotels: { fields: ["name"] }, logo: true },
     sort: ["sort_order:asc"],
   });
 }
@@ -225,7 +296,11 @@ export async function getBrandsByGroup(group: BrandGroup) {
 export async function getBrandBySlug(slug: string) {
   const res = await fetchAPI<StrapiListResponse<Brand>>("/brands", {
     filters: { slug: { $eq: slug }, is_active: { $eq: true } },
-    populate: { hotels: { populate: { destination: true, hotel_galleries: true } }, seo: true },
+    populate: {
+      hotels: { populate: { destination: true, hotel_galleries: { populate: { media: true } } } },
+      logo: true,
+      seo: true,
+    },
   });
   return res.data[0] ?? null;
 }
@@ -246,7 +321,12 @@ export async function getThemeBySlug(slug: ThemeSlug) {
 export async function getHotelsByTheme(themeSlug: ThemeSlug) {
   return fetchAllPages<Hotel>("/hotels", {
     filters: { status: { $eq: "active" }, themes: { slug: { $eq: themeSlug } } },
-    populate: { brand: true, destination: true, hotel_galleries: true, rooms: true },
+    populate: {
+      brand: true,
+      destination: true,
+      hotel_galleries: { populate: { media: true } },
+      rooms: true,
+    },
     sort: ["name:asc"],
   });
 }
@@ -254,7 +334,7 @@ export async function getHotelsByTheme(themeSlug: ThemeSlug) {
 export async function getUpcomingHotels() {
   return fetchAllPages<Hotel>("/hotels", {
     filters: { is_upcoming: { $eq: true } },
-    populate: { brand: true, destination: true, hotel_galleries: true },
+    populate: { brand: true, destination: true, hotel_galleries: { populate: { media: true } } },
     sort: ["name:asc"],
   });
 }
@@ -274,7 +354,7 @@ export async function getActiveOffers() {
   try {
     return await fetchAllPages<Offer>("/offers", {
       filters: { is_active: { $eq: true } },
-      populate: { brand: true, hotel: { populate: { destination: true } } },
+      populate: { brand: true, hotel: { populate: { destination: true } }, banner: true },
       sort: ["starts_at:desc"],
     });
   } catch (err) {
@@ -286,7 +366,7 @@ export async function getActiveOffers() {
 export async function getOfferBySlug(slug: string) {
   const res = await fetchAPI<StrapiListResponse<Offer>>("/offers", {
     filters: { slug: { $eq: slug } },
-    populate: { brand: true, hotel: { populate: { destination: true } }, seo: true },
+    populate: { brand: true, hotel: { populate: { destination: true } }, banner: true, seo: true },
   });
   return res.data[0] ?? null;
 }
@@ -313,7 +393,7 @@ export async function getGallerySample(limit = 12) {
   try {
     const res = await fetchAPI<StrapiListResponse<HotelGallery>>("/hotel-galleries", {
       filters: { media_type: { $eq: "image" } },
-      populate: { hotel: { fields: ["name", "slug"] } },
+      populate: { hotel: { fields: ["name", "slug"] }, media: true },
       sort: ["createdAt:desc"],
       pagination: { limit },
     });
@@ -511,7 +591,13 @@ export async function getCityBySlug(citySlug: string) {
     filters: { path: { $eq: `/${citySlug}/` } },
     populate: {
       hotels: {
-        populate: { brand: true, hotel_galleries: true, dinings: true, offers: true, banquets: true },
+        populate: {
+          brand: true,
+          hotel_galleries: { populate: { media: true } },
+          dinings: true,
+          offers: { populate: { banner: true } },
+          banquets: true,
+        },
       },
       attractions: true,
       seo: true,

@@ -27,6 +27,15 @@ export interface StrapiSingleResponse<T> {
   meta: StrapiMeta;
 }
 
+/** A Strapi Upload media file, as returned by a populated `media` field. */
+export interface StrapiMedia {
+  id: number;
+  url: string;
+  alternativeText?: string | null;
+  width?: number;
+  height?: number;
+}
+
 export interface Seo {
   meta_title?: string;
   meta_description?: string;
@@ -109,6 +118,9 @@ export interface Brand extends StrapiEntity {
   tagline?: string;
   description?: string;
   logo_url?: string;
+  /** Real Strapi media relation — prefer this over `logo_url` (a plain
+   * ingested URL string) when present. */
+  logo?: StrapiMedia | null;
   brand_color?: string;
   sort_order: number;
   is_active: boolean;
@@ -187,6 +199,10 @@ export interface Destination extends StrapiEntity {
   longitude?: number;
   description?: string;
   hero_image_url?: string;
+  /** Real Strapi media relation — takes precedence over `hero_image_url`
+   * (a plain ingested URL string) when present. Upload/replace this in
+   * Content Manager -> Destination to change the photo shown on the site. */
+  hero_image?: StrapiMedia | null;
   is_active: boolean;
   category?: DestinationCategorySlug[];
   aliases?: string[];
@@ -195,7 +211,6 @@ export interface Destination extends StrapiEntity {
   attractions?: Attraction[];
   articles?: Article[];
   seo?: Seo;
-  source_url?: string;
   path?: string;
 }
 
@@ -242,7 +257,6 @@ export interface Hotel extends StrapiEntity {
   attractions?: Attraction[];
   articles?: Article[];
   seo?: Seo;
-  source_url?: string;
   path?: string;
 }
 
@@ -260,6 +274,9 @@ export type GalleryCategory =
 export interface HotelGallery extends StrapiEntity {
   media_type: GalleryMediaType;
   media_url: string;
+  /** Real Strapi media relation — prefer this over `media_url` (a plain
+   * ingested URL string) when present. */
+  media?: StrapiMedia | null;
   thumbnail_url?: string;
   caption?: string;
   alt_text?: string;
@@ -386,6 +403,9 @@ export interface Offer extends StrapiEntity {
   discount_value?: number;
   currency: string;
   banner_url?: string;
+  /** Real Strapi media relation — prefer this over `banner_url` (a plain
+   * ingested URL string) when present. */
+  banner?: StrapiMedia | null;
   terms?: string;
   starts_at: string;
   ends_at?: string;
@@ -470,7 +490,6 @@ export interface Page extends StrapiEntity {
   excerpt?: string;
   body?: Block[];
   seo?: Seo;
-  source_url?: string;
   is_active: boolean;
 }
 
@@ -487,7 +506,6 @@ export interface Article extends StrapiEntity {
   author?: string;
   published_on?: string;
   seo?: Seo;
-  source_url?: string;
   hotel?: Hotel;
   destination?: Destination;
 }
@@ -501,7 +519,6 @@ export interface Attraction extends StrapiEntity {
   image_url?: string;
   distance_km?: number;
   category?: AttractionCategory;
-  source_url?: string;
   hotel?: Hotel;
   destination?: Destination;
 }
@@ -529,7 +546,6 @@ export interface HotelPage extends StrapiEntity {
   path?: string;
   body?: Block[];
   seo?: Seo;
-  source_url?: string;
   hotel?: Hotel;
 }
 
@@ -555,4 +571,168 @@ export interface Redirect extends StrapiEntity {
   to_path: string;
   status_code: "permanent" | "temporary";
   is_active: boolean;
+}
+
+// ---- Home page & site-wide CMS-managed copy ----
+
+export interface ValuePropCard {
+  id: number;
+  icon_name: string;
+  title: string;
+  description?: string;
+  is_featured?: boolean;
+  sort_order?: number;
+}
+
+export interface HomepageHeroSection {
+  is_enabled?: boolean;
+  heading?: string;
+  subheading?: string;
+  cta_label?: string;
+  cta_href?: string;
+}
+
+/** A fully self-contained Home page destination-category tile — its own
+ * image, its own hand-picked hotels, its own optional link override. No
+ * destination/hotel-image fallback and no destination-matching rule. */
+export interface HomepageDestinationTile {
+  id: number;
+  is_enabled?: boolean;
+  label: string;
+  image?: StrapiMedia | null;
+  hotels?: Hotel[];
+  cta_href?: string;
+}
+
+export interface HomepageDestinationsSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  cta_label?: string;
+  tiles?: HomepageDestinationTile[];
+}
+
+export interface HomepageEditorialSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  tagline?: string;
+  cta_label?: string;
+  main_image?: StrapiMedia | null;
+  thumb_image?: StrapiMedia | null;
+}
+
+export interface HomepageOffersSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  max_items?: number;
+}
+
+export interface HomepageWeddingsSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  body?: string;
+  cta_label?: string;
+  cta_href?: string;
+  main_image?: StrapiMedia | null;
+  thumbnails?: StrapiMedia[];
+}
+
+export interface HomepageValuePropsSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  background_image?: StrapiMedia | null;
+  items?: ValuePropCard[];
+}
+
+export interface HomepagePlanEventSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  card_heading?: string;
+  card_subheading?: string;
+  cta_label?: string;
+  cta_href?: string;
+  main_image?: StrapiMedia | null;
+  side_image_a?: StrapiMedia | null;
+  side_image_b?: StrapiMedia | null;
+}
+
+export interface HomepageBrandsSection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+}
+
+export interface HomepageGallerySection {
+  is_enabled?: boolean;
+  eyebrow?: string;
+  title?: string;
+  cta_label?: string;
+}
+
+/** The full-bleed video-teaser band ("Video" section). Also supplies the
+ * "coming soon" modal copy reused by the editorial band's inline video button. */
+export interface HomepageVideoModal {
+  is_enabled?: boolean;
+  background_image?: StrapiMedia | null;
+  video_url?: string;
+  heading?: string;
+  body?: string;
+}
+
+/** `homepage` singleType — one component per Home page section, so Content
+ * Manager renders each as its own clearly labeled, collapsible group instead
+ * of one long flat list of fields. */
+export interface Homepage {
+  hero?: HomepageHeroSection;
+  destinations?: HomepageDestinationsSection;
+  editorial?: HomepageEditorialSection;
+  offers?: HomepageOffersSection;
+  weddings?: HomepageWeddingsSection;
+  value_props?: HomepageValuePropsSection;
+  plan_event?: HomepagePlanEventSection;
+  brands?: HomepageBrandsSection;
+  gallery?: HomepageGallerySection;
+  video_modal?: HomepageVideoModal;
+}
+
+export type SocialPlatform = "facebook" | "instagram" | "twitter" | "linkedin" | "youtube";
+
+export interface SocialLink {
+  id: number;
+  platform: SocialPlatform;
+  url: string;
+}
+
+export interface LinkItem {
+  id: number;
+  label: string;
+  href: string;
+}
+
+export interface LinkGroup {
+  id: number;
+  heading: string;
+  links: LinkItem[];
+}
+
+export interface GlobalSetting {
+  site_name?: string;
+  site_description?: string;
+  phone?: string;
+  phone_display?: string;
+  email?: string;
+  social_links?: SocialLink[];
+  footer_link_groups?: LinkGroup[];
+  footer_secondary_link_groups?: LinkGroup[];
+  newsletter_heading?: string;
+  newsletter_placeholder?: string;
+  newsletter_cta_label?: string;
+  footer_credit_text?: string;
 }

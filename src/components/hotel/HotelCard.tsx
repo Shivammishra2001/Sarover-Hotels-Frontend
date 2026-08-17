@@ -4,12 +4,13 @@ import { MapPin } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { StarRating } from "@/components/ui/StarRating";
-import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { getMediaUrl, humanizeEnum, isUnoptimizedMediaUrl, pickMediaUrl } from "@/lib/utils";
 import type { Hotel } from "@/types";
 
 export function HotelCard({ hotel, href }: { hotel: Hotel; href?: string }) {
   const cover =
     hotel.hotel_galleries?.find((item) => item.is_cover) ?? hotel.hotel_galleries?.[0];
+  const coverSrc = cover ? pickMediaUrl(cover.media, cover.media_url) : undefined;
   const startingPrice = hotel.rooms?.length
     ? Math.min(...hotel.rooms.map((room) => room.base_price))
     : undefined;
@@ -20,14 +21,14 @@ export function HotelCard({ hotel, href }: { hotel: Hotel; href?: string }) {
   return (
     <Card className="group flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <Link href={target} className="relative block aspect-[4/3] overflow-hidden">
-        {cover?.media_url ? (
+        {coverSrc ? (
           <Image
-            src={getMediaUrl(cover.media_url)}
-            alt={cover.alt_text ?? hotel.name}
+            src={getMediaUrl(coverSrc)}
+            alt={cover?.alt_text ?? hotel.name}
             fill
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(coverSrc))}
           />
         ) : (
           <div className="h-full w-full bg-muted" />

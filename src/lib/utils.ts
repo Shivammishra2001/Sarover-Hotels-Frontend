@@ -1,4 +1,5 @@
 import { STRAPI_URL } from "./strapi";
+import type { StrapiMedia } from "@/types";
 
 export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
@@ -50,6 +51,21 @@ export function getMediaUrl(path?: string | null) {
   }
 
   return `${STRAPI_URL}${path}`;
+}
+
+/**
+ * Every ingested photo/logo/banner field follows the same two-source
+ * pattern: a real Strapi `media` relation (settable via Content Manager ->
+ * Upload/Replace), and a legacy plain-text URL field the ingestion pipeline
+ * populated directly. Prefer the real media relation so an operator's manual
+ * replacement in the admin takes effect immediately; fall back to the legacy
+ * field for records not yet linked (see backend/src/bootstrap/link-*.ts).
+ *
+ * Used for: destination.hero_image / hero_image_url, hotel-gallery.media /
+ * media_url, brand.logo / logo_url, offer.banner / banner_url.
+ */
+export function pickMediaUrl(media?: StrapiMedia | null, legacyUrl?: string | null) {
+  return media?.url ?? legacyUrl ?? undefined;
 }
 
 const LOOPBACK_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);

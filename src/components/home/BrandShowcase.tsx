@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
-import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
-import type { Brand } from "@/types";
+import { getMediaUrl, isUnoptimizedMediaUrl, pickMediaUrl } from "@/lib/utils";
+import type { Brand, Homepage } from "@/types";
 
-export function BrandShowcase({ brands }: { brands: Brand[] }) {
+export function BrandShowcase({ brands, content }: { brands: Brand[]; content?: Homepage }) {
+  if (content?.brands?.is_enabled === false) return null;
+
   return (
     <section className="py-20 sm:py-28">
       <Container>
@@ -14,31 +16,38 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
               before the brand-card row's negative margin starts overlapping
               this box, or "Stronger Together." gets covered by the cards. */}
           <div className="rounded-2xl bg-navy px-8 py-12 text-white sm:px-12 sm:py-16 lg:pb-40">
-            <HomeSectionHeading light align="left" eyebrow="Our Brands" title="Stronger Together." />
+            <HomeSectionHeading
+              light
+              align="left"
+              eyebrow={content?.brands?.eyebrow ?? "Our Brands"}
+              title={content?.brands?.title ?? "Stronger Together."}
+            />
           </div>
           <div className="flex items-start px-2 pt-2 lg:pt-14">
             <p className="max-w-md text-lg leading-relaxed text-navy/70">
-              Together, our brands deliver exceptional hospitality experiences with comfort,
-              quality, trust, and care.
+              {content?.brands?.intro ??
+                "Together, our brands deliver exceptional hospitality experiences with comfort, quality, trust, and care."}
             </p>
           </div>
         </div>
 
         <div className="relative z-10 -mt-16 grid gap-6 sm:grid-cols-3 lg:-mt-24">
-          {brands.map((brand) => (
+          {brands.map((brand) => {
+            const logoSrc = pickMediaUrl(brand.logo, brand.logo_url);
+            return (
             <div
               key={brand.documentId}
               className="flex flex-col items-center rounded-3xl border border-border bg-surface p-8 text-center shadow-[6px_6px_54px_0px_rgba(0,0,0,0.08)]"
             >
               <div className="relative h-16 w-full">
-                {brand.logo_url ? (
+                {logoSrc ? (
                   <Image
-                    src={getMediaUrl(brand.logo_url)}
+                    src={getMediaUrl(logoSrc)}
                     alt={brand.name}
                     fill
                     sizes="200px"
                     className="object-contain"
-                    unoptimized={isUnoptimizedMediaUrl(getMediaUrl(brand.logo_url))}
+                    unoptimized={isUnoptimizedMediaUrl(getMediaUrl(logoSrc))}
                   />
                 ) : (
                   <p className="font-display text-lg font-semibold text-[#2d3e50]">{brand.name}</p>
@@ -53,7 +62,8 @@ export function BrandShowcase({ brands }: { brands: Brand[] }) {
                 </p>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

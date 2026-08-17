@@ -3,11 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Car, Dumbbell, Sparkles, UtensilsCrossed, Waves } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
-import { cn, getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { cn, getMediaUrl, isUnoptimizedMediaUrl, pickMediaUrl } from "@/lib/utils";
+import { resolveAmenityIcon } from "@/lib/icons";
 import type { Hotel } from "@/types";
+
+type AmenityDisplay = { name: string; icon_class?: string | null };
 
 const EXPERIENCE_META = [
   {
@@ -33,23 +35,33 @@ const EXPERIENCE_META = [
   },
 ] as const;
 
-const AMENITIES = [
-  { icon: Car, label: "Car Park" },
-  { icon: Waves, label: "Swimming Pool" },
-  { icon: UtensilsCrossed, label: "Restaurant" },
-  { icon: Dumbbell, label: "Fitness Center" },
-  { icon: Sparkles, label: "Spa & Massage" },
+// Fallback shown only if the `amenity` content type has no active records to
+// fetch — keeps the section from rendering empty rather than mimicking real data.
+const FALLBACK_AMENITIES: AmenityDisplay[] = [
+  { name: "Car Park" },
+  { name: "Swimming Pool" },
+  { name: "Restaurant" },
+  { name: "Fitness Center" },
+  { name: "Spa & Massage" },
 ];
 
 // `hotels` supplies one representative hotel per experience key (business,
 // leisure, pilgrimage) so each tab's photo is a real CMS hotel image rather
-// than a placeholder.
-export function ExperienceTabs({ hotels = {} }: { hotels?: Partial<Record<(typeof EXPERIENCE_META)[number]["key"], Hotel>> }) {
+// than a placeholder. `amenities` comes from the real `amenity` content type
+// (getTopAmenities()) instead of a hardcoded icon+label list.
+export function ExperienceTabs({
+  hotels = {},
+  amenities = FALLBACK_AMENITIES,
+}: {
+  hotels?: Partial<Record<(typeof EXPERIENCE_META)[number]["key"], Hotel>>;
+  amenities?: AmenityDisplay[];
+}) {
   const [active, setActive] = useState<(typeof EXPERIENCE_META)[number]["key"]>("business");
   const current = EXPERIENCE_META.find((exp) => exp.key === active) ?? EXPERIENCE_META[0];
   const currentHotel = hotels[active];
   const cover =
     currentHotel?.hotel_galleries?.find((item) => item.is_cover) ?? currentHotel?.hotel_galleries?.[0];
+  const coverSrc = pickMediaUrl(cover?.media, cover?.media_url);
 
   return (
     <section className="bg-muted py-20 sm:py-28">
@@ -85,14 +97,14 @@ export function ExperienceTabs({ hotels = {} }: { hotels?: Partial<Record<(typeo
             <div className="absolute -left-6 top-8 hidden h-[85%] w-24 rounded-2xl bg-navy/30 lg:block" aria-hidden />
 
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-navy shadow-lg sm:aspect-[16/9]">
-              {cover?.media_url && (
+              {coverSrc && (
                 <Image
-                  src={getMediaUrl(cover.media_url)}
+                  src={getMediaUrl(coverSrc)}
                   alt={current.label}
                   fill
                   sizes="(min-width: 1024px) 65vw, 100vw"
                   className="object-cover"
-                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(cover.media_url))}
+                  unoptimized={isUnoptimizedMediaUrl(getMediaUrl(coverSrc))}
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
@@ -108,20 +120,23 @@ export function ExperienceTabs({ hotels = {} }: { hotels?: Partial<Record<(typeo
             </div>
 
             <div className="absolute -right-4 top-6 hidden w-40 rounded-lg bg-navy shadow-xl lg:block xl:-right-8">
-              {AMENITIES.map((amenity, index) => (
-                <div
-                  key={amenity.label}
-                  className={cn(
-                    "flex flex-col items-center gap-2 px-4 py-5 text-white",
-                    index > 0 && "border-t border-white/15"
-                  )}
-                >
-                  <amenity.icon size={22} />
-                  <span className="text-[11px] font-semibold uppercase tracking-wide">
-                    {amenity.label}
-                  </span>
-                </div>
-              ))}
+              {amenities.slice(0, 5).map((amenity, index) => {
+                const Icon = resolveAmenityIcon(amenity);
+                return (
+                  <div
+                    key={amenity.name}
+                    className={cn(
+                      "flex flex-col items-center gap-2 px-4 py-5 text-white",
+                      index > 0 && "border-t border-white/15"
+                    )}
+                  >
+                    <Icon size={22} />
+                    <span className="text-[11px] font-semibold uppercase tracking-wide">
+                      {amenity.name}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

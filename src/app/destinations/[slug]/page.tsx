@@ -11,7 +11,7 @@ import {
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HotelCard } from "@/components/hotel/HotelCard";
-import { getMediaUrl, isUnoptimizedMediaUrl } from "@/lib/utils";
+import { getMediaUrl, isUnoptimizedMediaUrl, pickMediaUrl } from "@/lib/utils";
 import { buildMetadata } from "@/lib/seo";
 
 interface DestinationPageProps {
@@ -87,18 +87,22 @@ export default async function DestinationDetailPage({ params }: DestinationPageP
 
   if (!destination) notFound();
 
+  // Prefer the real `hero_image` media relation (Content Manager -> Destination
+  // -> Upload/Replace) over the legacy `hero_image_url` ingested string.
+  const heroImageSrc = pickMediaUrl(destination.hero_image, destination.hero_image_url);
+
   return (
     <div className="pb-20">
       <section className="relative flex h-[45vh] min-h-[320px] items-end">
-        {destination.hero_image_url ? (
+        {heroImageSrc ? (
           <Image
-            src={getMediaUrl(destination.hero_image_url)}
+            src={getMediaUrl(heroImageSrc)}
             alt={destination.name}
             fill
             priority
             sizes="100vw"
             className="object-cover"
-            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(destination.hero_image_url))}
+            unoptimized={isUnoptimizedMediaUrl(getMediaUrl(heroImageSrc))}
           />
         ) : (
           <div className="absolute inset-0 bg-navy" />
